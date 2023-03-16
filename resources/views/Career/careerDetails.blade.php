@@ -62,7 +62,7 @@
                         <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="/product" class="nav-link">Products</a></li>
                         <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="/news" class="nav-link">News</a></li>
+                        <li class="nav-item"><a href="/_news" class="nav-link">News</a></li>
                         <li class="nav-item"><a href="/career" class="nav-link active">Career</a></li>
                         <li class="nav-item"><a href="/aboutUs" class="nav-link">About us</a></li>
                         <li class="nav-item"><a href="/trainingServices" class="nav-link">Training</a></li>

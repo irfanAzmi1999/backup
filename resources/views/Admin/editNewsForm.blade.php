@@ -96,7 +96,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>News Title</label>
-                                            <input type="text" class="form-control" name="jobName" placeholder="News Title" value="{{$post->news_title}}">
+                                            <input type="text" class="form-control" name="news_title" placeholder="News Title" value="{{$post->news_title}}">
                                     </div>
                                     <div class="form-group">
                                         <label>News Image</label><br>

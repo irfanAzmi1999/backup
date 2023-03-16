@@ -112,6 +112,7 @@
                                     <th>News title</th>
                                     <th>Created By</th>
                                     <th>Created At</th>
+                                    <th>Updated At</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -123,6 +124,7 @@
                                         <td>{{$p->news_title}}</td>
                                         <td>{{$p->user->name}}</td>
                                         <td>{{$p->created_at->diffForHumans()}}</td>
+                                        <td>{{$p->updated_at->diffForHumans()}}</td>
                                         <td>
                                             <a href="{{route('news.edit',[$p->id])}}">Update</a> | <a href="news/{{$p->id}}">View</a> |
                                             <a href="#" onclick="deleteNews('{{$p->id}}','{{$p->news_title}}')">Delete</a>

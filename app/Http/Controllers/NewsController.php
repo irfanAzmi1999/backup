@@ -93,8 +93,29 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $perenggan = $request->input('content');
         $pic = $request->file('news_image');
-        dd($pic);
+//        dd($pic);
+        $news = news::findorFail($id);
+        if ($pic!=null)
+        {
+            $news->image_name = $pic->getClientOriginalName();
+            $pic->storeAs('public/images/news/'.$news->id,$pic->getClientOriginalName());
+        }
+        $news->news_title = $request->input('news_title');
+        $news->save();
+
+        $phara = pharagraph::where('news_id','=',$id);
+        $phara->delete();
+
+        foreach ($perenggan as $key=>$item)
+        {
+            $newPhara = new pharagraph;
+            $newPhara->content = $item;
+            $news->pharagraphs()->save($newPhara);
+         }
+        Session::flash('message','News updated');
+        return redirect()->route('news.index');
     }
 
     /**

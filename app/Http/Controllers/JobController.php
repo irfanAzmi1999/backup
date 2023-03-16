@@ -39,6 +39,7 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
+
         $requestData = $request->input('responsibility');
 
         $jobVariable = new Job;
@@ -91,6 +92,7 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $responsibilities = responsibility::where('job_id','=',$id);
         $responsibilities->delete();
 
