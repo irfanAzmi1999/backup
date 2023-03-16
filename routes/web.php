@@ -62,7 +62,7 @@ Route::get('/Admin/Manage',function (){
 })->name('manageAdmin');
 
 Route::get('/', function () {
-    return view('index');
+    return view('index',['post'=>news::all()->take(3)]);
 })->name('home');
 
 Route::get('/product',function (){

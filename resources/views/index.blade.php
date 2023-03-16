@@ -209,17 +209,7 @@
         <img src="assets/img/artificial-intelligence/banner/large-shape.png" alt="image">
     </div>
 
-    <!-- <div class="ai-banner-shape-1">
-        <img src="assets/img/artificial-intelligence/banner/shape-1.png" alt="image">
-    </div> -->
 
-    <!-- <div class="ai-banner-shape-2">
-        <img src="assets/img/artificial-intelligence/banner/shape-2.png" alt="image">
-    </div> -->
-
-    <!-- <div class="ai-banner-shape-3">
-        <img src="assets/img/artificial-intelligence/banner/shape-3.png" alt="image">
-    </div> -->
 
 </div>
 <!-- End Banner  -->
@@ -395,78 +385,34 @@
 <div class="ai-blog-area pt-100 pb-70">
     <div class="container">
         <div class="section-title title-with-underline">
-            <h2>Dont miss our <b>Updates</b> and <b>News</b></h2>
-            <p>Explore our latest news and updates (1050 x 650 reso)</p>
+            <h2>Dont miss our latest <b style="cursor:pointer" onclick="window.location.assign('/_news')">news</b></h2>
+            <p>Explore our latest news and updates</p>
         </div>
         <!-- row justify-content-center -->
         <div class="row justify-content-center">
-
+        @foreach($post as $key=>$news)
             <div class="col-lg-4 col-md-6">
                 <div class="ai-blog-card">
                     <div class="entry-thumbnail">
                         <a href="index.html">
-                            <img src="assets/img/artificial-intelligence/blog/blog-1.jpg" alt="">
+                            <img src="{{asset('storage/images/news/'.$news->id.'/'.$news->image_name)}}" style="height: 250px;border-radius: 10px" alt="">
                         </a>
                     </div>
                     <div class="entry-post-content">
-                        <div class="tag">
-                            <a href="">Tag Topic</a>
-                        </div>
+{{--                        <div class="tag">--}}
+{{--                            <a href="">Tag Topic</a>--}}
+{{--                        </div>--}}
                         <h3><a href="index.html">
-                            News headline
+                            {{$news->news_title}}
                         </a></h3>
                         <ul class="entry-meta">
-                            <li>By author</li>
-                            <li>12th January 2023</li>
+                            <li>By {{$news->User->name}}</li>
+                            <li>{{$news->created_at->format('M d, Y')}}</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="ai-blog-card">
-                    <div class="entry-thumbnail">
-                        <a href="index.html">
-                            <img src="assets/img/artificial-intelligence/blog/blog-2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="entry-post-content">
-                        <div class="tag">
-                            <a href="">Tag Topic</a>
-                        </div>
-                        <h3>
-                            <a href="index.html">News headline</a>
-                        </h3>
-                        <ul class="entry-meta">
-                            <li>By author</li>
-                            <li>12th January 2023</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="ai-blog-card">
-                    <div class="entry-thumbnail">
-                        <a href="index.html">
-                            <img src="assets/img/artificial-intelligence/blog/blog-2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="entry-post-content">
-                        <div class="tag">
-                            <a href="">Tag Topic</a>
-                        </div>
-                        <h3>
-                            <a href="index.html">News headline</a>
-                        </h3>
-                        <ul class="entry-meta">
-                            <li>By author</li>
-                            <li>12th January 2023</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 </div>

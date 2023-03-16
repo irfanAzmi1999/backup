@@ -99,7 +99,7 @@
                 <div class="card-body">
                     <div style="text-align: center;margin-bottom:50px">
                         <p>
-                            <img src="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}" alt="">
+                            <img src="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}" style="height: 250px;border-radius: 10px" alt="">
                         </p>
                     </div>
                      @foreach($post->pharagraphs as $phara)
