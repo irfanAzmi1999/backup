@@ -264,7 +264,9 @@
 
                                                 @endforeach
                                                 </div>
+
                                                 <div id="reqs">
+
                                                 </div>
 
                                                 @if ($errors->first('responsibility'))
@@ -353,21 +355,7 @@
 </body>
 
 <script>
-    // function add()
-    // {
-    //     var element = document.createElement("input");
-    //
-    //     element.setAttribute("type","input");
-    //     element.setAttribute("name","responsibility[]");
-    //     element.setAttribute("class","form-control");
-    //     element.setAttribute("style","margin-bottom:20px");
-    //     element.setAttribute("placeholder","Add Responsibility...")
-    //
-    //     var foo = document.getElementById("fooBar");
-    //
-    //     foo.appendChild(element);
-    //
-    // }
+
     function removeElement(e) {
         let button = e.target;
         let field = button.previousSibling;

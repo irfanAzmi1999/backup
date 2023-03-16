@@ -81,7 +81,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Admin.editNewsForm',['post'=>news::with('pharagraphs')->findOrFail($id)]);
     }
 
     /**
@@ -93,7 +93,8 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pic = $request->file('news_image');
+        dd($pic);
     }
 
     /**

@@ -124,7 +124,7 @@
                                         <td>{{$p->user->name}}</td>
                                         <td>{{$p->created_at->diffForHumans()}}</td>
                                         <td>
-                                            <a href="">Update</a> | <a href="news/{{$p->id}}">View</a> |
+                                            <a href="{{route('news.edit',[$p->id])}}">Update</a> | <a href="news/{{$p->id}}">View</a> |
                                             <a href="#" onclick="deleteNews('{{$p->id}}','{{$p->news_title}}')">Delete</a>
                                             <form action="{{route('news.destroy',[$p->id])}}" method="POST" id="formDeleteNews">
                                                 @csrf

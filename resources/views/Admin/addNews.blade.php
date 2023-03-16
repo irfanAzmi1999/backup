@@ -125,8 +125,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" class="form-control" name="news_image" required>
+                                        <label>Image</label><br>
+                                        <img src="" id="imgOutput" alt="" style="height: 350px">
+                                        <input type="file" class="form-control" name="news_image" onchange="loadFile(event)" required>
 
                                     </div>
 
@@ -218,21 +219,16 @@
 </body>
 
 <script>
-    // function add()
-    // {
-    //     var element = document.createElement("input");
-    //
-    //     element.setAttribute("type","input");
-    //     element.setAttribute("name","responsibility[]");
-    //     element.setAttribute("class","form-control");
-    //     element.setAttribute("style","margin-bottom:20px");
-    //     element.setAttribute("placeholder","Add Responsibility...")
-    //
-    //     var foo = document.getElementById("fooBar");
-    //
-    //     foo.appendChild(element);
-    //
-    // }
+    var loadFile = function (event)
+    {
+        var output = document.getElementById("imgOutput");
+        output.src =URL.createObjectURL(event.target.files[0]);
+
+    }
+</script>
+
+<script>
+
     function removeElement(e) {
         let button = e.target;
         let field = button.previousSibling;
