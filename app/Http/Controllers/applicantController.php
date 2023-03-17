@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\job;
 use App\Models\job_applicant;
 use Illuminate\Http\Request;
-use MongoDB\Driver\Session;
+use Illuminate\Support\Facades\Session;
 
 class applicantController extends Controller
 {
@@ -46,6 +47,7 @@ class applicantController extends Controller
         $applicant->email = $request->input('email');
         $applicant->address = $request->input('address');
         $applicant->resume = $resume->getClientOriginalName();
+        $applicant->job_id = $request->input('job_id');
         $applicant->save();
 
         $resume->storeAs('public/document/job_application/'.$applicant->id.'/resume',$resume->getClientOriginalName());
@@ -77,7 +79,9 @@ class applicantController extends Controller
      */
     public function show($id)
     {
-        //
+        $jobTitle = job::findorFail($id);
+
+        return view('Admin.jobApp.listOfApplication',['posts'=>job_applicant::where('job_id','=',$id)->get(),'jobTitle'=>$jobTitle->jobName]);
     }
 
     /**

@@ -25,5 +25,11 @@ class job extends Model
         return $this->hasMany(responsibility::class);
     }
 
+    public function job_applicants()
+    {
+        return $this->hasMany(job_applicant::class);
+    }
+
+
 
 }

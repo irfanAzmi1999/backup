@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Manage Vacancy</title>
+    <title>List of application</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -76,12 +76,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Job Vacancy</h1>
+                        <h1 class="m-0">List of application</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="{{route('job.create')}}"></a>Job Vacancy</li>
+                            <li class="breadcrumb-item active"><a href="{{route('job.create')}}"></a>List of applicants</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -95,11 +95,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Jobs Vacancy Available</h3>
+                            <h3 class="card-title">Applicants for <b>{{$jobTitle}}</b> </h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{route('job.create')}}">Add Vacancy</a>
+{{--                                    <a href="{{route('job.create')}}">Add Vacancy</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -109,35 +109,25 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Job Title</th>
-                                    <th>Vacancy Status</th>
-                                    <th>Created By</th>
-                                    <th>Created At</th>
-                                    <th>Update</th>
-                                    <th>View Applicant</th>
+                                    <th>Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Apply date</th>
+                                    <th>Action</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($jobVar as $job)
-                                    <tr>
-                                        <td>{{$job->id}}</td>
-                                        <td>{{$job->jobName}}</td>
-                                        <td>{{$job->status ? 'Opened':'Closed'}}</td>
-                                        <td>{{$job->user->name}}</td>
-                                        <td>{{$job->created_at->diffForHumans()}}</td>
-                                        <td><a href="job/{{$job->id}}/edit">Details</a> | <a onclick="updateStatus('{{$job->jobName}}','{{$job->status ? 'Opened':'Closed'}}','{{$job->id}}')" href="#">Status</a> | <a
-                                                onclick="deleteJob({{$job->id}},'{{$job->jobName}}')" href="#"> Delete</a>
-                                            <form action="{{route('job.destroy',[$job->id])}}" method="POST" id="frmDeleteJob{{$job->id}}">
-                                                @csrf
-                                                @method('DELETE')
-
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="{{route('apply.show',$job->id)}}">View</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                    @foreach($posts as $key=>$applicant)
+                                        <tr>
+                                            <td>{{$applicant->id}}</td>
+                                            <td>{{$applicant->name}}</td>
+                                            <td>{{$applicant->phone}}</td>
+                                            <td>{{$applicant->email}}</td>
+                                            <td>{{$applicant->created_at->format('d M, Y h:i A')}}</td>
+                                            <td><a href="#">View Details</a></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -164,11 +154,11 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-    @if(Session::has('message'))
-        <script>
-            alert('{{Session::get('message')}}');
-        </script>
-    @endif
+@if(Session::has('message'))
+    <script>
+        alert('{{Session::get('message')}}');
+    </script>
+@endif
 <script>
     function deleteJob(id,jobName)
     {

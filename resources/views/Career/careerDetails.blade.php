@@ -102,6 +102,7 @@
             <form method="POST" action="{{route('apply.store')}}" enctype="multipart/form-data">
                 @csrf
             <div class="modal-header">
+                <input type="hidden" name="job_id" value="{{$post->id}}">
                 <h5 class="modal-title" id="exampleModalLabel">Position Application : {{$post->jobName}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -163,7 +164,7 @@
                     <div class="form-group">
                         <label for="Resumefile-upload" class="col-form-label">Supporting Document :</label>
                         <input type="file" class="form-control" id="Resumefile-upload" name="suppDoc" required>
-                        <span style="font-size: small;color: blue">Example : Professional certificate</span>
+                        <span style="font-size: small;color: blue">Example : Professional certificate/ Extra certificate</span>
                     </div>
 
             </div>

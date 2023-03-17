@@ -19,4 +19,8 @@ class job_applicant extends Model
         'cert'
     ];
 
+    public function job()
+    {
+        return $this->belongsTo(job::class);
+    }
 }
