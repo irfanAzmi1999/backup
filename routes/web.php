@@ -75,7 +75,7 @@ Route::get('/product',function (){
 
 Route::get('/_news',function(){
 
-    $news = news::paginate(3);
+    $news = news::paginate(6);
     return view('news',['posts'=>$news]);
 
 })->name('showNews');
