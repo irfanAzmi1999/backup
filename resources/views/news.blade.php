@@ -87,7 +87,7 @@
         <div class="auto-container">
             <div class="row clearfix">
 
-                @foreach($post as $post)
+                @foreach($posts as $post)
                     <div class="col-lg-4 col-md-6 col-sm-12 news-block" style="margin-bottom: 50px">
                         <div class="news-block-one wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
@@ -117,6 +117,9 @@
                     </div>
                 @endforeach
 
+            </div>
+            <div class="d-flex justify-content-center">
+                {{$posts->links()}}
             </div>
         </div>
     </section>

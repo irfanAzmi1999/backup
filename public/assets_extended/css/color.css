@@ -1189,7 +1189,8 @@ h3 a:hover{
 
 .pagination li a:hover,
 .pagination li a.active{
-    background: -webkit-linear-gradient(-45deg, #fb5155, #f92a75 100%);
+    /*background: -webkit-linear-gradient(-45deg, #fb5155, #f92a75 100%);*/
+    background: -webkit-linear-gradient(0deg, #00bbff, #0091ff 100%)
 }
 
 .project-page.case-style-three .case-block-two .inner-box .lower-content .link .btn-style-four:hover span{
@@ -1243,7 +1244,7 @@ h3 a:hover{
 }
 
 
-}
+
 
 .sidebar-page-container .sidebar .sidebar-post .post-inner .post .file-box i{
     background: -webkit-linear-gradient(-45deg, #fa5155, #f92a75 100%);
