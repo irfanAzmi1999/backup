@@ -88,7 +88,6 @@
                 @foreach($post->responsibilities as $key=>$res)
                     <li style="list-style-type: disc;">{{$res->description}}</li>
                 @endforeach
-
             </ul>
 
 
@@ -100,6 +99,8 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <form method="POST" action="{{route('apply.store')}}" enctype="multipart/form-data">
+                @csrf
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Position Application : {{$post->jobName}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -107,98 +108,84 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="">
                     <div class="form-group">
                         <label for="applicant-name" class="col-form-label">Name :</label>
-                        <input type="text" class="form-control" id="applicant-name" required>
+                        <input type="text" class="form-control" id="applicant-name" name="name" required>
+                        @if ($errors->first('name'))
+                            <div class=" btn-danger">
+                                <ul>
+                                    {{$errors->first('name')}}
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="phone-number" class="col-form-label">Phone Number :</label>
-                        <input type="text" class="form-control" id="phone-number" required>
+                        <input type="text" class="form-control" id="phone-number" name="phone" required>
+                        @if ($errors->first('phone'))
+                            <div class=" btn-danger">
+                                <ul>
+                                    {{$errors->first('phone')}}
+                                </ul>
+                            </div>
+                        @endif
                     </div>
+                <div class="form-group">
+                    <label for="phone-number" class="col-form-label">Address :</label>
+                    <textarea name="address" id=""  style="height: 80px" class="form-control"></textarea>
+                    @if ($errors->first('phone'))
+                        <div class=" btn-danger">
+                            <ul>
+                                {{$errors->first('phone')}}
+                            </ul>
+                        </div>
+                    @endif
+                </div>
                     <div class="form-group">
                         <label for="user-email" class="col-form-label">Email :</label>
-                        <input type="email" class="form-control" id="user-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="user-job" class="col-form-label">Current Job :</label>
-                        <input type="text" class="form-control" id="user-job" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="CVfile-upload" class="col-form-label">CV :</label>
-                        <input type="file" class="form-control" id="CVfile-upload" required>
+                        <input type="email" class="form-control" id="user-email" name="email" required>
+                        @if ($errors->first('email'))
+                            <div class=" btn-danger">
+                                <ul>
+                                    {{$errors->first('email')}}
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="Resumefile-upload" class="col-form-label">Resume :</label>
-                        <input type="file" class="form-control" id="Resumefile-upload" required>
+                        <input type="file" class="form-control" id="Resumefile-upload" name="resume" required>
                     </div>
-                </form>
+                    <div class="form-group">
+                        <label for="CVfile-upload" class="col-form-label">CV :</label>
+                        <input type="file" class="form-control" id="CVfile-upload" name="cv" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Resumefile-upload" class="col-form-label">Supporting Document :</label>
+                        <input type="file" class="form-control" id="Resumefile-upload" name="suppDoc" required>
+                        <span style="font-size: small;color: blue">Example : Professional certificate</span>
+                    </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit Application</button>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
-<footer class="footer-area bg-wrap-color">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <div class="logo">
-                        <a href="index.html"><img src="../images/faazmiar.png" alt="image"></a>
-                    </div>
-                    <ul class="social">
-                        <a href="https://www.facebook.com/faazmiartechnology/" target="_blank"><img src="../images/facebook.png" alt=""></a>
-                        <a href="https://www.linkedin.com/company/faazmiar-technology" target="_blank"><img src="../images/linkedln.png" alt=""></a>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h3>Quick Links</h3>
-                    <ul class="quick-links-list">
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">About us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h3>Contacts</h3>
-                    <ul class="footer-contact-list">
-                        <li><span>Address:</span> Jalan Jejaka, Taman Maluri. 55100 Kuala Lumpur, Malaysia</li>
-                        <li><span>Email:</span> <a href="#"> contact@faazmiar.com</a></li>
-                        <li><span>Phone:</span> <a href="#">03-9200 8867</a></li>
-                        <li><span>Fax:</span> <a href="#">03-9200 9967</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="copyright-area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <p>Copyright © 2023 Faazmiar Technology Sdn Bhd</p>
-                </div>
+@include('layout/footer')
+@yield('footer')
 
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 <script src="../assets/js/jquery.min.js"></script>
+
+@if(Session::has('message'))
+    <script>
+        alert('{{Session::get('message')}}');
+    </script>
+@endif
 <script>
     $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal

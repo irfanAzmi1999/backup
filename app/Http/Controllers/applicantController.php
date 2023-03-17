@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\job_applicant;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 class applicantController extends Controller
 {
@@ -13,7 +15,7 @@ class applicantController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -23,7 +25,7 @@ class applicantController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +36,37 @@ class applicantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resume = $request->file('resume');
+        $suppDoc = $request->file('suppDoc');
+        $cv = $request->file('cv');
+
+        $applicant = new job_applicant;
+        $applicant->name = $request->input('name');
+        $applicant->phone = $request->input('phone');
+        $applicant->email = $request->input('email');
+        $applicant->address = $request->input('address');
+        $applicant->resume = $resume->getClientOriginalName();
+        $applicant->save();
+
+        $resume->storeAs('public/document/job_application/'.$applicant->id.'/resume',$resume->getClientOriginalName());
+
+        if ($suppDoc!=null)
+        {
+            $applicant->cert = $suppDoc->getClientOriginalName();
+            $suppDoc->storeAs('public/document/job_application/'.$applicant->id.'/suppDoc',$suppDoc->getClientOriginalName());
+        }
+
+        if ($cv !=null)
+        {
+            $applicant->cv = $cv->getClientOriginalName();
+            $cv->storeAs('public/document/job_application/'.$applicant->id.'/cv',$cv->getClientOriginalName());
+        }
+
+        $applicant->save();
+
+        Session::flash('message','Application submitted. Thank you');
+        return redirect()->back();
+
     }
 
     /**
@@ -56,7 +88,7 @@ class applicantController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -68,7 +100,7 @@ class applicantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -79,6 +111,6 @@ class applicantController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

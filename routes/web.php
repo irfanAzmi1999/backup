@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\applicantController;
 use App\Models\job;
 use App\Models\news;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,7 @@ Route::get('/news_details/{id}',function ($id){
     return view('News.news_details',['post'=>news::findorFail($id),'popularPost'=>news::orderBy('id','desc')->take(3)->get()]);
 })->name('news_details');
 
+Route::resource('/apply',applicantController::class);
 Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
