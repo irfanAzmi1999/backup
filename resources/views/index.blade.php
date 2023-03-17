@@ -132,7 +132,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-12">
                 <div class="ai-banner-content">
-                    <h1>Advanced Technologies for Drilling Operations</h1>
+                    <h1>Advanced Technologies for Upstream Operations</h1>
                     <p>Faazmiar Technology Sdn Bhd was incorporated with the
                         objective of providing solutions, technologies and technical
                         services to energy industry in Malaysia.</p>
@@ -385,7 +385,7 @@
 <div class="ai-blog-area pt-100 pb-70">
     <div class="container">
         <div class="section-title title-with-underline">
-            <h2>Dont miss our latest <b style="cursor:pointer" onclick="window.location.assign('/_news')">news</b></h2>
+            <h2>Dont miss our latest <b style="cursor:pointer" onclick="window.location.assign('/_news')">News</b></h2>
             <p>Explore our latest news and updates</p>
         </div>
         <!-- row justify-content-center -->
@@ -394,7 +394,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="ai-blog-card">
                     <div class="entry-thumbnail">
-                        <a href="index.html">
+                        <a href="{{route('news_details',[$news->id])}}">
                             <img src="{{asset('storage/images/news/'.$news->id.'/'.$news->image_name)}}" style="height: 250px;border-radius: 10px" alt="">
                         </a>
                     </div>
@@ -402,7 +402,7 @@
 {{--                        <div class="tag">--}}
 {{--                            <a href="">Tag Topic</a>--}}
 {{--                        </div>--}}
-                        <h3><a href="index.html">
+                        <h3><a href="{{route('news_details',[$news->id])}}">
                             {{$news->news_title}}
                         </a></h3>
                         <ul class="entry-meta">

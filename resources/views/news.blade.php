@@ -56,15 +56,15 @@
                     </a>
 
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                         <ul class="navbar-nav">
-                        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="/product" class="nav-link">Products</a></li>
-                        <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="{{route('showNews')}}" class="nav-link active">News</a></li>
-                        <li class="nav-item"><a href="/career" class="nav-link">Career</a></li>
-                        <li class="nav-item"><a href="/aboutUs" class="nav-link">About us</a></li>
-                        <li class="nav-item"><a href="/trainingServices" class="nav-link">Training</a></li>
-                    </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="/product" class="nav-link">Products</a></li>
+                            <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+                            <li class="nav-item"><a href="{{route('showNews')}}" class="nav-link active">News</a></li>
+                            <li class="nav-item"><a href="/career" class="nav-link">Career</a></li>
+                            <li class="nav-item"><a href="/aboutUs" class="nav-link">About us</a></li>
+                            <li class="nav-item"><a href="/trainingServices" class="nav-link">Training</a></li>
+                        </ul>
                     </div>
                 </nav>
             </div>
@@ -99,7 +99,7 @@
 {{--                                    <div class="file-box"><i class="far fa-folder-open"></i><p>Data Engineering</p></div>--}}
                                     <div class="title-box">
                                         <div class="post-date"><p>{{$post->created_at->format('d')}}</p><span>{{$post->created_at->format('M')}}</span></div>
-                                        <h4><a href="blog-details.html">{{$post->news_title}}</a></h4>
+                                        <h4><a href="{{route('news_details',[$post->id])}}">{{$post->news_title}}</a></h4>
                                     </div>
                                     <div class="text">
                                         @foreach($post->pharagraphs as $key=>$phara)
@@ -109,7 +109,7 @@
                                         @endforeach
                                     </div>
                                     <div class="link">
-                                        <a href="#" class="btn-style-four">Read More<span>+</span></a>
+                                        <a href="{{route('news_details',[$post->id])}}" class="btn-style-four">Read More<span>+</span></a>
                                     </div>
                                 </div>
                             </div>

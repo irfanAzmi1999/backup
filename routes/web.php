@@ -23,6 +23,10 @@ Auth::routes();
 
 Route::get('/job_show/{id}',[JobController::class,'show'])->middleware('validateJobStatus')->name('showJob');
 
+Route::get('/news_details/{id}',function ($id){
+    return view('News.news_details',['post'=>news::findorFail($id),'popularPost'=>news::orderBy('id','desc')->take(3)->get()]);
+})->name('news_details');
+
 Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
@@ -62,7 +66,7 @@ Route::get('/Admin/Manage',function (){
 })->name('manageAdmin');
 
 Route::get('/', function () {
-    return view('index',['post'=>news::all()->take(3)]);
+    return view('index',['post'=>news::orderBy('id','desc')->take(3)->get()]);
 })->name('home');
 
 Route::get('/product',function (){
