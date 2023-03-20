@@ -128,7 +128,7 @@
                                         <td>
                                             <a href="{{route('news.edit',[$p->id])}}">Update</a> | <a href="news/{{$p->id}}">View</a> |
                                             <a href="#" onclick="deleteNews('{{$p->id}}','{{$p->news_title}}')">Delete</a>
-                                            <form action="{{route('news.destroy',[$p->id])}}" method="POST" id="formDeleteNews">
+                                            <form action="{{route('news.destroy',[$p->id])}}" method="POST" id="formDeleteNews{{$p->id}}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
@@ -174,7 +174,7 @@
 
         if (confirmation)
         {
-            document.getElementById('formDeleteNews').submit();
+            document.getElementById('formDeleteNews'+newsID).submit();
         }
         else {
             alert('Action cancelled');

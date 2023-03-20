@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>List of application</title>
-
+    <title>Applicant Details</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js" integrity="sha512-MoP2OErV7Mtk4VL893VYBFq8yJHWQtqJxTyIAsCVKzILrvHyKQpAwJf9noILczN6psvXUxTr19T5h+ndywCoVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.js" integrity="sha512-aqpxRD4NwJUXN742KSiIr4zARkh+WTeaWwx0DYuy+9eARX/glcCFtHSeETrIc6V+1BwYfMwvPz5KWlVtRyXikQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -52,7 +53,6 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{Auth::user()->name}}</a>
@@ -74,71 +74,87 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">List of application</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="{{route('job.create')}}"></a>List of applicants</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Job Selected : <b>{{$posts->job->jobName}}</b>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>Content</h4>
+                        <div class="row">
+                            <div class="col-5 col-sm-3">
+                                <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                                    <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Profile</a>
+                                    <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Resume</a>
+                                    <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">CV</a>
+                                    <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Supporting Document</a>
+                                </div>
+                            </div>
+                            <div class="col-7 col-sm-9" style="height: 500px">
+                                <div class="tab-content" id="vert-tabs-tabContent">
+                                    <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                                        <div class="form-group">
+                                            <label>Name :</label>
+                                            <label style="font-weight: normal">{{$posts->name}}</label>
+                                        </div>
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Applicants for <b>{{$jobTitle}}</b> </h3>
+                                        <div class="form-group">
+                                            <label>Email : </label>
+                                            <label style="font-weight: normal"><a href="mailto:{{$posts->email}}">{{$posts->email}}</a></label>
+                                        </div>
 
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-{{--                                    <a href="{{route('job.create')}}">Add Vacancy</a>--}}
+                                        <div class="form-group">
+                                            <label>Phone Number : </label>
+                                            <label for="" style="font-weight: normal">{{$posts->phone}}</label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Address :</label>
+                                            <label for="" style="font-weight: normal">{{$posts->address}}</label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Application Date :</label>
+                                            <label for="" style="font-weight: normal">{{$posts->created_at->format('d M Y, h:i A')}}</label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Applied for :</label>
+                                            <label for="" style="font-weight: normal">{{$posts->job->jobName}}</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
+                                       <div id="pdf-viewer" style="height: 500px"></div>
+                                        <script>
+                                            PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/resume/'.$posts->resume)}}","#pdf-viewer");
+                                        </script>
+                                    </div>
+                                    <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel" aria-labelledby="vert-tabs-messages-tab">
+                                        <div id="pdf-viewercv" style="height: 500px"></div>
+                                        <script>
+                                            PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/cv/'.$posts->cv)}}","#pdf-viewercv");
+                                        </script>
+                                    </div>
+                                    <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
+                                        <div id="pdf-viewercert" style="height: 500px"></div>
+                                        <script>
+                                            PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/suppDoc/'.$posts->cv)}}","#pdf-viewercert");
+                                        </script>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
-                                    <th>Apply date</th>
-                                    <th>Action</th>
 
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($posts as $key=>$applicant)
-                                        <tr>
-                                            <td>{{$applicant->id}}</td>
-                                            <td>{{$applicant->name}}</td>
-                                            <td>{{$applicant->phone}}</td>
-                                            <td>{{$applicant->email}}</td>
-                                            <td>{{$applicant->created_at->format('d M Y, h:i A')}}</td>
-                                            <td><a href="{{route('apply.showApplicant',[$applicant->id])}}">View Details</a></td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
+
                     </div>
                     <!-- /.card -->
                 </div>
-            </div>
-        </section>
+            </div><!-- /.container-fluid -->
+        </div>
 
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -218,5 +234,6 @@
 {{--<script src=../dashboard_assets/"dist/js/demo.js"></script>--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dashboard_assets/dist/js/pages/dashboard.js"></script>
+
 </body>
 </html>

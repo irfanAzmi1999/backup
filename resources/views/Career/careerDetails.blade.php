@@ -159,11 +159,11 @@
                     </div>
                     <div class="form-group">
                         <label for="CVfile-upload" class="col-form-label">CV :</label>
-                        <input type="file" class="form-control" id="CVfile-upload" name="cv" required>
+                        <input type="file" class="form-control" id="CVfile-upload" name="cv" >
                     </div>
                     <div class="form-group">
                         <label for="Resumefile-upload" class="col-form-label">Supporting Document :</label>
-                        <input type="file" class="form-control" id="Resumefile-upload" name="suppDoc" required>
+                        <input type="file" class="form-control" id="Resumefile-upload" name="suppDoc" >
                         <span style="font-size: small;color: blue">Example : Professional certificate/ Extra certificate</span>
                     </div>
 

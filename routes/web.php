@@ -28,6 +28,8 @@ Route::get('/news_details/{id}',function ($id){
     return view('News.news_details',['post'=>news::findorFail($id),'popularPost'=>news::orderBy('id','desc')->take(3)->get()]);
 })->name('news_details');
 
+Route::get('applyShowApplicant/{id}',[applicantController::class,'showApplicant'])->name('apply.showApplicant');
+
 Route::resource('/apply',applicantController::class);
 Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);

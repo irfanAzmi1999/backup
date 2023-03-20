@@ -15,6 +15,24 @@
             </a>
         </li>
 
+        <li class="nav-header">Products/Services Section</li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Manage Products
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Manage Services
+                </p>
+            </a>
+        </li>
+
         <li class="nav-header">Jobs Section</li>
         <li class="nav-item">
             <a href="{{route('job.index')}}" class="nav-link">

@@ -117,4 +117,12 @@ class applicantController extends Controller
     {
 
     }
+
+    public function showApplicant($id)
+    {
+        $applicant = job_applicant::findorFail($id);
+
+        return view('Admin.jobApp.applicantDetails',['posts'=>$applicant]);
+    }
+
 }
