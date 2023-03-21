@@ -39,7 +39,8 @@ class applicantController extends Controller
     {
         $resume = $request->file('resume');
         $suppDoc = $request->file('suppDoc');
-        $cv = $request->file('cv');
+        $image = $request->file('image');
+//        $cv = $request->file('cv');
 
         $applicant = new job_applicant;
         $applicant->name = $request->input('name');
@@ -47,10 +48,12 @@ class applicantController extends Controller
         $applicant->email = $request->input('email');
         $applicant->address = $request->input('address');
         $applicant->resume = $resume->getClientOriginalName();
+        $applicant->image = $image->getClientOriginalName();
         $applicant->job_id = $request->input('job_id');
         $applicant->save();
 
         $resume->storeAs('public/document/job_application/'.$applicant->id.'/resume',$resume->getClientOriginalName());
+        $image->storeAs('public/document/job_application/'.$applicant->id.'/image',$image->getClientOriginalName());
 
         if ($suppDoc!=null)
         {
@@ -58,11 +61,11 @@ class applicantController extends Controller
             $suppDoc->storeAs('public/document/job_application/'.$applicant->id.'/suppDoc',$suppDoc->getClientOriginalName());
         }
 
-        if ($cv !=null)
-        {
-            $applicant->cv = $cv->getClientOriginalName();
-            $cv->storeAs('public/document/job_application/'.$applicant->id.'/cv',$cv->getClientOriginalName());
-        }
+//        if ($cv !=null)
+//        {
+//            $applicant->cv = $cv->getClientOriginalName();
+//            $cv->storeAs('public/document/job_application/'.$applicant->id.'/cv',$cv->getClientOriginalName());
+//        }
 
         $applicant->save();
 

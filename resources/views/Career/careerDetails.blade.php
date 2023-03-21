@@ -110,6 +110,11 @@
             </div>
             <div class="modal-body">
                     <div class="form-group">
+                        <div style="text-align: center">
+                            <img  id="imgOutput" alt="" style="height: 200px;margin-bottom: 2px">
+                        </div>
+
+                        <input type="file" class="form-control" onchange="loadFile(event)" name="image" required>
                         <label for="applicant-name" class="col-form-label">Name :</label>
                         <input type="text" class="form-control" id="applicant-name" name="name" required>
                         @if ($errors->first('name'))
@@ -154,13 +159,13 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="Resumefile-upload" class="col-form-label">Resume :</label>
+                        <label for="Resumefile-upload" class="col-form-label">Resume/CV :</label>
                         <input type="file" class="form-control" id="Resumefile-upload" name="resume" required>
                     </div>
-                    <div class="form-group">
-                        <label for="CVfile-upload" class="col-form-label">CV :</label>
-                        <input type="file" class="form-control" id="CVfile-upload" name="cv" >
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="CVfile-upload" class="col-form-label">CV :</label>--}}
+{{--                        <input type="file" class="form-control" id="CVfile-upload" name="cv" >--}}
+{{--                    </div>--}}
                     <div class="form-group">
                         <label for="Resumefile-upload" class="col-form-label">Supporting Document :</label>
                         <input type="file" class="form-control" id="Resumefile-upload" name="suppDoc" >
@@ -198,7 +203,14 @@
         modal.find('.modal-body input').val(recipient)
     })
 </script>
+<script>
+    var loadFile = function (event)
+    {
+        var output = document.getElementById("imgOutput");
+        output.src =URL.createObjectURL(event.target.files[0]);
 
+    }
+</script>
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/owl.carousel.min.js"></script>

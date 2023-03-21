@@ -86,43 +86,49 @@
                             <div class="col-5 col-sm-3">
                                 <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
                                     <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Profile</a>
-                                    <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Resume</a>
-                                    <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">CV</a>
+                                    <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Resume/CV</a>
+{{--                                    <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">CV</a>--}}
                                     <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Supporting Document</a>
                                 </div>
                             </div>
                             <div class="col-7 col-sm-9" style="height: 500px">
-                                <div class="tab-content" id="vert-tabs-tabContent">
-                                    <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
-                                        <div class="form-group">
-                                            <label>Name :</label>
-                                            <label style="font-weight: normal">{{$posts->name}}</label>
+                                <div class="tab-content" id="vert-tabs-tabContent" >
+                                    <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab" >
+                                        <div class="form-group" style="text-align: center">
+                                            <img class="border" src="{{asset('storage/document/job_application/'.$posts->id.'/image/'.$posts->image)}}" alt="" style="height: 200px">
+                                        </div>
+                                        <div >
+                                            <div class="form-group" style="left: 20px">
+                                                <label>Name :</label>
+                                                <label style="font-weight: normal">{{$posts->name}}</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Email : </label>
+                                                <label style="font-weight: normal"><a href="mailto:{{$posts->email}}">{{$posts->email}}</a></label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Phone Number : </label>
+                                                <label for="" style="font-weight: normal">{{$posts->phone}}</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Address :</label>
+                                                <label for="" style="font-weight: normal">{{$posts->address}}</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Application Date :</label>
+                                                <label for="" style="font-weight: normal">{{$posts->created_at->format('d M Y, h:i A')}}</label>
+                                            </div>
+
                                         </div>
 
-                                        <div class="form-group">
-                                            <label>Email : </label>
-                                            <label style="font-weight: normal"><a href="mailto:{{$posts->email}}">{{$posts->email}}</a></label>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Phone Number : </label>
-                                            <label for="" style="font-weight: normal">{{$posts->phone}}</label>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="">Address :</label>
-                                            <label for="" style="font-weight: normal">{{$posts->address}}</label>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="">Application Date :</label>
-                                            <label for="" style="font-weight: normal">{{$posts->created_at->format('d M Y, h:i A')}}</label>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="">Applied for :</label>
-                                            <label for="" style="font-weight: normal">{{$posts->job->jobName}}</label>
-                                        </div>
 
                                     </div>
                                     <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
@@ -131,16 +137,16 @@
                                             PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/resume/'.$posts->resume)}}","#pdf-viewer");
                                         </script>
                                     </div>
-                                    <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel" aria-labelledby="vert-tabs-messages-tab">
-                                        <div id="pdf-viewercv" style="height: 500px"></div>
-                                        <script>
-                                            PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/cv/'.$posts->cv)}}","#pdf-viewercv");
-                                        </script>
-                                    </div>
+{{--                                    <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel" aria-labelledby="vert-tabs-messages-tab">--}}
+{{--                                        <div id="pdf-viewercv" style="height: 500px"></div>--}}
+{{--                                        <script>--}}
+{{--                                            PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/cv/'.$posts->cv)}}","#pdf-viewercv");--}}
+{{--                                        </script>--}}
+{{--                                    </div>--}}
                                     <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
                                         <div id="pdf-viewercert" style="height: 500px"></div>
                                         <script>
-                                            PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/suppDoc/'.$posts->cv)}}","#pdf-viewercert");
+                                            PDFObject.embed("{{asset('storage/document/job_application/'.$posts->id.'/suppDoc/'.$posts->cert)}}","#pdf-viewercert");
                                         </script>
                                     </div>
                                     </div>
