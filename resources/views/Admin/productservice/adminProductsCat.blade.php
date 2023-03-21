@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Manage Admin</title>
+    <title>Products Categories</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -76,12 +76,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Manage Admin</h1>
+                        <h1 class="m-0">Product Categories</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active" >Manage Admin</li>
+                            <li class="breadcrumb-item active" >Product Categories</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -95,11 +95,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">All admin</h3>
+                            <h3 class="card-title">Product Categories</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{route('register')}}">Add Admin</a>
+                                    <a href="{{route('register')}}">Add Category</a>
 
 
                                 </div>
@@ -111,29 +111,17 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Role</th>
-                                    <th>Time Registered</th>
-                                    <th>Phone </th>
-                                    <th>Email </th>
-                                    <th>Access</th>
+                                    <th>Categories</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($userVar as $userData)
-                                <tr>
-                                    <td>{{$userData->id}}</td>
-                                    <td>{{$userData->name}}</td>
-                                    <td>{{$userData->jobTitle}}</td>
-                                    <td>{{$userData->role}}</td>
-                                    <td>{{$userData->created_at->diffForHumans()}}</td>
-                                    <td><a href="tel:{{$userData->phoneNumber}}">{{$userData->phoneNumber}}</a></td>
-                                    <td><a href="mailto:{{$userData->email}}">{{$userData->email}}</a></td>
-
-                                    <td><a href="#">Product & Services</a></td>
-                                </tr>
-                                @endforeach
+                                    @foreach($posts as $key=>$cat)
+                                        <tr>
+                                            <td>{{$posts->id}}</td>
+                                            <td>{{$posts->name}}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

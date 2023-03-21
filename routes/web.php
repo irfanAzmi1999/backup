@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\applicantController;
+use App\Http\Controllers\categoriesController;
+use App\Http\Controllers\productController;
+use App\Http\Controllers\serviceController;
+use App\Models\faazmiarProducts;
+use App\Models\faazmiarServices;
 use App\Models\job;
 use App\Models\news;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +39,9 @@ Route::resource('/apply',applicantController::class);
 Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
+Route::resource('/adminProducts',productController::class);
+Route::resource('/adminServices',serviceController::class);
+Route::resource('/categories',categoriesController::class);
 
 Route::post('/update_job/{id}/{resp}',function ($id,$resp){
     dd($id);

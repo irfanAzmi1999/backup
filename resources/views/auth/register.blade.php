@@ -161,9 +161,17 @@
                                         </div>
                                     @endif
                                 </div>
-
                             </div>
-                            <!-- /.col -->
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">User Role</label>
+                                    <select name="role" id="" class="form-control" required>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Staff">Faazmiar Staff</option>
+                                    </select>
+                                </div>
+                            </div>
 
                             <!-- /.col -->
                         </div>
