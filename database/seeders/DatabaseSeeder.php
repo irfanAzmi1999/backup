@@ -16,10 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Muhammad Isyraf',
+            'email' => 'test@example.com',
+            'password' => bcrypt('12345678'),
+            'phoneNumber' => '0142586621',
+            'jobTitle' => 'Programmer',
+
+        ]);
 
         $this->call([
             JobSeeder::class,
