@@ -50,6 +50,12 @@ Route::group([],function () {
 
         Route::post('/createProductCategory',[productController::class,'createProductCategory'])
             ->name('createProduct');
+
+        Route::get('/updateProductCategory/{id}',[productController::class,'viewUpdateForm'])
+            ->name('updateProductForm');
+
+        Route::put('/updateCategoryProduct/{id}',[productController::class,'update'])
+            ->name('updateProductCategory');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {

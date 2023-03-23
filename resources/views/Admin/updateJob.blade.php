@@ -157,11 +157,8 @@
 
                                             <div class="form-group">
                                                 <label>Responsibility</label>
-                                                {{--                                        <a  onclick="add()" style="cursor: pointer;">Add New</a>--}}
 
                                                 @foreach($post->responsibilities as $key => $resp)
-
-
                                                     <div id="reqs">
                                                         <input type="text" id="reqsr{{$key}}"  style="margin-bottom:20px" value="{{$resp->description}}" class="form-control" name="responsibility[]" placeholder="Add Responsibility..." readonly>
 
@@ -183,10 +180,7 @@
 
 
                                     </div>
-                                    <!-- /.row -->
 
-
-                                    <!-- /.row -->
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
