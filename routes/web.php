@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\applicantController;
+use App\Http\Controllers\productController;
+use App\Http\Controllers\serviceController;
 use App\Models\job;
 use App\Models\news;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +36,37 @@ Route::resource('/apply',applicantController::class);
 Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
+
+
+
+Route::group([],function () {
+    Route::group(['prefix' => '/manage_product'], function () {
+
+        Route::get('/productCategory',[productController::class,'showProductCategory'])
+            ->name('productCat');
+
+        Route::get('/addProductCategory',[productController::class,'addProductCategory'])
+            ->name('addProductCat');
+
+        Route::post('/createProductCategory',[productController::class,'createProductCategory'])
+            ->name('createProduct');
+    });
+
+    Route::group(['prefix' => '/manage_service'], function () {
+
+        Route::get('/serviceCategory',[serviceController::class,'showServiceCategory'])
+            ->name('serviceCat');
+
+        Route::get('/addServiceCategory',[serviceController::class,'addServiceCategory'])
+            ->name('addServiceCat');
+
+        Route::post('/createServiceCategory',[serviceController::class,'createServiceCategory'])
+            ->name('createService');
+    });
+
+});
+
+
 
 Route::post('/update_job/{id}/{resp}',function ($id,$resp){
     dd($id);

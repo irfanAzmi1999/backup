@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class bullet extends Model
 {
     use HasFactory;
+
+    public function category()
+    {
+        return $this->belongsTo(category::class);
+    }
+
 }

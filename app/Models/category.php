@@ -18,4 +18,9 @@ class category extends Model
     {
         return $this->hasMany(product::class);
     }
+
+    public function bullets()
+    {
+        return $this->hasMany(bullet::class);
+    }
 }
