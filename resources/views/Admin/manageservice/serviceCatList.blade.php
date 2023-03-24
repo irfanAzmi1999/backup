@@ -117,16 +117,28 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($posts as $key=>$item)
+                                @forelse($posts as $key=>$item)
                                     <tr>
                                         <td>{{$item->id}}</td>
                                         <td><a href="">{{$item->name}}</a></td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
-                                        <td><a href="">Update</a> | <a href="">Delete</a></td>
+                                        <td>
+                                            <a href="{{route('updateServiceForm',[$item->id])}}">Update</a>
+                                            |
+                                            <form action="{{route('deleteServiceCategory',[$item->id])}}" method="POST" id="frm{{$item->id}}">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                            <a href="#" onclick="deleteServiceCat('{{$item->id}}','{{$item->name}}')">Delete</a>
+                                        </td>
                                         <td><a href="">View Service</a></td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="6" style="text-align: center">No Data Found</td>
+                                    </tr>
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -159,28 +171,9 @@
     </script>
 @endif
 <script>
-    function deleteJob(id,jobName)
-    {
-        var formID = "frmDeleteJob"+id;
-        let confirmAction = confirm("Are you sure to delete this job (id :"+id+"="+jobName+")?");
-        if (confirmAction) {
-            document.getElementById(formID).submit();
-        } else {
-            alert("Action canceled");
-        }
-    }
 
-    function updateStatus(jobName,jobStatus,jobID)
-    {
-        let confirmationWindow = confirm("Current vacancy status for job: "+jobName+" is "+jobStatus+". Would you like to change it?");
-        if(confirmationWindow)
-        {
-            window.location.assign("/Update_Status/"+jobID);
-        }
-        else{
-            alert("Action cancelled");
-        }
-    }
+
+
 
 </script>
 <!-- jQuery -->

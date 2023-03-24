@@ -42,7 +42,7 @@ class productController extends Controller
             $category->bullets()->save($b);
         }
 
-        $picture->storeAs('public/images/product/'.$category->name.'/image',$picture->getClientOriginalName());
+        $picture->storeAs('public/images/product/'.$category->id.'/image',$picture->getClientOriginalName());
         Session::flash('message','New Product Category Added');
         return redirect()->route('productCat');
     }
@@ -53,9 +53,43 @@ class productController extends Controller
         return view('Admin.manageproduct.updateProductForm',['posts'=>$p]);
     }
 
-    public function update($id)
+    public function update(Request $request,$id)
     {
-        dd($id);
+        $catP = category::findorFail($id);
+        $catP->name = $request->input('name');
+
+        if($request->input('catProductImage')!=null)
+        {
+            $image = $request->file('catProductImage');
+            $catP->image = $request->file('catProductImage')->getClientOriginalName();
+            $image->storeAs('public/images/product/'.$catP->id.'/image',$image->getClientOriginalName());
+        }
+        $catP->save();
+
+        //Process bullets
+        //Delete existing bullets
+        bullet::where('category_id','=',$id)->delete();
+
+        $b = $request->input('bullet');
+
+        foreach ($b as $key=>$bullet)
+        {
+            $dbBullet = new bullet;
+            $dbBullet->content = $bullet;
+            $catP->bullets()->save($dbBullet);
+        }
+
+        Session::flash('message','Product Category Updated');
+        return redirect()->route('productCat');
+    }
+
+    public function destroyProductCategory($id)
+    {
+        $catProduct = category::findorFail($id);
+        $catProduct->delete();
+
+        Session::flash('message','Product Category Deleted Successfully');
+        return redirect()->route('productCat');
     }
 
 }

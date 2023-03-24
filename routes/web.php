@@ -51,11 +51,14 @@ Route::group([],function () {
         Route::post('/createProductCategory',[productController::class,'createProductCategory'])
             ->name('createProduct');
 
-        Route::get('/updateProductCategory/{id}',[productController::class,'viewUpdateForm'])
+        Route::get('/showProductUpdateForm/{id}',[productController::class,'viewUpdateForm'])
             ->name('updateProductForm');
 
         Route::put('/updateCategoryProduct/{id}',[productController::class,'update'])
             ->name('updateProductCategory');
+
+        Route::delete('/deleteProductCategory/{id}',[productController::class,'destroyProductCategory'])
+            ->name('deleteProductCategory');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {
@@ -68,6 +71,15 @@ Route::group([],function () {
 
         Route::post('/createServiceCategory',[serviceController::class,'createServiceCategory'])
             ->name('createService');
+
+        Route::get('/showServiceUpdateForm/{id}',[serviceController::class,'viewUpdateForm1'])
+            ->name('updateServiceForm');
+
+        Route::put('/updateCategoryService/{id}',[serviceController::class,'update'])
+            ->name('updateServiceCategory');
+
+        Route::delete('/deleteServiceCategory/{id}',[serviceController::class,'destroyServiceCategory'])
+            ->name('deleteServiceCategory');
     });
 
 });

@@ -117,16 +117,28 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($posts as $key=>$item)
+                                    @forelse($posts as $key=>$item)
                                         <tr>
                                             <td>{{$item->id}}</td>
                                             <td><a href="">{{$item->name}}</a></td>
                                             <td>{{$item->created_at->diffForHumans()}}</td>
                                             <td>{{$item->updated_at->diffForHumans()}}</td>
-                                            <td><a href="{{route('updateProductForm',[$item->id])}}">Update</a> | <a href="">Delete</a></td>
+                                            <td>
+                                                <form action="{{route('deleteProductCategory',[$item->id])}}" method="POST" id="frm{{$item->id}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                                <a href="{{route('updateProductForm',[$item->id])}}">Update</a> |
+                                                <a href="#" onclick="deleteProductCat('{{$item->id}}','{{$item->name}}')">Delete</a>
+                                            </td>
+
                                             <td><a href="">View Product</a></td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="6" style="text-align: center">No Data Found</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -159,26 +171,14 @@
     </script>
 @endif
 <script>
-    function deleteJob(id,jobName)
+    function deleteProductCat(id,catname)
     {
-        var formID = "frmDeleteJob"+id;
-        let confirmAction = confirm("Are you sure to delete this job (id :"+id+"="+jobName+")?");
+        var formID = "frm"+id;
+        let confirmAction = confirm("Are you sure to delete this product category (id :"+id+"="+catname+")?\nWarning : The product under this category also will be deleted");
         if (confirmAction) {
             document.getElementById(formID).submit();
         } else {
             alert("Action canceled");
-        }
-    }
-
-    function updateStatus(jobName,jobStatus,jobID)
-    {
-        let confirmationWindow = confirm("Current vacancy status for job: "+jobName+" is "+jobStatus+". Would you like to change it?");
-        if(confirmationWindow)
-        {
-            window.location.assign("/Update_Status/"+jobID);
-        }
-        else{
-            alert("Action cancelled");
         }
     }
 

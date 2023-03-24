@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Service Update Form</title>
+</head><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -93,7 +100,7 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- SELECT2 EXAMPLE -->
-                <form action="{{route('updateProductCategory',[$posts->id])}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('updateServiceCategory',[$posts->id])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card card-default">
@@ -111,8 +118,8 @@
 
                                     <div class="form-group">
                                         <label>Image</label><br>
-                                        <img src="{{asset('storage/images/product/'.$posts->id.'/image/'.$posts->image)}}" id="imgOutput" alt="" style="height: 350px">
-                                        <input type="file" class="form-control" name="catProductImage" onchange="loadFile(event)" >
+                                        <img src="{{asset('storage/images/service/'.$posts->id.'/image/'.$posts->image)}}" id="imgOutput" alt="" style="height: 350px">
+                                        <input type="file" class="form-control" name="catServiceImage" onchange="loadFile(event)" >
 
                                     </div>
 
@@ -123,7 +130,7 @@
 
                                     <div class="form-group">
                                         <label>Category For</label>
-                                        <input type="text" class="form-control" name="role" placeholder="Title" value="Product" readonly>
+                                        <input type="text" class="form-control" name="role" placeholder="Title" value="Service" readonly>
                                     </div>
 
                                     <div class="form-group">
@@ -299,4 +306,9 @@
     }
 </script>
 
+</html>
+
+<body>
+
+</body>
 </html>
