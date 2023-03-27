@@ -132,7 +132,7 @@
                                                 <a href="#" onclick="deleteProductCat('{{$item->id}}','{{$item->name}}')">Delete</a>
                                             </td>
 
-                                            <td><a href="">View Product</a></td>
+                                            <td><a href="{{route('listofProduct',[$item->id])}}">View Product</a></td>
                                         </tr>
                                     @empty
                                         <tr>

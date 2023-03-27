@@ -83,7 +83,11 @@ class serviceController extends Controller
 
     public function destroyServiceCategory($id)
     {
+        $serviceCategory = category::findorFail($id);
+        $serviceCategory->delete();
 
+        Session::flash('message','Service Category Deleted');
+        return redirect()->route('serviceCat');
     }
 
 

@@ -50,7 +50,7 @@ class productController extends Controller
     public function viewUpdateForm($id)
     {
         $p = category::findorFail($id);
-        return view('Admin.manageproduct.updateProductForm',['posts'=>$p]);
+        return view('Admin.manageproduct.updateProductCategoryForm',['posts'=>$p]);
     }
 
     public function update(Request $request,$id)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\_productController;
 use App\Http\Controllers\applicantController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\serviceController;
@@ -59,6 +60,18 @@ Route::group([],function () {
 
         Route::delete('/deleteProductCategory/{id}',[productController::class,'destroyProductCategory'])
             ->name('deleteProductCategory');
+
+
+        // Product Section
+        Route::get('/displaylistofProducts/{id}',[_productController::class,'showProductList'])
+            ->name('listofProduct');
+
+        Route::get('/addNewProductForm/{id}',[_productController::class,'showAddProductForm'])
+            ->name('addProduct');
+
+        Route::post('/addProduct',[_productController::class,'addNewProduct'])
+            ->name('addProductDB');
+
     });
 
     Route::group(['prefix' => '/manage_service'], function () {
