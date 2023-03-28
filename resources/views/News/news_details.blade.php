@@ -101,7 +101,9 @@
                             <h3>{{$post->news_title}}</h3>
 
                         </div>
-                        <figure class="image-box"><img src="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}" alt=""></figure>
+                        <figure class="image-box" style="text-align:center">
+                            <img src="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}" alt="" style="height:350px">
+                        </figure>
                         <div class="text">
                             @foreach($post->pharagraphs as $key=>$p)
                             <p>{{$p->content}}</p>

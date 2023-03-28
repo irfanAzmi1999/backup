@@ -283,7 +283,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    Alert :  Responsibility cant be updated for now.
+                           
                                 </div>
                             </div>
                             <div class="" style="text-align: center">
