@@ -136,4 +136,14 @@ class _productController extends Controller
         Session::flash('message','Product Updated');
         return redirect()->route('listofProduct',[$currentCat]);
     }
+
+    public function destroyProduct($id,$catID)
+    {
+
+        $product = product::findorFail($id);
+        $product->delete();
+
+        Session::flash('message','Product Deleted Successfully');
+        return redirect()->route('listofProduct',[$catID]);
+    }
 }

@@ -123,7 +123,13 @@
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
-                                        <td><a href="{{route('displayUpdateProductForm',[$item->id])}}">Update</a> | <a href="#">Delete</a></td>
+                                        <td>
+                                            <a href="{{route('displayUpdateProductForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a>
+                                            <form action="{{ route('deleteProduct',[$item->id,$item->category_id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </td>
                                         <td><a href="#">View Details</a></td>
                                     </tr>
                                 @empty
@@ -163,15 +169,20 @@
     </script>
 @endif
 <script>
-    function deleteProductCat(id,catname)
+    function deleteProduct(id,prodName)
     {
         var formID = "frm"+id;
-        let confirmAction = confirm("Are you sure to delete this product category (id :"+id+"="+catname+")?\nWarning : The product under this category also will be deleted");
-        if (confirmAction) {
-            document.getElementById(formID).submit();
-        } else {
-            alert("Action canceled");
+        let confirmAction = confirm("Are you sure to delete this product : "+prodName);
+
+        if(confirmAction)
+        {
+            document.getElementById('frmDelete'+id).submit();
         }
+        else
+        {
+            alert('Action Cancelled');
+        }
+  
     }
 
 </script>

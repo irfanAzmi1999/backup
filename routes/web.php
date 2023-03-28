@@ -77,6 +77,9 @@ Route::group([],function () {
 
         Route::put('/updateProduct/{id}',[_productController::class,'updateProduct'])
             ->name('updateProductDB');
+
+        Route::delete('/deleteProduct/{id}/{catID}',[_productController::class,'destroyProduct'])
+            ->name('deleteProduct');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {
