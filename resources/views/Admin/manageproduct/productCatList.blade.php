@@ -120,7 +120,7 @@
                                     @forelse($posts as $key=>$item)
                                         <tr>
                                             <td>{{$item->id}}</td>
-                                            <td><a href="">{{$item->name}}</a></td>
+                                            <td><a href="{{ route('viewProductCategory',$item->id) }}">{{$item->name}}</a></td>
                                             <td>{{$item->created_at->diffForHumans()}}</td>
                                             <td>{{$item->updated_at->diffForHumans()}}</td>
                                             <td>

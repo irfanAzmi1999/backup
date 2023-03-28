@@ -18,13 +18,13 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::factory()->create([
             'name' => 'Test-User',
-            'email' => 'eesyrafeerfan90@gmail.com',
+            'email' => 'test.user@gmail.com',
             'password' => bcrypt('12345678'),
             'jobTitle' => 'Programmer',
             'phoneNumber' => '0142586621',
         ]);
 
-        $this->command->info('Email : eesyrafeerfan90@gmail.com  Password : 12345678');
+        $this->command->info('Email : test.user@gmail.com  Password : 12345678');
 
 //        $this->call([
 //            JobSeeder::class,

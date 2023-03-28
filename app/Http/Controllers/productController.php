@@ -92,4 +92,10 @@ class productController extends Controller
         return redirect()->route('productCat');
     }
 
+    public function viewProductCategory($id)
+    {
+        $pcat = category::findorFail($id);
+        return view('Admin.manageproduct.viewProductCategory',['posts'=>$pcat]);
+    }
+
 }

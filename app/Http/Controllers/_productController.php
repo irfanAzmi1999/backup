@@ -27,6 +27,7 @@ class _productController extends Controller
     {
         $catID = $request->input('categoryID');
         $image = $request->file('productImage');
+        $principleImage = $request->file('principle_logo');
 
         $product = new product;
         $product->name = $request->input('name');
@@ -40,15 +41,15 @@ class _productController extends Controller
         {
             $productPrinciple = $request->file('principle_logo');
             $product->principleLogo = $productPrinciple->getClientOriginalName();
-            $productPrinciple->storeAs('public/images/product_category/'.$catID.'/product/'.$product->id.'/principleLogo',$image->getClientOriginalName());
+            
         }
         $product->save();
 
         if($request->file('principle_logo')!=null)
         {
-            $request->file('principle_logo')->storeAs('public/images/product_category/'.$catID.'/product/'.$product->id.'/principleLogo',$image->getClientOriginalName());
+            $productPrinciple->storeAs('public/images/product_category/'.$catID.'/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
         }
-
+   
         $benefits = $request->input('benefits');
         foreach ($benefits as $key=>$item)
         {

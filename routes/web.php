@@ -43,6 +43,7 @@ Route::resource('/job',JobController::class);
 Route::group([],function () {
     Route::group(['prefix' => '/manage_product'], function () {
 
+        //Product Category
         Route::get('/productCategory',[productController::class,'showProductCategory'])
             ->name('productCat');
 
@@ -61,6 +62,8 @@ Route::group([],function () {
         Route::delete('/deleteProductCategory/{id}',[productController::class,'destroyProductCategory'])
             ->name('deleteProductCategory');
 
+        Route::get('/viewProductCategory/{id}',[productController::class,'viewProductCategory'])
+            ->name('viewProductCategory');
 
         // Product Section
         Route::get('/displaylistofProducts/{id}',[_productController::class,'showProductList'])

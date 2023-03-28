@@ -79,7 +79,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active" >News</li>
+                            <li class="breadcrumb-item active" >Product Details</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -110,7 +110,13 @@
                             <hr>
                     @endforeach  
                   </p>
-               
+                  
+                  <div style="text-align: center;margin-bottom:50px">
+                        <b>Principle Logo : </b><br>
+                        <img src="{{asset('storage/images/product_category/'.$posts->category_id.'/product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput" alt="" style="width: 350px">
+                    
+                </div>
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
