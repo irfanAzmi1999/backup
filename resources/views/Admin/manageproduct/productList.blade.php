@@ -130,7 +130,7 @@
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        <td><a href="#">View Details</a></td>
+                                        <td><a href="{{ route('viewProduct',[$item->id]) }}">View Details</a></td>
                                     </tr>
                                 @empty
                                     <tr>

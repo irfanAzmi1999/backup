@@ -146,4 +146,10 @@ class _productController extends Controller
         Session::flash('message','Product Deleted Successfully');
         return redirect()->route('listofProduct',[$catID]);
     }
+
+    public function viewProductDetails($id)
+    {
+        $product = product::findorFail($id);
+        return view('Admin.manageproduct.viewproduct',['posts'=>$product]);
+    }
 }

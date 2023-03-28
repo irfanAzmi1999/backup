@@ -80,6 +80,9 @@ Route::group([],function () {
 
         Route::delete('/deleteProduct/{id}/{catID}',[_productController::class,'destroyProduct'])
             ->name('deleteProduct');
+
+        Route::get('/viewProductDetails/{id}',[_productController::class,'viewProductDetails'])
+            ->name('viewProduct');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {
