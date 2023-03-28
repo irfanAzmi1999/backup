@@ -42,7 +42,7 @@ class productController extends Controller
             $category->bullets()->save($b);
         }
 
-        $picture->storeAs('public/images/product/'.$category->id.'/image',$picture->getClientOriginalName());
+        $picture->storeAs('public/images/product_category/'.$category->id.'/image',$picture->getClientOriginalName());
         Session::flash('message','New Product Category Added');
         return redirect()->route('productCat');
     }

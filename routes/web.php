@@ -72,6 +72,11 @@ Route::group([],function () {
         Route::post('/addProduct',[_productController::class,'addNewProduct'])
             ->name('addProductDB');
 
+        Route::get('/updateProductForm/{id}',[_productController::class,'displayUpdateForm'])
+                ->name('displayUpdateProductForm');
+
+        Route::put('/updateProduct/{id}',[_productController::class,'updateProduct'])
+            ->name('updateProductDB');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {

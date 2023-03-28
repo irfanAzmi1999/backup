@@ -24,9 +24,11 @@ class DatabaseSeeder extends Seeder
             'phoneNumber' => '0142586621',
         ]);
 
-        $this->call([
-            JobSeeder::class,
-            ResponsibilitiesSeed::class
-        ]);
+        $this->command->info('Email : eesyrafeerfan90@gmail.com  Password : 12345678');
+
+//        $this->call([
+//            JobSeeder::class,
+//            ResponsibilitiesSeed::class
+//        ]);
     }
 }

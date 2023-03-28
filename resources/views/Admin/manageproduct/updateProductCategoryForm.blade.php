@@ -111,7 +111,7 @@
 
                                     <div class="form-group">
                                         <label>Image</label><br>
-                                        <img src="{{asset('storage/images/product/'.$posts->id.'/image/'.$posts->image)}}" id="imgOutput" alt="" style="height: 350px">
+                                        <img src="{{asset('storage/images/product_category/'.$posts->id.'/image/'.$posts->image)}}" id="imgOutput" alt="" style="height: 350px">
                                         <input type="file" class="form-control" name="catProductImage" onchange="loadFile(event)" >
 
                                     </div>

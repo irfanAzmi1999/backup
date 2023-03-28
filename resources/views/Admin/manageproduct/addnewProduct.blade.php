@@ -115,7 +115,7 @@
 
                                     <div class="form-group">
                                         <label>Product Image</label><br>
-                                        <img src="" id="imgOutput" alt="" style="height: 350px">
+                                        <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput" alt="" style="height: 350px">
                                         <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" required>
                                     </div>
 
@@ -139,7 +139,7 @@
                                     <div class="form-group">
                                         <label>Product benefits/advantages :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
                                         <input type="text" style="margin-bottom:20px" class="form-control" name="benefits[]" placeholder="Benefits / Advantages" value="{{old('benefits')}}" required>
-                                        <textarea class="form-control" placeholder="Description" name="benefitDescription"></textarea>
+                                        <textarea class="form-control" placeholder="Description" name="benefitDescription[]"></textarea>
                                         <hr>
                                         <div id="reqs">
 

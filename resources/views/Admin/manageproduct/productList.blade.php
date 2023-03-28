@@ -123,7 +123,7 @@
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
-                                        <td><a href="#">Update</a> | <a href="#">Delete</a></td>
+                                        <td><a href="{{route('displayUpdateProductForm',[$item->id])}}">Update</a> | <a href="#">Delete</a></td>
                                         <td><a href="#">View Details</a></td>
                                     </tr>
                                 @empty
