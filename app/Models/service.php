@@ -11,7 +11,7 @@ class service extends Model
 
     public function category()
     {
-        return $this->belongsTo(category::class,'foreign_key','category_id');
+        return $this->belongsTo(category::class,'category_id');
     }
 
     public function benefits()

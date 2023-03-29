@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Service</title>
     <link rel="icon" href="/images/faazmiar-logo-only.png" type="image/png">
     <link rel="stylesheet" href="{{ url('/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('/assets/css/animate.min.css') }}">
@@ -38,8 +38,42 @@
         <div class="spinner"></div>
     </div>
 
-    @include('../layout/header-nav')
-    @yield('header')
+    <div class="navbar-area">
+        <div class="evolta-responsive-nav">
+            <div class="container">
+                <div class="evolta-responsive-menu">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="../images/faazmiar.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="evolta-nav">
+            <div class="container">
+                <div class="navbar navbar-expand-md navbar-light">
+                    <a href="/" class="navbar-brand">
+                        <img src="../images/faazmiar.png" alt="">
+                    </a>
+    
+                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="/product" class="nav-link">Products</a></li>
+                            <li class="nav-item"><a href="/services" class="nav-link active">Services</a></li>
+                            <li class="nav-item"><a href="{{route('showNews')}}" class="nav-link">News</a></li>
+                            <li class="nav-item"><a href="/career" class="nav-link">Career</a></li>
+                            <li class="nav-item"><a href="/aboutUs" class="nav-link">About us</a></li>
+                            <li class="nav-item"><a href="/trainingServices" class="nav-link">Training</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
 
     <div class="page-title-area">
         <div class="container">
@@ -47,7 +81,7 @@
                 <h2>{{$cposts->name}}</h2>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/product">Product</a></li>
+                    <li><a href="/service">Service</a></li>
                     <li>{{$selected->name}}</li>
                 </ul>
             </div>
@@ -68,7 +102,7 @@
                                     </p>
                                   
                                 </div>
-                                <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt=""></figure>
+                                <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/service/'.$selected->id.'/'.$selected->serviceImage)}}" alt=""></figure>
                                 <div class="intro-box">
                                     
                                     @foreach($selected->benefits as $key=>$b)
@@ -96,7 +130,7 @@
                         </div>
                         <hr>
                         <div style="text-align: center;">
-                            <img style="margin-top:20px ;width: 300px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <img style="margin-top:20px ;width: 300px;" src="{{asset('storage/images/service/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
@@ -105,7 +139,7 @@
                             <hr>
                             <ul class="sidebar-categories clearfix">
                                 @foreach($posts as $key=>$product)
-                                   <li><a href="{{route('viewProductBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
+                                   <li><a href="{{route('viewServiceBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
                                 @endforeach
                             </ul>
 

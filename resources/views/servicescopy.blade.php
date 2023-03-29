@@ -61,22 +61,74 @@
 
         <div class="row justify-content-center">
 
-            @foreach($posts as $key=>$cat)
 
             <div class="col-lg-4 col-sm-6" onclick="window.location.assign('{{route('wellplanning')}}');" style="cursor:pointer">
                 <div class="ai-services-card">
                     <div class="services-image">
-                        <img src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" alt="images" style="height:120px">
+                        <img src="images/Services/planning.png" alt="images" style="height:120px">
                     </div>
                     <div class="services-content">
                         <h3>
-                            <a href="{{route('viewServBasedOnCat',[$cat->id])}}">{{$cat->name}}</a>
+                            <a href="{{route('wellplanning')}}">Well Planning</a>
                         </h3>
                     </div>
                 </div>
             </div>
 
-            @endforeach
+            <div class="col-lg-4 col-sm-6" onclick="window.location.assign('#')" style="cursor:pointer">
+                <div class="ai-services-card">
+                    <div class="services-image">
+                        <img src="images/Services/Centre.png" alt="images" style="height:120px">
+                    </div>
+                    <div class="services-content">
+                        <h3>
+                            <a href="#">RTOC Support</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6" onclick="window.location.assign('{{route('training')}}')" style="cursor:pointer">
+                <div class="ai-services-card">
+                    <div class="services-image">
+                        <img src="images/Services/training.png" alt="images" style="height: 120px;">
+                    </div>
+                    <div class="services-content">
+                        <h3>
+                            <a href="{{route('training')}}">Training</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="ai-services-card">
+                    <div class="services-image">
+                        <img src="images/" alt="">
+                    </div>
+                    <div class="services-content">
+                        <h3>
+                            <a href="#">ERC Integration</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="ai-services-card">
+                    <div class="services-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="services-content">
+                        <h3>
+                            <a href="#">CCS Consultation</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+
+
 
         </div>
     </div>

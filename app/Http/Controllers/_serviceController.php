@@ -124,4 +124,22 @@ class _serviceController extends Controller
         $service = service::findorFail($id);
         return view('Admin.manageservice.viewService',['posts'=>$service]);
     }
+
+    public function viewServiceBasedOnCategory($categoryID)
+    {
+        $service = service::where('category_id','=',$categoryID)->get(); // sidebar
+        $firstService = service::where('category_id','=',$categoryID)->first(); // selected product
+        $category = category::findorFail($categoryID);
+
+        return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstService]);
+    }
+
+    public function viewServiceBasedOnID($serviceID,$categoryID)
+    {
+        $service = service::where('category_id','=',$categoryID)->get(); // sidebar
+        $firstProduct = service::findorFail($serviceID); // selected product
+        $category = category::findorFail($categoryID);
+
+        return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct]);
+    }
 }

@@ -137,6 +137,12 @@ Route::group([],function () {
 
         Route::get('/viewServiceDetails/{id}',[_serviceController::class,'viewServiceDetails'])
             ->name('viewService');
+
+        Route::get('/viewService/{id}',[_serviceController::class,'viewServiceBasedOnCategory'])
+            ->name('viewServBasedOnCat');
+
+        Route::get('/viewServiceID/{id}/{catID}',[_serviceController::class,'viewServiceBasedOnID'])
+            ->name('viewServiceBasedOnID');
     });
 
 });
@@ -197,7 +203,8 @@ Route::get('/_news',function(){
 //})->name('web_news');
 
 Route::get('/services',function(){
-    return view('services');
+    $serviceCategory = category::where('role','=','Service')->get();
+    return view('services',['posts'=>$serviceCategory]);
 });
 
 Route::get('/career',function(){
