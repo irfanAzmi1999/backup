@@ -58,7 +58,7 @@ class productController extends Controller
         $catP = category::findorFail($id);
         $catP->name = $request->input('name');
 
-        if($request->input('catProductImage')!=null)
+        if($request->file('catProductImage')!=null)
         {
             $image = $request->file('catProductImage');
             $catP->image = $request->file('catProductImage')->getClientOriginalName();

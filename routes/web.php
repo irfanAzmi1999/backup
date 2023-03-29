@@ -7,6 +7,7 @@ use App\Http\Controllers\serviceController;
 use App\Http\Controllers\_serviceController;
 use App\Models\job;
 use App\Models\news;
+use App\Models\category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -87,6 +88,9 @@ Route::group([],function () {
 
         Route::get('/viewProductDetails/{id}',[_productController::class,'viewProductDetails'])
             ->name('viewProduct');
+
+        Route::get('/viewProduct/{id}',[_productController::class,'viewProductBasedOnCategory'])
+            ->name('viewProdBasedOnCat');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {
@@ -175,7 +179,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/product',function (){
-    return view('product');
+    return view('product',['posts'=>category::where('role','=','Product')->get()]);
 });
 
 Route::get('/_news',function(){

@@ -92,47 +92,91 @@
                     <div class="decor" style="background-image: url(assets/images/icons/decor-1.png);"></div>
                 </div>
                 <div class="row clearfix">
-
-                    @foreach($posts as $key=>$cat)
-                    @if ($key % 2 == 0)
                     <div class="col-lg-6 col-md-6 col-sm-12 block-column">
                         <div class="service-block-five wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="icon-box"><i class="flaticon-data"></i></div>
-                                <h3><a href="/GeoScience/productInt">{{ $cat->name }}</a></h3>
+                                <h3><a href="/GeoScience/productInt">GeoScience</a></h3>
                                 <ul class="list-item clearfix">
-                                    @foreach ($cat->bullets as $bullet )
-                                        <li style="width:250px;word-wrap: break-word;"><span class="dots"></span>{{ $bullet->content }}</li>
-                                    @endforeach
+                                    <li><span class="dots"></span>G&G Data Visualization<br> Application</li>
+                                    <li><span class="dots"></span>Wellbore data quality control <br>& reporting</li>
+                                    <li><span class="dots"></span>Execution of geosicence <br>workflow</li>
                                 </ul>
-                                <figure class="image-box"><img style="width:450px" src="{{asset('storage/images/product_category/'.$cat->id.'/image/'.$cat->image)}}"></figure>
-                                <div class="link"><a href="{{ route('viewProdBasedOnCat',[$cat->id]) }}" class="btn-style-four">Read More<span>+</span></a></div>
+                                <figure class="image-box"><img style="width:450px" src="images/Geoscience.png""></figure>
+                                <div class="link"><a href="/GeoScience/productInt" class="btn-style-four">Read More<span>+</span></a></div>
+                            </div>
+                        </div>
+                        <div class="service-block-five wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="flaticon-vr"></i></div>
+                                <h3><a href="/Drilling/productSiteCom">Drilling</a></h3>
+                                <ul class="list-item clearfix">
+                                    <li><span class="dots"></span>Real time Operation Monitoring</li>
+                                    <li><span class="dots"></span>Improve drilling and wells operation</li>
+                                    <li><span class="dots"></span>Utilizes a rule-based system to<br>real time surface sensor data</li>
+
+                                <figure class="image-box"><img style="450px" src="images/rig-service.png" alt=""></figure>
+                                <div class="link"><a href="/Drilling/productSiteCom" class="btn-style-four">Read More<span>+</span></a></div>
+                            </div>
+                        </div>
+                        <div class="service-block-five wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="flaticon-vr"></i></div>
+                                <h3><a href="#">Logistic</a></h3>
+                                <ul class="list-item clearfix">
+                                    <li><span class="dots"></span>No Data</li>
+                                </ul>
+                                <figure class="image-box"><img src="assets/images/service/service-8.png" alt=""></figure>
+                                <div class="link"><a href="blank.html" class="btn-style-four">Read More<span>+</span></a></div>
                             </div>
                         </div>
                     </div>
-                    @else
                     <div class="col-lg-6 col-md-6 col-sm-12 block-column">
                         <div class="service-block-five wow fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="icon-box"><i class="flaticon-brain"></i></div>
                                 <h3><a href="{{route('dwos')}}">Engineering</a></h3>
                                 <ul class="list-item clearfix">
-                                    @foreach ($cat->bullets as $bullet )
-                                        <li style="width:250px;word-wrap: break-word;"><span class="dots"></span>{{ $bullet->content }}</li>
-                                    @endforeach
+                                    <li><span class="dots"></span>Optimize drilling and tripping tasks</li>
+                                    <li><span class="dots"></span>Digital Well Plan (open API)</li>
+                                    <li><span class="dots"></span>Real-time forecasting</li>
+                                    <li><span class="dots"></span>Well Engineering Design &<br>kill simulation</li>
                                 </ul>
-                                <figure class="image-box"><img style="width: 450px;" src="{{asset('storage/images/product_category/'.$cat->id.'/image/'.$cat->image)}}" alt=""></figure>
+                                <figure class="image-box"><img style="width: 450px;" src="images/engineering.png" alt=""></figure>
                                 <div class="link">
-                                    <a href="{{ route('viewProdBasedOnCat',[$cat->id]) }}" class="btn-style-four">
+                                    <a href="{{route('dwos')}}" class="btn-style-four">
                                         Read More
                                         <span>+</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
+                        <div class="service-block-five wow fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="flaticon-analytics"></i></div>
+                                <h3><a href="{{route('kairos')}}">Production Operation</a></h3>
+                                <ul class="list-item clearfix">
+                                    <li><span class="dots"></span>Control Room Assistant</li>
+                                    <li><span class="dots"></span>Efficient Well Planning</li>
+                                    <li><span class="dots"></span>Best Practice Integration</li>
+                                </ul>
+                                <figure class="image-box"><img src="images/production.png" alt=""></figure>
+                                <div class="link"><a href="{{route('kairos')}}" class="btn-style-four">Read More<span>+</span></a></div>
+                            </div>
+                        </div>
+                        <div class="service-block-five wow fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="flaticon-analytics"></i></div>
+                                <h3><a href="#">Business Support</a></h3>
+                                <ul class="list-item clearfix">
+                                    <li><span class="dots"></span>No Data</li>
+
+                                </ul>
+                                <figure class="image-box"><img src="assets/images/service/service-10.png" alt=""></figure>
+                                <div class="link"><a href="blank.html" class="btn-style-four">Read More<span>+</span></a></div>
+                            </div>
+                        </div>
                     </div>
-                    @endif
-                    @endforeach
                 </div>
 
             </div>

@@ -153,4 +153,12 @@ class _productController extends Controller
         $product = product::findorFail($id);
         return view('Admin.manageproduct.viewproduct',['posts'=>$product]);
     }
+
+    //view all products in public
+
+    public function viewProductBasedOnCategory($categoryID)
+    {
+        $product = product::where('category_id','=',$categoryID)->get();
+        return view('public_product.product',['posts'=>$product]);
+    }
 }
