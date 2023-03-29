@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Product</title>
+    <title>View Product Category</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="{{ url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
@@ -74,12 +74,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Product Details</h1>
+                        <h1 class="m-0">Service Category</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active" >Product Details</li>
+                            <li class="breadcrumb-item active" >View Service Category</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -91,31 +91,28 @@
             <div class="card">
               
                 <div class="card-body">
-                    <h3>{{ $posts->name }}</h3>
+                    Category Selected : {{ $posts->name }}
                     <hr>
                     <p>
-                        {{ $posts->description }}
+                        
                     </p>
                     <div style="text-align: center;margin-bottom:50px">
                         <p>
-                            <img src="{{asset('storage/images/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="width: 650px">
+                            <img src="{{asset('storage/images/service_category/'.$posts->id.'/image/'.$posts->image)}}" id="imgOutput" alt="" style="width: 350px">
                         </p>
                     </div>
-                    <p align="justify">
-                    @foreach ($posts->benefits as $key=>$item )
-                            <hr>
-                            <div style="text-align:center"><b>{{ $item->title }}</b>
-                            : {{ $item->description }}
-                            </div>
-                            <hr>
-                    @endforeach  
-                  </p>
+  
                   
-                  <div style="text-align: center;margin-bottom:50px">
-                        <b>Principle Logo : </b><br>
-                        <img src="{{asset('storage/images/product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput" alt="" style="width: 250px;margin-top:20px">
-                    
-                </div>
+                  <div style="margin-bottom:50px">
+                     <p><b>Category Name : </b>{{ $posts->name }}</p>
+                     <p>Category Role : {{ $posts->role }}</p>
+                     Short Description :
+                     <ul style="list-style-position: inside" align="justify">
+                     @foreach ($posts->bullets as $key=>$item )
+                        <li>{{ $item->content }}</li>
+                     @endforeach
+                     </ul>
+                   </div>
 
                 </div>
                 <!-- /.card-body -->

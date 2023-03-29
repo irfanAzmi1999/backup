@@ -120,7 +120,7 @@
                                 @forelse($posts as $key=>$item)
                                     <tr>
                                         <td>{{$item->id}}</td>
-                                        <td><a href="">{{$item->name}}</a></td>
+                                        <td><a href="{{route('viewServiceCategory',[$item->id])}}">{{$item->name}}</a></td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
@@ -132,7 +132,7 @@
                                             |
                                             <a href="#" onclick="deleteServiceCat('{{$item->id}}','{{$item->name}}')">Delete</a>
                                         </td>
-                                        <td><a href="">View Service</a></td>
+                                        <td><a href="{{ route('listofService',[$item->id]) }}">View Service</a></td>
                                     </tr>
                                 @empty
                                     <tr>

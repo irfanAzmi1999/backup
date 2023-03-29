@@ -132,7 +132,7 @@
 
                                     <div class="form-group">
                                         <label>Principle Logo :</label>
-                                        <img src="" id="imgOutput1" alt="" style="height: 350px"  >
+                                        <img src="" id="imgOutput1" alt="" style="width: 350px"  >
                                         <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
                                     </div>
 

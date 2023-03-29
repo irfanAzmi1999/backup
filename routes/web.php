@@ -4,6 +4,7 @@ use App\Http\Controllers\_productController;
 use App\Http\Controllers\applicantController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\serviceController;
+use App\Http\Controllers\_serviceController;
 use App\Models\job;
 use App\Models\news;
 use Illuminate\Support\Facades\Auth;
@@ -89,7 +90,7 @@ Route::group([],function () {
     });
 
     Route::group(['prefix' => '/manage_service'], function () {
-
+        //Service Category
         Route::get('/serviceCategory',[serviceController::class,'showServiceCategory'])
             ->name('serviceCat');
 
@@ -107,6 +108,28 @@ Route::group([],function () {
 
         Route::delete('/deleteServiceCategory/{id}',[serviceController::class,'destroyServiceCategory'])
             ->name('deleteServiceCategory');
+
+        Route::get('/viewServiceCategory/{id}',[serviceController::class,'viewServiceCategory'])
+            ->name('viewServiceCategory');
+
+        //service Section
+        Route::get('/displaylistofServices/{id}',[_serviceController::class,'showServiceList'])
+            ->name('listofService');
+
+        Route::get('/addNewServiceForm/{id}',[_serviceController::class,'showAddServiceForm'])
+            ->name('addService');
+
+        Route::post('/addService',[_serviceController::class,'addNewService'])
+            ->name('addServiceDB');
+        
+        Route::get('/updateServiceForm/{id}',[_serviceController::class,'displayUpdateForm'])
+            ->name('displayUpdateServiceForm');
+
+        Route::put('/updateService/{id}',[_serviceController::class,'updateService'])
+            ->name('updateServiceDB');
+
+        Route::get('/viewServiceDetails/{id}',[_serviceController::class,'viewServiceDetails'])
+            ->name('viewService');
     });
 
 });

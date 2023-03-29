@@ -39,7 +39,7 @@ class serviceController extends Controller
             $category->bullets()->save($b);
         }
 
-        $picture->storeAs('public/images/service/'.$category->id.'/image',$picture->getClientOriginalName());
+        $picture->storeAs('public/images/service_category/'.$category->id.'/image',$picture->getClientOriginalName());
         Session::flash('message','New Service Category Added');
         return redirect()->route('serviceCat');
     }
@@ -53,14 +53,15 @@ class serviceController extends Controller
 
     public function update(Request $request,$id)
     {
+
         $categoryService =category::findorFail($id);
         $categoryService->name = $request->input('name');
 
-        if ($request->input('catServiceImage')!=null)
+        if ($request->file('catServiceImage')!=null)
         {
             $image = $request->file('catServiceImage');
             $categoryService->image = $image->getClientOriginalName();
-            $image->storeAs('public/images/product/'.$categoryService->id.'/image',$image->getClientOriginalName());
+            $image->storeAs('public/images/service_category/'.$id.'/image',$image->getClientOriginalName());
         }
         $categoryService->save();
         //Process Bullets
@@ -88,6 +89,13 @@ class serviceController extends Controller
 
         Session::flash('message','Service Category Deleted');
         return redirect()->route('serviceCat');
+    }
+
+    public function viewServiceCategory($id)
+    {
+        $service = category::findorFail($id);
+
+        return view('Admin.manageservice.viewServiceCategory',['posts'=>$service]);
     }
 
 

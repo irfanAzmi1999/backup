@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Product List</title>
+    <title>Service List</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -81,7 +81,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="{{route('job.create')}}"></a>Product List</li>
+                            <li class="breadcrumb-item active"><a href="{{route('job.create')}}"></a>Services List</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -95,11 +95,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Product List</h3>
+                            <h3 class="card-title">Services List</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{ route('addProduct',['id'=>$cat->id]) }}">Add Product </a>
+                                    <a href="{{ route('addService',['id'=>$cat->id]) }}">Add Service </a>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Product</th>
+                                    <th>Service</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
@@ -124,13 +124,13 @@
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
-                                            <a href="{{route('displayUpdateProductForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a>
-                                            <form action="{{ route('deleteProduct',[$item->id,$item->category_id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                            <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a>
+                                            <form action="" method="POST" id="frmDelete{{ $item->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        <td><a href="{{ route('viewProduct',[$item->id]) }}">View Details</a></td>
+                                        <td><a href="{{ route('viewService',[$item->id]) }}">View Details</a></td>
                                     </tr>
                                 @empty
                                     <tr>

@@ -13,4 +13,9 @@ class service extends Model
     {
         return $this->belongsTo(category::class,'foreign_key','category_id');
     }
+
+    public function benefits()
+    {
+        return $this->hasMany(benefit::class);
+    }
 }
