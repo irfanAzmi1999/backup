@@ -162,7 +162,13 @@ class _productController extends Controller
         $firstProduct = product::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
-        return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct]);
+        if($firstProduct != null)
+        {
+            return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct]);
+        }
+        else{
+            abort(404);
+        }
     }
 
     public function viewProductBasedOnID($productID,$categoryID)
