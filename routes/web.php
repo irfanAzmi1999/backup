@@ -91,6 +91,9 @@ Route::group([],function () {
 
         Route::get('/viewProduct/{id}',[_productController::class,'viewProductBasedOnCategory'])
             ->name('viewProdBasedOnCat');
+
+        Route::get('/viewProductID/{id}/{catID}',[_productController::class,'viewProductBasedOnID'])
+            ->name('viewProductBasedOnID');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {

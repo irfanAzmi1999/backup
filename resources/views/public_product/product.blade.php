@@ -44,7 +44,7 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>Drilling</h2>
+                <h2>{{$cposts->name}}</h2>
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/product">Product</a></li>
@@ -61,59 +61,42 @@
                         <div class="project-details-content">
                             <div class="data-box">
                                 <div class="title-box">
-                                    <h3>Data Collection Application</h3>
+                                    <h3>{{$selected->name}}</h3>
                                     <hr>
                                     <p>
-                                        Integrated data collection & aggregation form strong basis for quick & better
-                                        decision making during real-time monitoring
+                                        {{$selected->description}}
                                     </p>
-                                    <p>
-                                        By using KPI on rig performance, invisible lost time can lead to better manage
-                                        consistence rig performance
-                                    </p>
+                                  
                                 </div>
-                                <figure class="single-image" style="text-align: center;"><img style="width: 400px;" src="../images/Drilling/data collector.jpg" alt=""></figure>
+                                <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt=""></figure>
                                 <div class="intro-box">
-                                    <div class="single-item clearfix">
-                                        <div class="left-column">
-                                            <div class="icon-box"><i class="flaticon-accept"></i></div>
-                                            <span>Data collection & aggregation</span>
-                                            <p></p>
-                                        </div>
-                                        <div class="right-column">
-                                            <p>proNova Field Gateway is the hardware and software system to integrate any types of streaming sensor and channel data at the rig-site e.g. mud logging, rig system or the directional drilling company</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-item clearfix">
-                                        <div class="left-column">
-                                            <div class="icon-box"><i class="flaticon-accept"></i></div>
-                                            <span>Invisible Lost Time</span>
-                                            <p></p>
-                                        </div>
-                                        <div class="right-column">
-                                            <p>Undertakes laborious physical exercise, except to obtain some from it man who chooses to enjoy.</p>
-                                        </div>
-                                    </div>
-                                    <div class="single-item clearfix">
-                                        <div class="left-column">
-                                            <div class="icon-box"><i class="flaticon-accept"></i></div>
-                                            <span>Trend improvement</span>
-                                            <p></p>
-                                        </div>
-                                        <div class="right-column">
-                                            <ul>
-                                                <li>Compare actual performance with predefined best practices.</li>
-                                                <li> Enhance performance through benchmarking and trend analysis using its  Automated Drilling Performance Measurement (ADPM) system</li>
+                                    
+                                    @foreach($selected->benefits as $key=>$b)
 
-                                            </ul>
+                                    <div class="single-item clearfix">
+                                        <div class="left-column">
+                                            <div class="icon-box"><i class="flaticon-accept"></i></div>
+                                            <span>{{$b->title}}</span>
+                                            <p></p>
+                                        </div>
+                                        <div class="right-column">
+                                              <p>
+                                                {{$b->description}}
+                                            </p>
                                         </div>
                                     </div>
+
+                                    @endforeach
+
+                                    
+                                   
+                                
                                 </div>
                             </div>
                         </div>
                         <hr>
                         <div style="text-align: center;">
-                            <img style="margin-top:20px ;width: 300px;" src="../images/Drilling/pronova.png" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <img style="margin-top:20px ;width: 300px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
@@ -121,12 +104,9 @@
                             <h3><b>Product List</b></h3>
                             <hr>
                             <ul class="sidebar-categories clearfix">
-                                <li><a href="{{route('sitecom')}}"><h5>Data Operation</h5><i class="flaticon-arrow"></i></a></li>
-                                <li><a href="{{route('sekal')}}"><h5>Drilling Engineering</h5><i class="flaticon-arrow"></i></a></li>
-                                <li><a href="{{route('pronova')}}l" class="active"><h5>Data Collection</h5><i class="flaticon-arrow"></i> </a> </li>
-                                <li><a href="{{route('wasproma')}}"><h5>Well Operation</h5><i class="flaticon-arrow"></i></a></li>
-                                <li><a href="{{route('dsiddraw')}}"><h5>Rig and Drilling</h5><i class="flaticon-arrow"></i></a></li>
-                                <li><a href="{{route('stimline')}}"><h5>Well Intervention</h5><i class="flaticon-arrow"></i></a></li>
+                                @foreach($posts as $key=>$product)
+                                   <li><a href="{{route('viewProductBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
+                                @endforeach
                             </ul>
 
                         </div>
