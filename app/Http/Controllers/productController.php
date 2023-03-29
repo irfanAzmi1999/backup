@@ -62,7 +62,7 @@ class productController extends Controller
         {
             $image = $request->file('catProductImage');
             $catP->image = $request->file('catProductImage')->getClientOriginalName();
-            $image->storeAs('public/images/product/'.$catP->id.'/image',$image->getClientOriginalName());
+            $image->storeAs('public/images/product_category/'.$catP->id.'/image',$image->getClientOriginalName());
         }
         $catP->save();
 

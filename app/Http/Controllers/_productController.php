@@ -35,7 +35,7 @@ class _productController extends Controller
         $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
 
-
+        
 
         if($request->file('principle_logo')!=null)
         {
@@ -47,7 +47,7 @@ class _productController extends Controller
 
         if($request->file('principle_logo')!=null)
         {
-            $productPrinciple->storeAs('public/images/product_category/'.$catID.'/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
+            $productPrinciple->storeAs('public/images/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
         }
    
         $benefits = $request->input('benefits');
@@ -60,7 +60,7 @@ class _productController extends Controller
             $product->benefits()->save($b);
         }
 
-        $request->file('productImage')->storeAs('public/images/product_category/'.$catID.'/product/'.$product->id,$image->getClientOriginalName());
+        $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
 
         return redirect()->route('listofProduct',[$request->input('categoryID')]);
 
@@ -125,12 +125,12 @@ class _productController extends Controller
 
         if($principleimagestatus==true)
         {
-            $request->file('principle_logo')->storeAs('public/images/product_category/'.$product->category_id.'/product/'.$product->id.'/principleLogo',$request->file('principle_logo')->getClientOriginalName());
+            $request->file('principle_logo')->storeAs('public/images/product/'.$product->id.'/principleLogo',$request->file('principle_logo')->getClientOriginalName());
         }
 
         if($productimagestatus==true)
         {
-            $request->file('productImage')->storeAs('public/images/product_category/'.$product->category_id.'/product/'.$product->id,$request->file('productImage')->getClientOriginalName());
+            $request->file('productImage')->storeAs('public/images/product/'.$product->id,$request->file('productImage')->getClientOriginalName());
         }
 
         $currentCat = $request->input('currentCatID');

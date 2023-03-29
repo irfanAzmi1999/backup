@@ -98,7 +98,7 @@
                     </p>
                     <div style="text-align: center;margin-bottom:50px">
                         <p>
-                            <img src="{{asset('storage/images/product_category/'.$posts->category_id.'/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="height: 350px">
+                            <img src="{{asset('storage/images/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="height: 350px">
                         </p>
                     </div>
                     <p align="justify">
@@ -113,7 +113,7 @@
                   
                   <div style="text-align: center;margin-bottom:50px">
                         <b>Principle Logo : </b><br>
-                        <img src="{{asset('storage/images/product_category/'.$posts->category_id.'/product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput" alt="" style="width: 350px">
+                        <img src="{{asset('storage/images//product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput" alt="" style="width: 350px">
                     
                 </div>
 
