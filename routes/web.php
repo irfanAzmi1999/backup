@@ -143,6 +143,9 @@ Route::group([],function () {
 
         Route::get('/viewServiceID/{id}/{catID}',[_serviceController::class,'viewServiceBasedOnID'])
             ->name('viewServiceBasedOnID');
+        
+        Route::delete('/deleteService/{id}/{catID}',[_serviceController::class,'destroyService'])
+            ->name('deleteService');
     });
 
 });

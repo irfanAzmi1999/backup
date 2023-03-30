@@ -125,7 +125,7 @@
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
                                             <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a>
-                                            <form action="" method="POST" id="frmDelete{{ $item->id }}">
+                                            <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
@@ -172,7 +172,7 @@
     function deleteProduct(id,prodName)
     {
         var formID = "frm"+id;
-        let confirmAction = confirm("Are you sure to delete this product : "+prodName);
+        let confirmAction = confirm("Are you sure to delete this service : "+prodName);
 
         if(confirmAction)
         {

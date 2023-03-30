@@ -142,4 +142,13 @@ class _serviceController extends Controller
 
         return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct]);
     }
+
+    public function destroyService($id,$catID)
+    {
+        $service = service::findorFail($id);
+        $service->delete();
+
+        Session::flash('message','Service Deleted Successfully');
+        return redirect()->route('listofService',[$catID]);
+    }
 }
