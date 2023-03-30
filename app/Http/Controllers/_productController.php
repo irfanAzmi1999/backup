@@ -167,7 +167,12 @@ class _productController extends Controller
             return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct]);
         }
         else{
-            abort(404);
+            echo '<script>';
+            echo 'alert("No product Found");';
+            echo 'window.location.assign("/product");';
+            echo '</script>';
+
+           
         }
     }
 
