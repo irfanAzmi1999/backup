@@ -115,7 +115,7 @@
 
                                     <div class="form-group">
                                         <label>Product Image</label><br>
-                                        <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput" alt="" style="height: 350px">
+                                        <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput" alt="" style="width: 350px">
                                         <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" required>
                                     </div>
 
@@ -131,8 +131,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Principle Logo :</label>
-                                        <img src="" id="imgOutput1" alt="" style="width: 350px"  >
+                                        <label>Principle Logo :</label><br>
+                                        <img src="" id="imgOutput1" alt="" style="width: 250px"  >
                                         <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
                                     </div>
 

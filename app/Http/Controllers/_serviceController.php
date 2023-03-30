@@ -140,7 +140,19 @@ class _serviceController extends Controller
         $firstProduct = service::findorFail($serviceID); // selected product
         $category = category::findorFail($categoryID);
 
-        return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct]);
+        if($firstProduct != null)
+        {
+            return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct]);
+        }
+        else
+        {
+            echo '<script>';
+            echo 'alert("No product Found");';
+            echo 'window.location.assign("/product");';
+            echo '</script>';
+        }
+
+        
     }
 
     public function destroyService($id,$catID)

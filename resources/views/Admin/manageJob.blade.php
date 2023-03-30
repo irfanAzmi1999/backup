@@ -114,6 +114,7 @@
                                     <th>Created By</th>
                                     <th>Created At</th>
                                     <th>Update</th>
+                                    <th>Total Applicant</th>
                                     <th>View Applicant</th>
                                 </tr>
                                 </thead>
@@ -132,6 +133,9 @@
                                                 @method('DELETE')
 
                                             </form>
+                                        </td>
+                                        <td>
+                                            {{ $job->job_applicants->count() }}
                                         </td>
                                         <td>
                                             <a href="{{route('apply.show',$job->id)}}">View</a>

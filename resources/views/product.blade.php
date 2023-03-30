@@ -99,7 +99,7 @@
                         <div class="service-block-five wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="icon-box"><i class="flaticon-data"></i></div>
-                                <h3 style="width:250px;word-wrap: break-word;"><a href="/GeoScience/productInt">{{ $cat->name }}</a></h3>
+                                <h3 style="width:250px;word-wrap: break-word;"><a href="{{ route('viewProdBasedOnCat',[$cat->id]) }}">{{ $cat->name }}</a></h3>
                                 <ul class="list-item clearfix">
                                     @foreach ($cat->bullets as $bullet )
                                         <li style="width:250px;word-wrap: break-word;"><span class="dots"></span>{{ $bullet->content }}</li>
@@ -115,7 +115,7 @@
                         <div class="service-block-five wow fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="icon-box"><i class="flaticon-brain"></i></div>
-                                <h3 style="width:250px;word-wrap: break-word;"><a href="{{route('dwos')}}">Engineering</a></h3>
+                                <h3 style="width:250px;word-wrap: break-word;"><a href="{{ route('viewProdBasedOnCat',[$cat->id]) }}">{{ $cat->name }}</a></h3>
                                 <ul class="list-item clearfix">
                                     @foreach ($cat->bullets as $bullet )
                                         <li style="width:250px;word-wrap: break-word;"><span class="dots"></span>{{ $bullet->content }}</li>

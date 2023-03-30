@@ -76,7 +76,7 @@
                                     <div class="single-item clearfix">
                                         <div class="left-column">
                                             <div class="icon-box"><i class="flaticon-accept"></i></div>
-                                            <span>{{$b->title}}</span>
+                                            <span style="width:200px;word-wrap: break-word;">{{$b->title}}</span>
                                             <p></p>
                                         </div>
                                         <div class="right-column">
@@ -96,7 +96,7 @@
                         </div>
                         <hr>
                         <div style="text-align: center;">
-                            <img style="margin-top:20px ;width: 300px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <img style="margin-top:20px ;width:200px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">

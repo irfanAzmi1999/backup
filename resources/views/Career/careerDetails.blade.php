@@ -30,6 +30,13 @@
     <link href="../assets_extended/css/responsive.css" rel="stylesheet">
     <link href="../assets_extended/css/flaticon.css" rel="stylesheet">
     <link href="../assets_extended/css/owl.css" rel="stylesheet">
+    <style>
+        .fade {
+            opacity: 1;
+            -webkit-transition: opacity .15s linear;
+            transition: opacity .15s linear;
+        }
+    </style>
 </head>
 <body>
 

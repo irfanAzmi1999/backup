@@ -66,7 +66,7 @@
             <div class="col-lg-4 col-sm-6" onclick="window.location.assign('{{route('viewServBasedOnCat',[$cat->id])}}')" style="cursor:pointer">
                 <div class="ai-services-card">
                     <div class="services-image">
-                        <img src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" alt="images" style="height:120px">
+                        <img  src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" alt="images" style="height:120px;border-radius:40%">
                     </div>
                     <div class="services-content">
                         <h3>
