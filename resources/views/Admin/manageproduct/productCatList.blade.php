@@ -133,10 +133,7 @@
                                                 <a href="#" onclick="deleteProductCat('{{$item->id}}','{{$item->name}}')">
                                                     <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
                                                 </a>
-                                                
-                                              
                                             </td>
-
                                             <td><a href="{{route('listofProduct',[$item->id])}}">View Product</a></td>
                                         </tr>
                                     @empty

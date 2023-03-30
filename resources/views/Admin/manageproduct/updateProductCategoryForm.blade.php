@@ -31,7 +31,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="../../images/faazmiar-logo-only.png" alt="AdminLTELogo" height="60" width="60">
+        <img class="animation__shake" src="../../images/faazmiar-logo-only.png" alt="" height="60" width="60">
     </div>
 
     <!-- Navbar -->
@@ -59,9 +59,6 @@
                 </div>
             </div>
 
-
-
-            <!-- Sidebar Menu -->
         @include('../layout/sidebarAdmin')
         @yield('sidebar')
         <!-- /.sidebar-menu -->
@@ -69,30 +66,28 @@
         <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
+    
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Update Product Category</h1>
-                    </div><!-- /.col -->
+                    </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
                             <li class="breadcrumb-item active" >Update Product Category</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
+    
+   
         <section class="content">
             <div class="container-fluid">
-                <!-- SELECT2 EXAMPLE -->
+            
                 <form action="{{route('updateProductCategory',[$posts->id])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -104,7 +99,7 @@
 
                             </div>
                         </div>
-                        <!-- /.card-header -->
+                        
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -146,14 +141,9 @@
 
 
                             </div>
-                            <!-- /.row -->
-
-
-                            <!-- /.row -->
+            
                         </div>
-                        <!-- /.card-body -->
                         <div class="card-footer">
-
                         </div>
                     </div>
                     <div class="" style="text-align: center">
@@ -161,11 +151,9 @@
                     </div>
                 </form>
             </div>
-            <!-- /.container-fluid -->
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+
     <footer class="main-footer">
         <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
         All rights reserved.
