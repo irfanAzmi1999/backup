@@ -81,7 +81,7 @@
                 <h2>{{$cposts->name}}</h2>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/service">Service</a></li>
+                    <li><a href="/services">Service</a></li>
                     <li>{{$selected->name}}</li>
                 </ul>
             </div>
@@ -110,7 +110,7 @@
                                     <div class="single-item clearfix">
                                         <div class="left-column">
                                             <div class="icon-box"><i class="flaticon-accept"></i></div>
-                                            <span>{{$b->title}}</span>
+                                            <span style="width:200px;word-wrap: break-word;">{{$b->title}}</span>
                                             <p></p>
                                         </div>
                                         <div class="right-column">
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="service-sidebar">
-                            <h3><b>Product List</b></h3>
+                            <h3><b>Service List</b></h3>
                             <hr>
                             <ul class="sidebar-categories clearfix">
                                 @foreach($posts as $key=>$product)

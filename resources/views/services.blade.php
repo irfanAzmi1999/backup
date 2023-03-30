@@ -63,7 +63,7 @@
 
             @foreach($posts as $key=>$cat)
 
-            <div class="col-lg-4 col-sm-6" onclick="window.location.assign('{{route('wellplanning')}}');" style="cursor:pointer">
+            <div class="col-lg-4 col-sm-6" onclick="window.location.assign('{{route('viewServBasedOnCat',[$cat->id])}}')" style="cursor:pointer">
                 <div class="ai-services-card">
                     <div class="services-image">
                         <img src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" alt="images" style="height:120px">
