@@ -128,8 +128,13 @@
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
-                                                <a href="{{route('updateProductForm',[$item->id])}}">Update</a> |
-                                                <a href="#" onclick="deleteProductCat('{{$item->id}}','{{$item->name}}')">Delete</a>
+                                                <a href="{{route('updateProductForm',[$item->id])}}"><img src="{{ url('images/Admin/editing.png') }}" style="width:30px" alt=""></a>
+                                                |
+                                                <a href="#" onclick="deleteProductCat('{{$item->id}}','{{$item->name}}')">
+                                                    <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
+                                                </a>
+                                                
+                                              
                                             </td>
 
                                             <td><a href="{{route('listofProduct',[$item->id])}}">View Product</a></td>

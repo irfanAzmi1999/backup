@@ -113,7 +113,7 @@
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
-                                    <th>View</th>
+                                    {{-- <th>View</th> --}}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -124,13 +124,19 @@
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
-                                            <a href="{{route('displayUpdateProductForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a>
+                                            <a href="{{route('displayUpdateProductForm',[$item->id])}}"> <img src="{{ url('images/Admin/editing.png') }}" style="width:30px" alt=""></a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >
+                                                <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
+                                            </a>
+                                            |
+                                            <a href="{{ route('viewProduct',[$item->id]) }}" >
+                                                <img src="{{ url('images/Admin/view.png') }}" style="width:30px" alt="">
+                                            </a>
                                             <form action="{{ route('deleteProduct',[$item->id,$item->category_id]) }}" method="POST" id="frmDelete{{ $item->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        <td><a href="{{ route('viewProduct',[$item->id]) }}">View Details</a></td>
+                                        {{-- <td><a href="{{ route('viewProduct',[$item->id]) }}">View Details</a></td> --}}
                                     </tr>
                                 @empty
                                     <tr>
