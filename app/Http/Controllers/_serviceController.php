@@ -28,7 +28,7 @@ class _serviceController extends Controller
     public function addNewService(Request $request)
     {
         $image = $request->file('productImage');
-        
+
 
         $service = new service;
         $service->name = $request->input('name');
@@ -65,7 +65,7 @@ class _serviceController extends Controller
 
         $categoryID = $request->input('categoryID');
         Return redirect()->route('listofService',[$categoryID]);
-        
+
     }
 
     public function displayUpdateForm($id)
@@ -131,7 +131,18 @@ class _serviceController extends Controller
         $firstService = service::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
-        return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstService]);
+        if($firstService != null)
+        {
+            return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstService]);
+        }
+        else{
+            echo '<script>';
+            echo 'alert("No product Found");';
+            echo 'window.location.assign("/services");';
+            echo '</script>';
+        }
+
+
     }
 
     public function viewServiceBasedOnID($serviceID,$categoryID)
@@ -148,11 +159,11 @@ class _serviceController extends Controller
         {
             echo '<script>';
             echo 'alert("No product Found");';
-            echo 'window.location.assign("/product");';
+            echo 'window.location.assign("/services");';
             echo '</script>';
         }
 
-        
+
     }
 
     public function destroyService($id,$catID)

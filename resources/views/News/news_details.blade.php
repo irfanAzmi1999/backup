@@ -75,7 +75,7 @@
 </div>
 
 
-<section class="page-title text-center style-two">
+<section class="page-title text-center style-two" style="background : #424242">
     <div class="auto-container">
         <div class="content-box">
 
@@ -114,20 +114,20 @@
                     <div class="post-share-option">
                         <div class="post-tags">
                             <ul class="tags-list clearfix">
-                                <li><i class="fas fa-tags"></i><h5>Tags:</h5></li>
-                                <li><a href="blog-details.html">Analysis</a>,</li>
-                                <li><a href="blog-details.html">Consulting</a>,</li>
-                                <li><a href="blog-details.html">Data</a>,</li>
-                                <li><a href="blog-details.html">Engineering</a></li>
+{{--                                <li><i class="fas fa-tags"></i><h5>Tags:</h5></li>--}}
+{{--                                <li><a href="blog-details.html">Analysis</a>,</li>--}}
+{{--                                <li><a href="blog-details.html">Consulting</a>,</li>--}}
+{{--                                <li><a href="blog-details.html">Data</a>,</li>--}}
+{{--                                <li><a href="blog-details.html">Engineering</a></li>--}}
                             </ul>
                         </div>
                         <div class="post-social">
                             <h5>Share this post with your friends</h5>
                             <ul class="social-list clearfix">
-                                <li><a href="blog-details.html"><i class="fab fa-facebook-f"></i>Facebook</a></li>
-                                <li><a href="blog-details.html"><i class="fab fa-twitter"></i>Twiter</a></li>
-                                <li><a href="blog-details.html"><i class="fab fa-linkedin-in"></i>Linkedin</a></li>
-                                <li><a href="blog-details.html"><i class="fab fa-pinterest-p"></i>Pinterest</a></li>
+                                <li><a href="blog-details.html" style="background : #3b5998"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+{{--                                <li><a href="blog-details.html"><i class="fab fa-twitter"></i>Twiter</a></li>--}}
+{{--                                <li><a href="blog-details.html"><i class="fab fa-linkedin-in"></i>Linkedin</a></li>--}}
+{{--                                <li><a href="blog-details.html"><i class="fab fa-pinterest-p"></i>Pinterest</a></li>--}}
                             </ul>
                         </div>
                     </div>

@@ -115,7 +115,7 @@
 
                                     <div class="form-group">
                                         <label>Service Image</label><br>
-                                        <img src="" id="imgOutput" alt="" style="height: 350px">
+                                        <img src="" id="imgOutput" alt="" style="width: 350px">
                                         <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" required>
                                     </div>
 

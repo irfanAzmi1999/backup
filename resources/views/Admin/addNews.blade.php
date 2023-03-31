@@ -126,7 +126,7 @@
 
                                     <div class="form-group">
                                         <label>Image</label><br>
-                                        <img src="" id="imgOutput" alt="" style="height: 350px">
+                                        <img src="" id="imgOutput" alt="" style="width: 350px">
                                         <input type="file" class="form-control" name="news_image" onchange="loadFile(event)" required>
 
                                     </div>

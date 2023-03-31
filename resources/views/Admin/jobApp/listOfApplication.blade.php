@@ -118,7 +118,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($posts as $key=>$applicant)
+                                    @forelse($posts as $key=>$applicant)
                                         <tr>
                                             <td>{{$applicant->id}}</td>
                                             <td>{{$applicant->name}}</td>
@@ -127,7 +127,11 @@
                                             <td>{{$applicant->created_at->format('d M Y, h:i A')}}</td>
                                             <td><a href="{{route('apply.showApplicant',[$applicant->id])}}">View Details</a></td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="6" style="text-align: center">No Application Found</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
