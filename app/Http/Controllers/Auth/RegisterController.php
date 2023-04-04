@@ -76,6 +76,7 @@ class RegisterController extends Controller
                 'password' => Hash::make(Str::random(32)),
                 'jobTitle'=>$request['jobtitle'],
                 'phoneNumber'=>$request['phone'],
+                'role'=>$request['role'],
             ]);
 
             return redirect()->route('adminDashboard');

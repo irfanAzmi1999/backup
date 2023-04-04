@@ -161,11 +161,28 @@
                                         </div>
                                     @endif
                                 </div>
-
                             </div>
-                            <!-- /.col -->
 
-                            <!-- /.col -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Register as :</label>
+                                    <select name="role" class="form-control">
+                                        <option value="admin">Admin</option>
+                                        <option value="staff">Staff</option>
+                                    </select>
+                                    @if ($errors->first('role'))
+                                        <div class=" btn-danger">
+                                            <ul>
+                                                {{$errors->first('role')}}
+                                            </ul>
+                                        </div>
+                                    @endif
+                                </div>
+                          
+                            </div>
+        
+
+
                         </div>
                         <!-- /.row -->
 

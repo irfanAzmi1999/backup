@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'jobTitle' => 'Programmer',
             'phoneNumber' => '0142586621',
+            'role' => 'admin',
         ]);
 
         $this->command->info('Email : test.user@gmail.com  Password : 12345678');

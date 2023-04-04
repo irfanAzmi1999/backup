@@ -112,6 +112,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Role</th>
                                     <th>Position</th>
                                     <th>Time Registered</th>
                                     <th>Phone </th>
@@ -124,6 +125,7 @@
                                 <tr>
                                     <td>{{$userData->id}}</td>
                                     <td>{{$userData->name}}</td>
+                                    <td>{{ $userData->role }}</td>
                                     <td>{{$userData->jobTitle}}</td>
                                     <td>{{$userData->created_at->diffForHumans()}}</td>
                                     <td><a href="tel:{{$userData->phoneNumber}}">{{$userData->phoneNumber}}</a></td>
