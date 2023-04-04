@@ -10,10 +10,11 @@
             <a href="{{route('user.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                    Manage Admin
+                    Manage User
                 </p>
             </a>
         </li>
+
 
         <li class="nav-header">Products/Services Section</li>
         <li class="nav-item">

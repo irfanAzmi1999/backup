@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\_productController;
+use App\Http\Controllers\accessController;
 use App\Http\Controllers\applicantController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\serviceController;
@@ -40,7 +41,13 @@ Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
 
+Route::group([],function(){
+    Route::group(['prefix'=>'/manage_access'], function(){
 
+        Route::get('/assign/{id}',[accessController::class,'assignForm'])
+            ->name('assign');
+    });
+});
 
 Route::group([],function () {
     Route::group(['prefix' => '/manage_product'], function () {
@@ -128,7 +135,7 @@ Route::group([],function () {
 
         Route::post('/addService',[_serviceController::class,'addNewService'])
             ->name('addServiceDB');
-        
+
         Route::get('/updateServiceForm/{id}',[_serviceController::class,'displayUpdateForm'])
             ->name('displayUpdateServiceForm');
 
@@ -143,7 +150,7 @@ Route::group([],function () {
 
         Route::get('/viewServiceID/{id}/{catID}',[_serviceController::class,'viewServiceBasedOnID'])
             ->name('viewServiceBasedOnID');
-        
+
         Route::delete('/deleteService/{id}/{catID}',[_serviceController::class,'destroyService'])
             ->name('deleteService');
     });

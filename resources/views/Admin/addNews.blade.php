@@ -136,7 +136,7 @@
 
                                     <div class="form-group">
                                         <label>News Content</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
-{{--                                        <input type="text" style="margin-bottom:20px" class="form-control" name="responsibility[]" placeholder="Add Responsibility..." value="{{old('responsibility')}}">--}}
+
                                         <textarea name="content[]" id="" placeholder="First Pharagraph" cols="30" rows="3" class="form-control"  style="margin-bottom:20px"></textarea>
                                         <div id="reqs">
 

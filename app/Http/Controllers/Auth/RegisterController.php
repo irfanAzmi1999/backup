@@ -60,6 +60,8 @@ class RegisterController extends Controller
      */
     protected function register(Request $request)
     {
+        $role = $request->input('role');
+
         $validate = Validator::make($request->all(), [
             'name' => 'required|min:5',
             'email' => 'required|unique:users',
@@ -70,7 +72,7 @@ class RegisterController extends Controller
             return back()->withErrors($validate->errors())->withInput();
         }
         else{
-            User::create([
+             User::create([
                 'name' => $request['name'],
                 'email' => $request['email'],
                 'password' => Hash::make(Str::random(32)),
@@ -79,7 +81,14 @@ class RegisterController extends Controller
                 'role'=>$request['role'],
             ]);
 
-            return redirect()->route('adminDashboard');
+            if($role == 'admin') {
+                return redirect()->route('adminDashboard');
+            }
+
+            if($role== 'staff'){
+//                return view('Admin.managestaffaccess.assignstaff');
+                return redirect()->route('adminDashboard');
+            }
         }
 
 
