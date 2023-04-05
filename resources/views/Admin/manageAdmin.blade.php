@@ -5,26 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Manage Admin</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../dashboard_assets/plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../dashboard_assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../dashboard_assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="../dashboard_assets/plugins/jqvmap/jqvmap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../dashboard_assets/dist/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../dashboard_assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../dashboard_assets/plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="../dashboard_assets/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="{{url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/jqvmap/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/summernote/summernote-bs4.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -34,16 +24,14 @@
         <img class="animation__shake" src="../images/faazmiar-logo-only.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
-    <!-- Navbar -->
 @include('../layout/navBar')
 @yield('navbar')
-<!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
+
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{route('adminDashboard')}}" class="brand-link">
-            <img src="../images/faazmiar-logo-only.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="../images/faazmiar-logo-only.png" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
 
@@ -52,7 +40,6 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{Auth::user()->name}}</a>
@@ -100,8 +87,6 @@
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <a href="{{route('register')}}">Add Admin</a>
-
-
                                 </div>
                             </div>
                         </div>
@@ -137,7 +122,6 @@
                                         @else
                                             <a href="{{route('assign',$userData->id)}}">Assign Product & Services</a>
                                         @endif
-
                                     </td>
                                 </tr>
                                 @endforeach
@@ -154,7 +138,9 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
+        <strong>Copyright &copy; 2023
+            <a href="#">Faazmiar Technology Sdn Bhd</a>.
+        </strong>
         All rights reserved.
 
     </footer>
@@ -168,19 +154,16 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../dashboard_assets/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../dashboard_assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script src="{{url('/dashboard_assets/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{url('/dashboard_assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
-<!-- Bootstrap 4 -->
-<script src="../dashboard_assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{url('/dashboard_assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="../dashboard_assets/plugins/chart.js/Chart.min.js"></script>
+<script src="{{url('/dashboard_assets/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
-<script src="../dashboard_assets/plugins/sparklines/sparkline.js"></script>
+<script src="{{url('/dashboard_assets/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
 <script src="../dashboard_assets/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="../dashboard_assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>

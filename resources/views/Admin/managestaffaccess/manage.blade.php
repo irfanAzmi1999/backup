@@ -24,9 +24,16 @@
      <link rel="stylesheet" href="{{ url('/dashboard_assets/plugins/daterangepicker/daterangepicker.css') }}">
      <!-- summernote -->
      <link rel="stylesheet" href="{{ url('/dashboard_assets/plugins/summernote/summernote-bs4.min.css') }}">
+
+    <style>
+        .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color: #7c8289;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-    
+
     <div class="preloader flex-column justify-content-center align-items-center">
         <img class="animation__shake" src="{{ url('/images/faazmiar-logo-only.png') }}" alt="Faazmiar_Logo" height="60" width="60">
     </div>
@@ -73,69 +80,148 @@
             </div>
         </div>
 
-    
-
         <section class="content">
             <div class="row">
                 <div class="col-12" >
                     <div class="card" style="display:flex">
-                        <div class="card-header" style="display:flex"> 
-                            
+                        <div class="card-header" style="display:flex">
+
                             <div class="form-control" style="border:0ch">
                                 <label for="">
                                     Staff Name :
                                 </label>
                                 {{ $posts->name }}
-                            
                             </div>
-                            
+
                             <div class="form-control" style="border:0ch">
                                 <label for="">
                                     Staff Email :
                                  </label>
                                  {{ $posts->email }}
                             </div>
-                             
-                        
+
                             <div class="form-control" style="border:0ch">
                                 <label for="">
-                                    Staff Position : 
+                                    Staff Position :
                                 </label>
                                 {{ $posts->jobTitle }}
                             </div>
-                           
+
                             <div class="form-control" style="border:0ch">
                                 <label for="">
-                                    Staff Role : 
+                                    Staff Role :
                                 </label>
                                 {{ $posts->role }}
                             </div>
-                            
+
+
                         </div>
                     </div>
-                    
+
                     <div class="card" style="display:flex">
-                        <div class="card-header" style="display:flex"> 
-                            
+                        <div class="card-header" style="display:flex">
+
                             <div class="form-control" style="border:0ch">
                                 <label for="">
                                     No of Services assigned :
                                 </label>
                                0
-                            
                             </div>
-                            
+
                             <div class="form-control" style="border:0ch">
                                 <label for="">
                                     No of Products assigned :
                                 </label>
                               0
-                            
                             </div>
-                            
-                       
-                            
                         </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Custom Tabs -->
+                            <div class="card">
+                                <div class="card-header d-flex p-0">
+                                    <h3 class="card-title p-3">Assign Product / Service</h3>
+                                    <ul class="nav nav-pills ml-auto p-2">
+                                        <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Products</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Services</a></li>
+
+                                    </ul>
+                                </div><!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="tab-content">
+
+                                        <div class="tab-pane active" id="tab_1">
+                                            <div id="accordion">
+                                                @foreach($cProduct as $key=>$item)
+                                                <div class="card card-primary">
+                                                    <div class="card-header" style="background-color: #7c8289">
+                                                        <h4 class="card-title w-100">
+                                                            <a class="d-block w-100" data-toggle="collapse" href="#collapse{{$key}}">
+                                                                Category : {{$item->name}}
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse{{$key}}" class="collapse show" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                          <table class="table">
+                                                              <tr>
+                                                                  <th style="text-align: center">No</th>
+                                                                  <th style="text-align: center">Product Name</th>
+                                                                  <th style="text-align: center">Access</th>
+                                                              </tr>
+                                                             @forelse($item->products as $pkey => $product)
+                                                                 <tr>
+                                                                     <td style="text-align: center">{{$pkey+1}}</td>
+                                                                     <td style="text-align: center">{{$product->name}}</td>
+                                                                     <td style="text-align: center"><a href="#">Update Access</a></td>
+                                                                 </tr>
+                                                              @empty
+                                                                 <tr>
+                                                                     <td></td>
+                                                                     <td style="text-align: center;color: #0a53be">No Product Found Under This Category</td>
+                                                                    <td></td>
+                                                                 </tr>
+                                                              @endforelse
+                                                          </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+
+                                            </div>
+                                        </div>
+                                        <!-- /.tab-pane -->
+                                        <div class="tab-pane" id="tab_2">
+                                            <div id="accordion">
+                                                @foreach($cService as $key=>$item)
+                                                    <div class="card card-primary">
+                                                        <div class="card-header" style="background-color: #7c8289">
+                                                            <h4 class="card-title w-100">
+                                                                <a class="d-block w-100" data-toggle="collapse" href="#collapse{{$key}}">
+                                                                    Category : {{$item->name}}
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse{{$key}}" class="collapse show" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                //
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <!-- /.tab-pane -->
+
+                                    </div>
+                                    <!-- /.tab-content -->
+                                </div><!-- /.card-body -->
+                            </div>
+                            <!-- ./card -->
+                        </div>
+                        <!-- /.col -->
                     </div>
                 </div>
             </div>
