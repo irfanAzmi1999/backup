@@ -26,11 +26,13 @@
      <link rel="stylesheet" href="{{ url('/dashboard_assets/plugins/summernote/summernote-bs4.min.css') }}">
 
     <style>
-        .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        .nav-pills .nav-link.active, .nav-pills .show>.nav-link
+        {
             color: #fff;
             background-color: #7c8289;
         }
     </style>
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -123,16 +125,16 @@
 
                             <div class="form-control" style="border:0ch">
                                 <label for="">
-                                    No of Services assigned :
+                                    No of Products assigned :
                                 </label>
-                               0
+                                {{$noP}}
                             </div>
 
                             <div class="form-control" style="border:0ch">
                                 <label for="">
-                                    No of Products assigned :
+                                    No of Services assigned :
                                 </label>
-                              0
+                                {{$noS}}
                             </div>
                         </div>
                     </div>
@@ -146,9 +148,11 @@
                                     <ul class="nav nav-pills ml-auto p-2">
                                         <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Products</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Services</a></li>
-
                                     </ul>
-                                </div><!-- /.card-header -->
+                                </div>
+                                <form action="{{route('assignPS',[$posts->id])}}" method="POST">
+                                    @method('POST')
+                                    @csrf
                                 <div class="card-body">
                                     <div class="tab-content">
 
@@ -169,13 +173,26 @@
                                                               <tr>
                                                                   <th style="text-align: center">No</th>
                                                                   <th style="text-align: center">Product Name</th>
+                                                                  <th style="text-align: center">Status</th>
                                                                   <th style="text-align: center">Access</th>
                                                               </tr>
                                                              @forelse($item->products as $pkey => $product)
                                                                  <tr>
                                                                      <td style="text-align: center">{{$pkey+1}}</td>
                                                                      <td style="text-align: center">{{$product->name}}</td>
-                                                                     <td style="text-align: center"><a href="#">Update Access</a></td>
+
+                                                                     @if($product->users()->first())
+                                                                         <td style="text-align: center">Access</td>
+                                                                     @else
+                                                                         <td style="text-align: center">No Access</td>
+                                                                     @endif
+                                                                     <td style="text-align: center">
+                                                                         @if($product->users()->first())
+                                                                         <input type="checkbox" value="{{$product->id}}" class="form-control" name="products[]" checked>
+                                                                         @else
+                                                                             <input type="checkbox" value="{{$product->id}}" class="form-control" name="products[]">
+                                                                         @endif
+                                                                     </td>
                                                                  </tr>
                                                               @empty
                                                                  <tr>
@@ -206,7 +223,39 @@
                                                         </div>
                                                         <div id="collapse{{$key}}" class="collapse show" data-parent="#accordion">
                                                             <div class="card-body">
-                                                                //
+                                                                <table class="table">
+                                                                    <tr>
+                                                                        <th style="text-align: center">No</th>
+                                                                        <th style="text-align: center">Product Name</th>
+                                                                        <th style="text-align: center">Status</th>
+                                                                        <th style="text-align:center ">Access</th>
+                                                                    </tr>
+                                                                    @forelse($item->services as $pkey => $service)
+                                                                        <tr>
+                                                                            <td style="text-align: center">{{$pkey+1}}</td>
+                                                                            <td style="text-align: center">{{$service->name}}</td>
+                                                                            @if($service->users()->first())
+                                                                                <td style="text-align: center">Access</td>
+                                                                            @else
+                                                                                <td style="text-align: center">No Access</td>
+                                                                            @endif
+                                                                            <td style="text-align: center">
+                                                                                @if($service->users()->first())
+                                                                                    <input type="checkbox" class="form-control" value="{{$service->id}}" name="services[]" checked>
+                                                                                @else
+                                                                                    <input type="checkbox" class="form-control" value="{{$service->id}}" name="services[]">
+                                                                                @endif
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    @empty
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td style="text-align: center;color: #0a53be">No Service Found Under This Category</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    @endforelse
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -216,8 +265,13 @@
                                         <!-- /.tab-pane -->
 
                                     </div>
-                                    <!-- /.tab-content -->
-                                </div><!-- /.card-body -->
+                                    <div style="text-align: center">
+                                        <input type="submit" value="Submit" class="btn btn-primary">
+                                    </div>
+
+                                </div>
+
+                                </form>
                             </div>
                             <!-- ./card -->
                         </div>
@@ -258,7 +312,6 @@
 <!-- daterangepicker -->
 <script src="{{ url('/dashboard_assets/plugins/moment/moment.min.js') }}"></script>
 <script src="{{ url('/dashboard_assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
 <script src="{{ url('/dashboard_assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- Summernote -->
 <script src="{{ url('/dashboard_assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
@@ -266,9 +319,6 @@
 <script src="{{ url('/dashboard_assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ url('/dashboard_assets/dist/js/adminlte.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-{{--<script src=../dashboard_assets/"dist/js/demo.js"></script>--}}
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ url('/dashboard_assets/dist/js/pages/dashboard.js') }}"></script>
 
 </html>

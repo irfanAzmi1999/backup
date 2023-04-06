@@ -100,8 +100,6 @@ class _serviceController extends Controller
 
        $service->save();
 
-    //    Benefit of the services
-
        benefit::where('service_id','=',$id)->delete();
 
        $benefit = $request->input('benefits');

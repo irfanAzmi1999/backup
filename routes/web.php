@@ -46,6 +46,9 @@ Route::group([],function(){
 
         Route::get('/assign/{id}',[accessController::class,'assignForm'])
             ->name('assign');
+
+        Route::post('/assignPS/{userid}',[accessController::class,'processAssign'])
+            ->name('assignPS');
     });
 });
 

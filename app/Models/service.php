@@ -18,4 +18,10 @@ class service extends Model
     {
         return $this->hasMany(benefit::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'users_services_products','services_id','users_id');
+    }
+
 }

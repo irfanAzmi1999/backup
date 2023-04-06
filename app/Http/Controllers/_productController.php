@@ -35,13 +35,13 @@ class _productController extends Controller
         $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
 
-        
+
 
         if($request->file('principle_logo')!=null)
         {
             $productPrinciple = $request->file('principle_logo');
             $product->principleLogo = $productPrinciple->getClientOriginalName();
-            
+
         }
         $product->save();
 
@@ -49,7 +49,7 @@ class _productController extends Controller
         {
             $productPrinciple->storeAs('public/images/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
         }
-   
+
         $benefits = $request->input('benefits');
         foreach ($benefits as $key=>$item)
         {
@@ -111,7 +111,6 @@ class _productController extends Controller
         $benefits = benefit::where('product_id','=',$id);
         $benefits->delete();
 
-
         $bInput = $request->input('benefits');
 
         foreach ($bInput as $key => $item)
@@ -171,8 +170,6 @@ class _productController extends Controller
             echo 'alert("No product Found");';
             echo 'window.location.assign("/product");';
             echo '</script>';
-
-           
         }
     }
 

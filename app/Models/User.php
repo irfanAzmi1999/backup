@@ -28,6 +28,16 @@ class User extends Authenticatable
         return $this->hasMany(news::class);
     }
 
+    public function products()
+    {
+        return $this->belongsToMany(product::class,'users_services_products','users_id','products_id');
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(service::class,'users_services_products','users_id','services_id');
+    }
+
     protected $fillable = [
         'name',
         'email',

@@ -18,4 +18,11 @@ class product extends Model
     {
         return $this->hasMany(benefit::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'users_services_products','products_id','users_id');
+    }
+
+
 }
