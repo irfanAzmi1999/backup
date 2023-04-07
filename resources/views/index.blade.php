@@ -35,37 +35,7 @@
 </div>
 
 <header class="header-wrap-area">
-    <!-- <div class="top-header-area">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-3">
-                    <div class="top-header-content">
-                        <span>Welcome to Faazmiar Technology.  <a href="contact.html">Need Help?</a></span>
-                    </div>
-                </div>
 
-                <div class="col-lg-9 col-md-9">
-                    <ul class="top-header-info">
-                        <li>
-                            <i class='bx bx-map'></i>
-                            Jalan Jejaka, Maluri, 55100 Kuala Lumpur
-                        </li>
-                        <li>
-                            <i class='bx bx-phone'></i>
-                            Contact: <a href="tel:03-9200 8867">03-9200 8867</a>
-                        </li>
-                        <li>
-                            <i class='bx bxl-gmail'></i>
-                            Contact Email: <a href="mailto:contact@Faazmiar.com">contact@Faazmiar.com</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- End Top Header -->
-
-    <!-- Navbar -->
     <div class="navbar-area">
         <div class="evolta-responsive-nav">
             <div class="container">

@@ -47,17 +47,6 @@
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
-                </div>
-            </div>
 
 
         @include('../layout/sidebarAdmin')
@@ -89,20 +78,20 @@
 
             <!-- Default box -->
             <div class="card">
-              
+
                 <div class="card-body">
                     Category Selected : {{ $posts->name }}
                     <hr>
                     <p>
-                        
+
                     </p>
                     <div style="text-align: center;margin-bottom:50px">
                         <p>
                             <img src="{{asset('storage/images/product_category/'.$posts->id.'/image/'.$posts->image)}}" id="imgOutput" alt="" style="width: 350px">
                         </p>
                     </div>
-  
-                  
+
+
                   <div style="margin-bottom:50px">
                      <p><b>Category Name : </b>{{ $posts->name }}</p>
                      <p>Category Role : {{ $posts->role }}</p>

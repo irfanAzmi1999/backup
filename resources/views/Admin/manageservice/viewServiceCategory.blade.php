@@ -47,7 +47,6 @@
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
 
-        <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -89,20 +88,20 @@
 
             <!-- Default box -->
             <div class="card">
-              
+
                 <div class="card-body">
                     Category Selected : {{ $posts->name }}
                     <hr>
                     <p>
-                        
+
                     </p>
                     <div style="text-align: center;margin-bottom:50px">
                         <p>
                             <img src="{{asset('storage/images/service_category/'.$posts->id.'/image/'.$posts->image)}}" id="imgOutput" alt="" style="width: 350px">
                         </p>
                     </div>
-  
-                  
+
+
                   <div style="margin-bottom:50px">
                      <p><b>Category Name : </b>{{ $posts->name }}</p>
                      <p>Category Role : {{ $posts->role }}</p>

@@ -47,17 +47,7 @@
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
-                </div>
-            </div>
+
 
 
         @include('../layout/sidebarAdmin')
@@ -89,7 +79,7 @@
 
             <!-- Default box -->
             <div class="card">
-              
+
                 <div class="card-body">
                     <h3>{{ $posts->name }}</h3>
                     <hr>
@@ -108,13 +98,13 @@
                             : {{ $item->description }}
                             </div>
                             <hr>
-                    @endforeach  
+                    @endforeach
                   </p>
-                  
+
                   <div style="text-align: center;margin-bottom:50px">
                         <b>Principle Logo : </b><br>
                         <img src="{{asset('storage/images/product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput" alt="" style="width: 250px;margin-top:20px">
-                    
+
                 </div>
 
                 </div>

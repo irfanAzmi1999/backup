@@ -7,7 +7,6 @@
                 <div class="single-footer-widget">
                     <div class="logo">
                         <a href="/"><img src="../images/faazmiar.png" alt="image"></a>
-                        <!-- <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.</p> -->
                     </div>
 
                     <ul class="social">

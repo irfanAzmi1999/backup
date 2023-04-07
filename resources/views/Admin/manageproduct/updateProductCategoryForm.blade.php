@@ -47,17 +47,7 @@
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
-                </div>
-            </div>
+
 
         @include('../layout/sidebarAdmin')
         @yield('sidebar')
@@ -66,7 +56,7 @@
         <!-- /.sidebar -->
     </aside>
 
-    
+
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -83,11 +73,11 @@
                 </div>
             </div>
         </div>
-    
-   
+
+
         <section class="content">
             <div class="container-fluid">
-            
+
                 <form action="{{route('updateProductCategory',[$posts->id])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -99,7 +89,7 @@
 
                             </div>
                         </div>
-                        
+
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -141,7 +131,7 @@
 
 
                             </div>
-            
+
                         </div>
                         <div class="card-footer">
                         </div>

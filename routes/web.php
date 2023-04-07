@@ -10,6 +10,7 @@ use App\Models\job;
 use App\Models\news;
 use App\Models\category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
@@ -40,6 +41,10 @@ Route::resource('/apply',applicantController::class);
 Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
+
+Blade::if('isRole',function ($role){
+    return Auth::check() && Auth::user()->role == $role;
+});
 
 Route::group([],function(){
     Route::group(['prefix'=>'/manage_access'], function(){

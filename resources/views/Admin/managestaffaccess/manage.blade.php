@@ -49,14 +49,6 @@
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
 
-        <div class="sidebar">
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
-                </div>
-            </div>
 
 
         @include('../layout/sidebarAdmin')
@@ -179,7 +171,7 @@
                                                              @forelse($item->products as $pkey => $product)
                                                                  <tr>
                                                                      <td style="text-align: center">{{$pkey+1}}</td>
-                                                                     <td style="text-align: center">{{$product->name}}</td>
+                                                                     <td style="text-align: center"><a href="{{route('viewProduct',$product->id)}}">{{$product->name}}</a></td>
 
                                                                      @if($product->users()->first())
                                                                          <td style="text-align: center">Access</td>
@@ -209,7 +201,6 @@
 
                                             </div>
                                         </div>
-                                        <!-- /.tab-pane -->
                                         <div class="tab-pane" id="tab_2">
                                             <div id="accordion">
                                                 @foreach($cService as $key=>$item)
@@ -233,7 +224,9 @@
                                                                     @forelse($item->services as $pkey => $service)
                                                                         <tr>
                                                                             <td style="text-align: center">{{$pkey+1}}</td>
-                                                                            <td style="text-align: center">{{$service->name}}</td>
+                                                                            <td style="text-align: center">
+                                                                                <a href="{{route('viewService',$service->id)}}">{{$service->name}}</a>
+                                                                            </td>
                                                                             @if($service->users()->first())
                                                                                 <td style="text-align: center">Access</td>
                                                                             @else

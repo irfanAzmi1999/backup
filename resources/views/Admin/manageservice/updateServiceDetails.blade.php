@@ -47,17 +47,7 @@
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
-                </div>
-            </div>
+
 
 
 
@@ -119,7 +109,7 @@
                                         <div style="text-align:center">
                                             <img src="{{asset('storage/images/service/'.$posts->id.'/'.$posts->serviceImage)}}" id="imgOutput" alt="" style="width: 350px">
                                         </div>
-                                      
+
                                         <input type="file" class="form-control" name="serviceImage" onchange="loadFile(event)" >
                                     </div>
 
@@ -144,7 +134,7 @@
                                         <div style="text-align:center">
                                             <img src="{{asset('storage/images/service/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput1" alt="" style="width: 350px"  >
                                         </div>
-                                       
+
                                         <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
                                     </div>
 

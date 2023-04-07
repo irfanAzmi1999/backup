@@ -108,7 +108,28 @@
                                    <li><a href="{{route('viewProductBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
                                 @endforeach
                             </ul>
-
+                            <h3><b>Technical Paper</b></h3>
+                            <hr>
+                            <div class="sidebar-file">
+                                <ul class="download-option clearfix">
+                                    <li>
+                                        <div class="icon-box"><a href="service-details.html"><i class="flaticon-download"></i></a></div>
+                                        <div class="box">
+                                            <figure class="image"><img src="{{ url('/assets_extended/images/icons/icon-6.png') }}" alt=""></figure>
+                                            <h5>Research Report.pdf</h5>
+                                            <span>65 KB</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon-box"><a href="service-details.html"><i class="flaticon-download"></i></a></div>
+                                        <div class="box">
+                                            <figure class="image"><img src="{{ url('/assets_extended/images/icons/icon-6.png') }}" alt=""></figure>
+                                            <h5>Service Details.txt</h5>
+                                            <span>48 KB</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

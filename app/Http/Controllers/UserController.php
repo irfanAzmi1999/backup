@@ -57,7 +57,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findorFail($id);
+        
+        return view('Admin.manageUser.updateUser',['posts'=>$user]);
     }
 
     /**
