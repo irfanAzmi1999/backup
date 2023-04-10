@@ -122,7 +122,7 @@
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        <td><a href="#">View</a></td>
+                                        <td><a href="{{route('listPaper',['product',$item->id])}}">View</a></td>
                                     </tr>
                                 @empty
                                     <tr>

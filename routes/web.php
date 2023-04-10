@@ -3,6 +3,7 @@
 use App\Http\Controllers\_productController;
 use App\Http\Controllers\accessController;
 use App\Http\Controllers\applicantController;
+use App\Http\Controllers\paperController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\_serviceController;
@@ -42,8 +43,22 @@ Route::resource('/news',newsController::class);
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
 
+
 Blade::if('isRole',function ($role){
     return Auth::check() && Auth::user()->role == $role;
+});
+
+Route::group([],function(){
+    Route::group(['prefix'=>'/manage_paper'], function(){
+        Route::get('/listPaper/{type}/{id}',[paperController::class,'listPaper'])
+            ->name('listPaper');
+
+        Route::get('/addPaperForm',[paperController::class,'addPaperForm'])
+            ->name('addPaperForm');
+
+        Route::put('/addPaper/{type}/{id}',[paperController::class,'addPaper'])
+            ->name('addPaper');
+    });
 });
 
 Route::group([],function(){

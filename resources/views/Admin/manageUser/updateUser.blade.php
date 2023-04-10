@@ -115,16 +115,6 @@
                             </label>
                             <input type="text" value="{{$posts->phoneNumber}}" class="form-control form-control-border border-width-2" name="phoneNumber" id="exampleInputBorderWidth2" placeholder="Phone Number">
                         </div>
-{{--                        <div class="form-group">--}}
-{{--                            <label for="exampleInputBorderWidth2">Password--}}
-{{--                            </label>--}}
-{{--                            <input type="password" class="form-control form-control-border border-width-2" name="password" id="exampleInputBorderWidth2">--}}
-{{--                        </div>--}}
-{{--                        <div class="form-group">--}}
-{{--                            <label for="exampleInputBorderWidth2">Confirm Password--}}
-{{--                            </label>--}}
-{{--                            <input type="password" class="form-control form-control-border border-width-2" name="confirm_password" id="exampleInputBorderWidth2">--}}
-{{--                        </div>--}}
                     </div>
 
                 </div>
