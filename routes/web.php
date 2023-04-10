@@ -53,9 +53,6 @@ Route::group([],function(){
         Route::get('/listPaper/{type}/{id}',[paperController::class,'listPaper'])
             ->name('listPaper');
 
-        Route::get('/addPaperForm',[paperController::class,'addPaperForm'])
-            ->name('addPaperForm');
-
         Route::put('/addPaper/{type}/{id}',[paperController::class,'addPaper'])
             ->name('addPaper');
     });

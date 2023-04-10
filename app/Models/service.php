@@ -24,4 +24,9 @@ class service extends Model
         return $this->belongsToMany(User::class,'users_services_products','services_id','users_id');
     }
 
+    public function technical_papers()
+    {
+        return $this->hasMany(technical_paper::class);
+    }
+
 }

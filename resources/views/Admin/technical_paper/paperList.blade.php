@@ -59,6 +59,34 @@
 
     </aside>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form action="{{route('addPaper',['product',$type->id])}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Upload technical paper</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="file-paper" class="col-form-label">Upload file : </label>
+                        <code>pdf only*</code>
+                        <input type="file" class="form-control" id="file-paper" name="paper" accept="application/pdf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-name" class="col-form-label">Title : </label>
+                        <input type="text" class="form-control" id="file-name" name="name" required>
+                    </div>
+                    <input type="submit" class="btn btn-primary form-control" value="Upload">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
 
     <div class="content-wrapper">
         <div class="content-header">
@@ -86,7 +114,7 @@
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{route('addPaperForm')}}">Add Paper </a>
+                                    <a href="" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Paper </a>
                                 </div>
                             </div>
                         </div>
@@ -94,9 +122,6 @@
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
-
-
-
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>

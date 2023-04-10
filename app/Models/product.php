@@ -24,5 +24,10 @@ class product extends Model
         return $this->belongsToMany(User::class,'users_services_products','products_id','users_id');
     }
 
+    public function technical_papers()
+    {
+        return $this->hasMany(technical_paper::class);
+    }
+
 
 }

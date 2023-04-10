@@ -140,10 +140,6 @@
 
 </aside>
 
-
-
-
-
 <script src="{{url('/dashboard_assets/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{url('/dashboard_assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <script>
