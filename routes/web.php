@@ -55,6 +55,13 @@ Route::group([],function(){
 
         Route::put('/addPaper/{type}/{id}',[paperController::class,'addPaper'])
             ->name('addPaper');
+
+        Route::get('/viewPaper/{id}/{name}',function($id,$name){
+            return view('Admin.technical_paper.viewPaper',['fileID'=>$id,'fileName'=>$name]);
+        })->name('viewPaper');
+
+        Route::delete('/deletePaper/{type}/{id}/{psID}',[paperController::class,'deletePaper'])
+            ->name('deletePaper');
     });
 });
 

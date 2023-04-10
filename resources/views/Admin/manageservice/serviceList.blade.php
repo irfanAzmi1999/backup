@@ -103,7 +103,7 @@
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
-                                    <th>View</th>
+                                    <th>Technical Paper</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -114,13 +114,13 @@
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
-                                            <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a>
+                                            <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>
                                             <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        <td><a href="{{ route('viewService',[$item->id]) }}">View Details</a></td>
+                                        <td><a href="{{ route('listPaper',['service',$item->id]) }}">View</a></td>
                                     </tr>
                                 @empty
                                     <tr>

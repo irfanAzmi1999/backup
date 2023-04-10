@@ -61,12 +61,12 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form action="{{route('addPaper',['product',$type->id])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('addPaper',[$role,$type->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Upload technical paper</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Upload <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a> technical paper</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -87,6 +87,8 @@
             </form>
         </div>
     </div>
+
+
 
     <div class="content-wrapper">
         <div class="content-header">
@@ -125,8 +127,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
+                                    <th>File Name</th>
                                     <th>View/Download</th>
-                                    <th>Remove</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -134,8 +137,63 @@
                                         <tr>
                                             <td>{{$item->id}}</td>
                                             <td>{{$item->title}}</td>
-                                            <td><a href="">Download</a></td>
-                                            <td><a href="">Remove</a></td>
+                                            <td>{{$item->filename}}</td>
+                                            <td><a href="{{route('viewPaper',[$item->id,$item->filename])}}">View</a></td>
+                                            <td>
+                                                <a href="" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Update</a> | <a href="#" onclick="deleteFunction()">Remove</a>
+
+                                                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <form action="" method="POST" enctype="multipart/form-data">
+
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Update <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a> technical paper</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="fileID" class="col-form-label">ID : </label>
+                                                                        <input type="text" class="form-control" id="fileID" value="{{$item->id}}" readonly>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="file-paper" class="col-form-label">New Paper : </label>
+                                                                        <code>pdf only*</code>
+                                                                        <input type="file" class="form-control" id="file-paper" name="paper" accept="application/pdf" required>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="file-name" class="col-form-label">Title : </label>
+                                                                        <input type="text" class="form-control" id="file-name" name="name" value="{{$item->title}}" required>
+                                                                    </div>
+                                                                    <input type="submit" class="btn btn-primary form-control" value="Upload">
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+
+                                                <form action="{{route('deletePaper',[$role,$item->id,$type->id])}}" method="POST" id="frmDelete{{$item->id}}">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                </form>
+                                                <script>
+                                                    function deleteFunction()
+                                                    {
+                                                        let status = confirm('Delete this paper?');
+                                                        if(status == true)
+                                                        {
+                                                            document.getElementById('frmDelete{{$item->id}}').submit();
+                                                        }
+                                                        else {
+
+                                                        }
+
+                                                    }
+                                                </script>
+                                            </td>
                                         </tr>
                                     @empty
                                         <tr>
@@ -153,6 +211,12 @@
         </section>
 
     </div>
+
+    @if(Session::has('message'))
+        <script>
+            alert('{{Session::get('message')}}');
+        </script>
+    @endif
 
     <footer class="main-footer">
         <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
