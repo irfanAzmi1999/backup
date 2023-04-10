@@ -105,22 +105,16 @@
                             <hr>
                             <div class="sidebar-file">
                                 <ul class="download-option clearfix">
+                                    @foreach($paper as $key=>$item)
                                     <li>
-                                        <div class="icon-box"><a href="service-details.html"><i class="flaticon-download"></i></a></div>
+                                        <div class="icon-box"><a href="{{route('viewPaper',[$item->id,$item->filename])}}"><i class="flaticon-download"></i></a></div>
                                         <div class="box">
                                             <figure class="image"><img src="{{ url('/assets_extended/images/icons/icon-6.png') }}" alt=""></figure>
-                                            <h5>Research Report.pdf</h5>
+                                            <h5>{{$item->title}}</h5>
                                             <span>65 KB</span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="icon-box"><a href="service-details.html"><i class="flaticon-download"></i></a></div>
-                                        <div class="box">
-                                            <figure class="image"><img src="{{ url('/assets_extended/images/icons/icon-6.png') }}" alt=""></figure>
-                                            <h5>Service Details.txt</h5>
-                                            <span>48 KB</span>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

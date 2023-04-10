@@ -112,7 +112,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Technical Paper for : <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a></h3>
+                            <h3 class="card-title">Technical Paper for : 
+                                @if($role == 'product')
+                                <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
+
+                                @else
+                                <a href="{{route('viewService',[$type->id])}}">{{$type->name}}</a>
+                                @endif
+                            </h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -148,7 +155,17 @@
 
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Update <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a> technical paper</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Update 
+                                                                        
+                                                                        @if($role == 'product')
+                                                                        <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
+                                        
+                                                                        @else
+                                                                        <a href="{{route('viewService',[$type->id])}}">{{$type->name}}</a>
+                                                                        @endif
+                                                                        
+                                                                        
+                                                                        technical paper</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>

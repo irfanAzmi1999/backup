@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\service;
 use App\Models\benefit;
 use App\Models\category;
+use App\Models\technical_paper;
 use Illuminate\Support\Facades\Session;
 
 class _serviceController extends Controller
@@ -129,9 +130,12 @@ class _serviceController extends Controller
         $firstService = service::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
+        $productID = $firstService->id;
+        $paper = technical_paper::where('service_id','=',$productID)->get();
+
         if($firstService != null)
         {
-            return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstService]);
+            return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstService,'paper'=>$paper]);
         }
         else{
             echo '<script>';
@@ -149,9 +153,12 @@ class _serviceController extends Controller
         $firstProduct = service::findorFail($serviceID); // selected product
         $category = category::findorFail($categoryID);
 
+        $productID = $firstProduct->id;
+        $paper = technical_paper::where('service_id','=',$productID)->get();
+
         if($firstProduct != null)
         {
-            return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct]);
+            return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
         }
         else
         {

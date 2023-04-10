@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\benefit;
 use App\Models\category;
 use App\Models\product;
+use App\Models\technical_paper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -161,9 +162,12 @@ class _productController extends Controller
         $firstProduct = product::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
+        $productID = $firstProduct->id;
+        $paper = technical_paper::where('product_id','=',$productID)->get();
+
         if($firstProduct != null)
         {
-            return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct]);
+            return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
         }
         else{
             echo '<script>';
@@ -179,6 +183,9 @@ class _productController extends Controller
         $firstProduct = product::findorFail($productID); // selected product
         $category = category::findorFail($categoryID);
 
-        return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct]);
+        $productID = $firstProduct->id;
+        $paper = technical_paper::where('product_id','=',$productID)->get();
+
+        return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
     }
 }

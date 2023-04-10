@@ -142,7 +142,22 @@
                                    <li><a href="{{route('viewServiceBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
                                 @endforeach
                             </ul>
-
+                            <h3><b>Technical Paper</b></h3>
+                            <hr>
+                            <div class="sidebar-file">
+                                <ul class="download-option clearfix">
+                                    @foreach($paper as $key=>$item)
+                                    <li>
+                                        <div class="icon-box"><a href="{{route('viewPaper',[$item->id,$item->filename])}}"><i class="flaticon-download"></i></a></div>
+                                        <div class="box">
+                                            <figure class="image"><img src="{{ url('/assets_extended/images/icons/icon-6.png') }}" alt=""></figure>
+                                            <h5>{{$item->title}}</h5>
+                                            <span>65 KB</span>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
