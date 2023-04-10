@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Session;
 
-class UserController extends Controller
+class paperController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('Admin.manageAdmin',['userVar'=>User::all()]);
+        //
     }
 
     /**
@@ -58,9 +56,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findorFail($id);
-
-        return view('Admin.manageUser.updateUser',['posts'=>$user]);
+        //
     }
 
     /**
@@ -72,17 +68,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findorFail($id);
-
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->jobTitle = $request->input('job');
-        $user->phoneNumber = $request->input('phoneNumber');
-
-        $user->save();
-
-        Session::flash('message','User Updated ');
-        return redirect('/Admin/Dashboard');
+        //
     }
 
     /**

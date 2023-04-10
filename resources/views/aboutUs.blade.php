@@ -61,7 +61,7 @@
                     </a>
 
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                         <ul class="navbar-nav">
+                    <ul class="navbar-nav">
                         <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="/product" class="nav-link">Products</a></li>
                         <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>

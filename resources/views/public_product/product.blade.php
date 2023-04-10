@@ -66,13 +66,11 @@
                                     <p>
                                         {{$selected->description}}
                                     </p>
-                                  
                                 </div>
                                 <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt=""></figure>
                                 <div class="intro-box">
                                     
                                     @foreach($selected->benefits as $key=>$b)
-
                                     <div class="single-item clearfix">
                                         <div class="left-column">
                                             <div class="icon-box"><i class="flaticon-accept"></i></div>
@@ -85,12 +83,7 @@
                                             </p>
                                         </div>
                                     </div>
-
-                                    @endforeach
-
-                                    
-                                   
-                                
+                                    @endforeach                         
                                 </div>
                             </div>
                         </div>
@@ -132,17 +125,7 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-
-
-
-
-
-
-
         </div>
    </section>
 

@@ -99,7 +99,7 @@
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
-                                    {{-- <th>View</th> --}}
+                                    <th>Technical Paper</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -122,7 +122,7 @@
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        {{-- <td><a href="{{ route('viewProduct',[$item->id]) }}">View Details</a></td> --}}
+                                        <td><a href="#">View</a></td>
                                     </tr>
                                 @empty
                                     <tr>

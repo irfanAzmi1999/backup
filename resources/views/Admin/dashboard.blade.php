@@ -107,6 +107,12 @@
 </div>
 <!-- ./wrapper -->
 
+@if(Session::has('message'))
+    <script>
+        alert('{{Session::get('message')}}');
+    </script>
+@endif
+
 <!-- jQuery -->
 <script src="../dashboard_assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
