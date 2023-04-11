@@ -46,7 +46,7 @@ class productController extends Controller
         $picture->storeAs('public/images/product_category/'.$category->id.'/image',$picture->getClientOriginalName());
         Session::flash('message','New Product Category Added');
 
-        LogActivity::addToLog('Add Product Category');
+        LogActivity::addToLog('Add Product Category :'.$category->name);
         return redirect()->route('productCat');
     }
 
@@ -84,7 +84,7 @@ class productController extends Controller
 
         Session::flash('message','Product Category Updated');
 
-        LogActivity::addToLog('Update Product Category');
+        LogActivity::addToLog('Update Product Category ID :'.$catP->name);
         return redirect()->route('productCat');
     }
 
@@ -95,7 +95,7 @@ class productController extends Controller
 
         Session::flash('message','Product Category Deleted Successfully');
 
-        LogActivity::addToLog('Delete Product Category');
+        LogActivity::addToLog('Remove Product Category :'.$catProduct->name);
         return redirect()->route('productCat');
     }
 

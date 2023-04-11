@@ -43,7 +43,7 @@ class serviceController extends Controller
         $picture->storeAs('public/images/service_category/'.$category->id.'/image',$picture->getClientOriginalName());
         Session::flash('message','New Service Category Added');
 
-        LogActivity::addToLog('Add Service Category');
+        LogActivity::addToLog('Add Service Category :'.$category->name);
         return redirect()->route('serviceCat');
     }
 
@@ -82,7 +82,7 @@ class serviceController extends Controller
 
         Session::flash('message','Service Category Updated');
 
-        LogActivity::addToLog('Update Service Category');
+        LogActivity::addToLog('Update Service Category :'.$categoryService->name);
         return redirect()->route('serviceCat');
 
     }
@@ -94,7 +94,7 @@ class serviceController extends Controller
 
         Session::flash('message','Service Category Deleted');
 
-        LogActivity::addToLog('Remove Service Category');
+        LogActivity::addToLog('Remove Service Category :'.$serviceCategory->name);
         return redirect()->route('serviceCat');
     }
 

@@ -105,7 +105,7 @@
                           <p>Total Vacancy Available</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-stats-bars"></i>
+                          <i class="ion ion-briefcase"></i>
                         </div>
 
                       </div>
@@ -120,7 +120,7 @@
                           <p>Total Technical Papers</p>
                         </div>
                         <div class="icon">
-                          <i class="ion ion-person-add"></i>
+                          <i class="ion ion-document-text"></i>
                         </div>
 
                       </div>
@@ -180,7 +180,6 @@
                                                 <td class="text-danger">{{ $log->agent }}</td>
                                                 <td>{{ $log->user_id }}</td>
                                                 <td>{{$log->created_at->diffForHumans()}}</td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -229,7 +229,7 @@ Route::get('/Admin/Dashboard',function (){
     $logs = LogActivity::logActivityLists();
 
     return view('Admin.dashboard',['totalUser'=>$totalUsers,'totalJob'=>$totalVacancy,'totalPaper'=>$totalPaper,'totalPS'=>$totalPS,'logs'=>$logs]);
-})->name('adminDashboard');
+})->name('adminDashboard')->middleware('auth');
 
 Route::get('/Admin/Manage',function (){
     return view('Admin.manageAdmin');

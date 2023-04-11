@@ -67,7 +67,7 @@ class _serviceController extends Controller
 
         $categoryID = $request->input('categoryID');
 
-        LogActivity::addToLog('Add New Service');
+        LogActivity::addToLog('Add New Service :'.$service->name);
         Return redirect()->route('listofService',[$categoryID]);
 
     }
@@ -119,7 +119,7 @@ class _serviceController extends Controller
 
        Session::flash('message','Service Updated');
 
-        LogActivity::addToLog('Update Service');
+        LogActivity::addToLog('Update Service : '.$service->name);
        return redirect()->route('listofService',[$currentCategoryID]);
     }
 
@@ -183,7 +183,7 @@ class _serviceController extends Controller
 
         Session::flash('message','Service Deleted Successfully');
 
-        LogActivity::addToLog('Removed Service');
+        LogActivity::addToLog('Removed Service :'.$service->name);
         return redirect()->route('listofService',[$catID]);
     }
 }

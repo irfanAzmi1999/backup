@@ -37,8 +37,6 @@ class _productController extends Controller
         $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
 
-
-
         if($request->file('principle_logo')!=null)
         {
             $productPrinciple = $request->file('principle_logo');
@@ -64,7 +62,7 @@ class _productController extends Controller
 
         $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
 
-        LogActivity::addToLog('Add new product');
+        LogActivity::addToLog('Add new product :'.$product->name);
         return redirect()->route('listofProduct',[$request->input('categoryID')]);
 
     }
@@ -138,7 +136,7 @@ class _productController extends Controller
         $currentCat = $request->input('currentCatID');
         Session::flash('message','Product Updated');
 
-        LogActivity::addToLog('Update New Product');
+        LogActivity::addToLog('Update New Product :'.$product->name);
         return redirect()->route('listofProduct',[$currentCat]);
     }
 
@@ -150,7 +148,7 @@ class _productController extends Controller
 
         Session::flash('message','Product Deleted Successfully');
 
-        LogActivity::addToLog('Delete product');
+        LogActivity::addToLog('Removed product :'.$product->name);
         return redirect()->route('listofProduct',[$catID]);
     }
 

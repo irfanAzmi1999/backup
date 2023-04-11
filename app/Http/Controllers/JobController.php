@@ -58,7 +58,7 @@ class JobController extends Controller
         }
         Session::flash('message','Job Added');
 
-        LogActivity::addToLog('Add Job Vacancy');
+        LogActivity::addToLog('Add Job Vacancy :'.$jobVariable->jobName);
         return redirect()->route('job.index');
     }
 
@@ -84,7 +84,7 @@ class JobController extends Controller
 
         $jobVar = Job::findorFail($id);
 
-       
+
         return view('Admin.updateJob',['post'=>Job::with('responsibilities')->findorFail($id)]);
     }
 
@@ -118,7 +118,7 @@ class JobController extends Controller
 
         Session::flash('message','Vacancy Updated');
 
-        LogActivity::addToLog('Update Job Vacancy');
+        LogActivity::addToLog('Update Job Vacancy :'.$job->jobName);
         return redirect()->route('job.index');
     }
 
@@ -135,7 +135,7 @@ class JobController extends Controller
         $job->delete();
 
         Session::flash('message','Job Deleted Successfully');
-        LogActivity::addToLog('Remove Job Vacancy');
+        LogActivity::addToLog('Removed Job Vacancy :'.$job->jobName);
         return Redirect::back();
     }
 
