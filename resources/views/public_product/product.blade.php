@@ -69,7 +69,7 @@
                                 </div>
                                 <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt=""></figure>
                                 <div class="intro-box">
-                                    
+
                                     @foreach($selected->benefits as $key=>$b)
                                     <div class="single-item clearfix">
                                         <div class="left-column">
@@ -83,7 +83,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    @endforeach                         
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                         <div class="box">
                                             <figure class="image"><img src="{{ url('/assets_extended/images/icons/icon-6.png') }}" alt=""></figure>
                                             <h5>{{$item->title}}</h5>
-                                            <span>65 KB</span>
+                                            <span>{{$item->filesize}} KB</span>
                                         </div>
                                     </li>
                                     @endforeach

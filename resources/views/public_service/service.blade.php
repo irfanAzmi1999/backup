@@ -50,14 +50,14 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="evolta-nav">
             <div class="container">
                 <div class="navbar navbar-expand-md navbar-light">
                     <a href="/" class="navbar-brand">
                         <img src="../images/faazmiar.png" alt="">
                     </a>
-    
+
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
 
     <div class="page-title-area">
@@ -100,11 +100,11 @@
                                     <p>
                                         {{$selected->description}}
                                     </p>
-                                  
+
                                 </div>
                                 <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/service/'.$selected->id.'/'.$selected->serviceImage)}}" alt=""></figure>
                                 <div class="intro-box">
-                                    
+
                                     @foreach($selected->benefits as $key=>$b)
 
                                     <div class="single-item clearfix">
@@ -122,9 +122,9 @@
 
                                     @endforeach
 
-                                    
-                                   
-                                
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                                         <div class="box">
                                             <figure class="image"><img src="{{ url('/assets_extended/images/icons/icon-6.png') }}" alt=""></figure>
                                             <h5>{{$item->title}}</h5>
-                                            <span>65 KB</span>
+                                            <span>{{$item->filesize}} KB</span>
                                         </div>
                                     </li>
                                     @endforeach

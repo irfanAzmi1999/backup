@@ -40,6 +40,7 @@ class paperController extends Controller
             $paper = new technical_paper;
             $paper->title =$title;
             $paper->filename=$fileData->getClientOriginalName();
+            $paper->filesize = $fileData->getSize()/1024;
             $product->technical_papers()->save($paper);
             $fileData->storeAs('public/document/technical_papers/'.$paper->id,$fileData->getClientOriginalName());
         }
@@ -50,6 +51,7 @@ class paperController extends Controller
             $paper = new technical_paper;
             $paper->title = $title;
             $paper->filename = $fileData->getClientOriginalName();
+            $paper->filesize = $fileData->getSize()/1024;
             $service->technical_papers()->save($paper);
             $fileData->storeAs('public/document/technical_papers/'.$paper->id,$fileData->getClientOriginalName());
         }
