@@ -9,7 +9,11 @@ use App\Http\Controllers\serviceController;
 use App\Http\Controllers\_serviceController;
 use App\Models\job;
 use App\Models\news;
+use App\Models\User;
 use App\Models\category;
+use App\Models\technical_paper;
+use App\Models\product;
+use App\Models\service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
@@ -215,7 +219,13 @@ Route::get('/Add Vacancy',function (){
 })->name('addVacancy');
 
 Route::get('/Admin/Dashboard',function (){
-    return view('Admin.dashboard');
+    $totalUsers = User::all()->count();
+    $totalVacancy = Job::all()->count();
+    $totalPaper = technical_paper::all()->count();
+    $totalProduct = product::all()->count();
+    $totalService = service::all()->count();
+    $totalPS = $totalProduct + $totalService;
+    return view('Admin.dashboard',['totalUser'=>$totalUsers,'totalJob'=>$totalVacancy,'totalPaper'=>$totalPaper,'totalPS'=>$totalPS]);
 })->name('adminDashboard');
 
 Route::get('/Admin/Manage',function (){

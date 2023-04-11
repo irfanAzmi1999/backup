@@ -77,22 +77,74 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
+   
         <section class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-
-                <!-- /.row -->
-                <!-- Main row -->
-
-                <!-- /.row (main row) -->
-            </div><!-- /.container-fluid -->
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-info">
+                        <div class="inner">
+                          <h3>{{ $totalUser }}</h3>
+          
+                          <p>Number of users</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                          </div>
+                       
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-success">
+                        <div class="inner">
+                          <h3>{{ $totalJob }}</h3>
+          
+                          <p>Total Vacancy Available</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-stats-bars"></i>
+                        </div>
+                  
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                      <!-- small box -->
+                      <div class="small-box bg-warning">
+                        <div class="inner">
+                          <h3>{{ $totalPaper }}</h3>
+          
+                          <p>Total Technical Papers</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-person-add"></i>
+                        </div>
+                        
+                      </div>
+                    </div>
+          
+                    <div class="col-lg-3 col-6">
+                      
+                      <div class="small-box bg-danger">
+                        <div class="inner">
+                          <h3>{{ $totalPS }}</h3>
+          
+                          <p>Total Products & Services</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-pie-graph"></i>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+            </div>
         </section>
-        <!-- /.content -->
+
     </div>
-    <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
         All rights reserved.

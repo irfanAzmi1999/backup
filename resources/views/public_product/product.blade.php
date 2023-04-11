@@ -105,7 +105,7 @@
                             <hr>
                             <div class="sidebar-file">
                                 <ul class="download-option clearfix">
-                                    @foreach($paper as $key=>$item)
+                                    @forelse($paper as $key=>$item)
                                     <li>
                                         <div class="icon-box"><a href="{{route('viewPaper',[$item->id,$item->filename])}}"><i class="flaticon-download"></i></a></div>
                                         <div class="box">
@@ -114,7 +114,11 @@
                                             <span>{{$item->filesize}} KB</span>
                                         </div>
                                     </li>
-                                    @endforeach
+                                    @empty
+                                    <li>
+                                        No Technical Paper Found
+                                    </li>
+                                    @endforelse
                                 </ul>
                             </div>
                         </div>
