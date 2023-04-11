@@ -81,7 +81,7 @@ class RegisterController extends Controller
                 'phoneNumber'=>$request['phone'],
                 'role'=>$request['role'],
             ]);
-            LogActivity::addToLog('Register New User');
+            LogActivity::addToLog('Register New User :'.$request->input('name'));
 
             if($role == 'admin') {
                 return redirect()->route('adminDashboard');

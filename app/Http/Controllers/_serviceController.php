@@ -158,11 +158,12 @@ class _serviceController extends Controller
         $firstProduct = service::findorFail($serviceID); // selected product
         $category = category::findorFail($categoryID);
 
-        $productID = $firstProduct->id;
-        $paper = technical_paper::where('service_id','=',$productID)->get();
+        
 
         if($firstProduct != null)
         {
+            $productID = $firstProduct->id;
+            $paper = technical_paper::where('service_id','=',$productID)->get();
             return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
         }
         else
