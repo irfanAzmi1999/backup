@@ -6,12 +6,12 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <div class="logo">
-                        <a href="/"><img src="../images/faazmiar.png" alt="image"></a>
+                        <a href="/"><img src="{{ url('/images/faazmiar.png') }}" alt="image"></a>
                     </div>
 
                     <ul class="social">
-                        <a href="https://www.facebook.com/faazmiartechnology/" target="_blank"><img src="../images/facebook.png" alt=""></a>
-                        <a href="https://www.linkedin.com/company/faazmiar-technology" target="_blank"><img src="../images/linkedln.png"/></a>
+                        <a href="https://www.facebook.com/faazmiartechnology/" target="_blank"><img src="{{ url('/images/facebook.png') }}" alt=""></a>
+                        <a href="https://www.linkedin.com/company/faazmiar-technology" target="_blank"><img src="{{ url('/images/linkedln.png') }}"/></a>
                     </ul>
                 </div>
             </div>
@@ -68,11 +68,11 @@
     </div>
 
     <div class="footer-shape-1">
-        <img src="../assets/img/artificial-intelligence/footer-shape-1.png" alt="image">
+        <img src="{{ url('/assets/img/artificial-intelligence/footer-shape-1.png') }}" alt="image">
     </div>
 
     <div class="footer-shape-2">
-        <img src="../assets/img/artificial-intelligence/footer-shape-2.png" alt="image">
+        <img src="{{ url('/assets/img/artificial-intelligence/footer-shape-2.png') }}" alt="image">
     </div>
 
     <div class="lines">

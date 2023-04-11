@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Helpers\LogActivity;
 
 class JobController extends Controller
 {
@@ -56,6 +57,8 @@ class JobController extends Controller
             $jobVariable->responsibilities()->save($responsibilityv);
         }
         Session::flash('message','Job Added');
+
+        LogActivity::addToLog('Add Job Vacancy');
         return redirect()->route('job.index');
     }
 
@@ -80,6 +83,8 @@ class JobController extends Controller
     {
 
         $jobVar = Job::findorFail($id);
+
+       
         return view('Admin.updateJob',['post'=>Job::with('responsibilities')->findorFail($id)]);
     }
 
@@ -112,6 +117,8 @@ class JobController extends Controller
         }
 
         Session::flash('message','Vacancy Updated');
+
+        LogActivity::addToLog('Update Job Vacancy');
         return redirect()->route('job.index');
     }
 
@@ -128,6 +135,7 @@ class JobController extends Controller
         $job->delete();
 
         Session::flash('message','Job Deleted Successfully');
+        LogActivity::addToLog('Remove Job Vacancy');
         return Redirect::back();
     }
 

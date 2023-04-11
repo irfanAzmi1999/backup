@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\bullet;
 use App\Models\category;
 use Illuminate\Http\Request;
@@ -44,6 +45,8 @@ class productController extends Controller
 
         $picture->storeAs('public/images/product_category/'.$category->id.'/image',$picture->getClientOriginalName());
         Session::flash('message','New Product Category Added');
+
+        LogActivity::addToLog('Add Product Category');
         return redirect()->route('productCat');
     }
 
@@ -80,6 +83,8 @@ class productController extends Controller
         }
 
         Session::flash('message','Product Category Updated');
+
+        LogActivity::addToLog('Update Product Category');
         return redirect()->route('productCat');
     }
 
@@ -89,6 +94,8 @@ class productController extends Controller
         $catProduct->delete();
 
         Session::flash('message','Product Category Deleted Successfully');
+
+        LogActivity::addToLog('Delete Product Category');
         return redirect()->route('productCat');
     }
 

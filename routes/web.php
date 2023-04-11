@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\LogActivity;
 use App\Http\Controllers\_productController;
 use App\Http\Controllers\accessController;
 use App\Http\Controllers\applicantController;
@@ -220,12 +221,14 @@ Route::get('/Add Vacancy',function (){
 
 Route::get('/Admin/Dashboard',function (){
     $totalUsers = User::all()->count();
-    $totalVacancy = Job::all()->count();
+    $totalVacancy = Job::where('status','=',true)->get()->count();
     $totalPaper = technical_paper::all()->count();
     $totalProduct = product::all()->count();
     $totalService = service::all()->count();
     $totalPS = $totalProduct + $totalService;
-    return view('Admin.dashboard',['totalUser'=>$totalUsers,'totalJob'=>$totalVacancy,'totalPaper'=>$totalPaper,'totalPS'=>$totalPS]);
+    $logs = LogActivity::logActivityLists();
+
+    return view('Admin.dashboard',['totalUser'=>$totalUsers,'totalJob'=>$totalVacancy,'totalPaper'=>$totalPaper,'totalPS'=>$totalPS,'logs'=>$logs]);
 })->name('adminDashboard');
 
 Route::get('/Admin/Manage',function (){

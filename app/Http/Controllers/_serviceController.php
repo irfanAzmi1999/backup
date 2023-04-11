@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use Illuminate\Http\Request;
 use App\Models\service;
 use App\Models\benefit;
@@ -65,6 +66,8 @@ class _serviceController extends Controller
         Session::flash('Message','Service Added');
 
         $categoryID = $request->input('categoryID');
+
+        LogActivity::addToLog('Add New Service');
         Return redirect()->route('listofService',[$categoryID]);
 
     }
@@ -115,6 +118,8 @@ class _serviceController extends Controller
        }
 
        Session::flash('message','Service Updated');
+
+        LogActivity::addToLog('Update Service');
        return redirect()->route('listofService',[$currentCategoryID]);
     }
 
@@ -177,6 +182,8 @@ class _serviceController extends Controller
         $service->delete();
 
         Session::flash('message','Service Deleted Successfully');
+
+        LogActivity::addToLog('Removed Service');
         return redirect()->route('listofService',[$catID]);
     }
 }

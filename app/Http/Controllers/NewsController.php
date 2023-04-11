@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\news;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Helpers\LogActivity;
 
 class NewsController extends Controller
 {
@@ -119,6 +120,7 @@ class NewsController extends Controller
             $news->pharagraphs()->save($newPhara);
          }
         Session::flash('message','News updated');
+        LogActivity::addToLog('Update News');
         return redirect()->route('news.index');
     }
 
@@ -134,6 +136,7 @@ class NewsController extends Controller
         $news->delete();
 
         Session::flash('message','News Deleted Successfully');
+        LogActivity::addToLog('Remove News');
         return Redirect::back();
     }
 }

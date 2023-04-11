@@ -77,7 +77,7 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-   
+
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -86,13 +86,13 @@
                       <div class="small-box bg-info">
                         <div class="inner">
                           <h3>{{ $totalUser }}</h3>
-          
+
                           <p>Number of users</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                           </div>
-                       
+
                       </div>
                     </div>
                     <!-- ./col -->
@@ -101,13 +101,13 @@
                       <div class="small-box bg-success">
                         <div class="inner">
                           <h3>{{ $totalJob }}</h3>
-          
+
                           <p>Total Vacancy Available</p>
                         </div>
                         <div class="icon">
                           <i class="ion ion-stats-bars"></i>
                         </div>
-                  
+
                       </div>
                     </div>
                     <!-- ./col -->
@@ -116,31 +116,81 @@
                       <div class="small-box bg-warning">
                         <div class="inner">
                           <h3>{{ $totalPaper }}</h3>
-          
+
                           <p>Total Technical Papers</p>
                         </div>
                         <div class="icon">
                           <i class="ion ion-person-add"></i>
                         </div>
-                        
+
                       </div>
                     </div>
-          
+
                     <div class="col-lg-3 col-6">
-                      
+
                       <div class="small-box bg-danger">
                         <div class="inner">
                           <h3>{{ $totalPS }}</h3>
-          
+
                           <p>Total Products & Services</p>
                         </div>
                         <div class="icon">
                           <i class="ion ion-pie-graph"></i>
                         </div>
-                        
+
                       </div>
                     </div>
                   </div>
+                <hr>
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">User Activities</h3>
+
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0" style="height: 300px;">
+                                <table class="table table-head-fixed">
+                                    <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Subject</th>
+                                        <th>URL</th>
+                                        <th>Method</th>
+                                        <th>IP</th>
+                                        <th>Browser</th>
+                                        <th>User</th>
+                                        <th>Time</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($logs as $key=>$log)
+                                            <tr>
+                                                <td>{{ ++$key }}</td>
+                                                <td>{{ $log->subject }}</td>
+                                                <td class="text-success">{{ $log->url }}</td>
+                                                <td><span class="btn btn-info">{{ $log->method }}</span></td>
+                                                <td class="text-warning">{{ $log->ip }}</td>
+                                                <td class="text-danger">{{ $log->agent }}</td>
+                                                <td>{{ $log->user_id }}</td>
+                                                <td>{{$log->created_at->diffForHumans()}}</td>
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
             </div>
         </section>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\bullet;
 use App\Models\category;
 use App\Models\service;
@@ -41,6 +42,8 @@ class serviceController extends Controller
 
         $picture->storeAs('public/images/service_category/'.$category->id.'/image',$picture->getClientOriginalName());
         Session::flash('message','New Service Category Added');
+
+        LogActivity::addToLog('Add Service Category');
         return redirect()->route('serviceCat');
     }
 
@@ -78,6 +81,8 @@ class serviceController extends Controller
         }
 
         Session::flash('message','Service Category Updated');
+
+        LogActivity::addToLog('Update Service Category');
         return redirect()->route('serviceCat');
 
     }
@@ -88,6 +93,8 @@ class serviceController extends Controller
         $serviceCategory->delete();
 
         Session::flash('message','Service Category Deleted');
+
+        LogActivity::addToLog('Remove Service Category');
         return redirect()->route('serviceCat');
     }
 

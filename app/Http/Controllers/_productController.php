@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\benefit;
 use App\Models\category;
 use App\Models\product;
@@ -63,6 +64,7 @@ class _productController extends Controller
 
         $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
 
+        LogActivity::addToLog('Add new product');
         return redirect()->route('listofProduct',[$request->input('categoryID')]);
 
     }
@@ -135,6 +137,8 @@ class _productController extends Controller
 
         $currentCat = $request->input('currentCatID');
         Session::flash('message','Product Updated');
+
+        LogActivity::addToLog('Update New Product');
         return redirect()->route('listofProduct',[$currentCat]);
     }
 
@@ -145,6 +149,8 @@ class _productController extends Controller
         $product->delete();
 
         Session::flash('message','Product Deleted Successfully');
+
+        LogActivity::addToLog('Delete product');
         return redirect()->route('listofProduct',[$catID]);
     }
 

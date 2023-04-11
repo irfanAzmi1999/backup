@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use App\Models\product;
 use App\Models\service;
 use App\Models\technical_paper;
@@ -57,6 +58,8 @@ class paperController extends Controller
         }
 
         Session::flash('message','Technical Paper Added');
+
+        LogActivity::addToLog('Technical Paper Added');
         return redirect()->route('listPaper',[$type,$id]);
     }
 
@@ -66,6 +69,8 @@ class paperController extends Controller
         $paper->delete();
 
         Session::flash('message','Technical Paper Deleted');
+
+        LogActivity::addToLog('Technical Paper Removed');
         return redirect()->route('listPaper',[$type,$psID]);
 
     }

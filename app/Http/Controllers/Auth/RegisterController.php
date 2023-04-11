@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\LogActivity;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -80,6 +81,7 @@ class RegisterController extends Controller
                 'phoneNumber'=>$request['phone'],
                 'role'=>$request['role'],
             ]);
+            LogActivity::addToLog('Register New User');
 
             if($role == 'admin') {
                 return redirect()->route('adminDashboard');
