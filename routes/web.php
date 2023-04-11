@@ -57,7 +57,9 @@ Route::group([],function(){
             ->name('addPaper');
 
         Route::get('/viewPaper/{id}/{name}',function($id,$name){
-            return view('Admin.technical_paper.viewPaper',['fileID'=>$id,'fileName'=>$name]);
+            $pathToFile = public_path('storage/document/technical_papers/'.$id.'/'.$name);
+            return response()->file($pathToFile);
+            // return view('Admin.technical_paper.viewPaper',['fileID'=>$id,'fileName'=>$name]);
         })->name('viewPaper');
 
         Route::delete('/deletePaper/{type}/{id}/{psID}',[paperController::class,'deletePaper'])
