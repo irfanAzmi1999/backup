@@ -74,14 +74,14 @@ class RegisterController extends Controller
         }
         else{
              User::create([
-                'name' => $request['name'],
+                'name' => Str::upper($request['name']),
                 'email' => $request['email'],
                 'password' => Hash::make(Str::random(32)),
                 'jobTitle'=>$request['jobtitle'],
                 'phoneNumber'=>$request['phone'],
                 'role'=>$request['role'],
             ]);
-            LogActivity::addToLog('Register New User :'.$request->input('name'));
+            LogActivity::addToLog('Register New User :'.Str::upper($request->input('name')));
 
             if($role == 'admin') {
                 return redirect()->route('adminDashboard');
