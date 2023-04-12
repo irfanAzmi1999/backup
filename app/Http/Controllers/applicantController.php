@@ -6,9 +6,18 @@ use App\Models\job;
 use App\Models\job_applicant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class applicantController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except([
+            'show',
+            'showApplicant'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +52,7 @@ class applicantController extends Controller
 //        $cv = $request->file('cv');
 
         $applicant = new job_applicant;
-        $applicant->name = $request->input('name');
+        $applicant->name = Str::upper($request->input('name'));
         $applicant->phone = $request->input('phone');
         $applicant->email = $request->input('email');
         $applicant->address = $request->input('address');

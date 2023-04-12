@@ -17,7 +17,9 @@ class _productController extends Controller
         $this->middleware('auth')->only([
             'showAddProductForm',
             'showProductList',
-            'addNewProduct'
+            'addNewProduct',
+            'displayUpdateForm',
+            'updateProduct'
         ]);
     }
 
