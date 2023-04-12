@@ -2,12 +2,12 @@
 @section('sidebar')
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex" >
             <div class="image">
             </div>
-            <div class="info">
-                
-                <a href="{{route('user.edit',Auth::user()->id)}}" class="d-block"> {{ Auth::user()->name }} </a>
+            <div class="info" >
+
+                <a href="{{route('user.edit',Auth::user()->id)}}" class="d-block" > {{ Auth::user()->name }} </a>
             </div>
         </div>
 <nav class="mt-2">

@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Session;
 
 class paperController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only([
+            'addPaper'
+        ]);
+    }
+
     public function listPaper($type,$id)
     {
         $p = null;

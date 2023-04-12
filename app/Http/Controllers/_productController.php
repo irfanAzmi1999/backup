@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\Session;
 
 class _productController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only([
+            'showAddProductForm',
+            'showProductList',
+            'addNewProduct'
+        ]);
+    }
+
     public function showProductList($id)
     {
         $product = product::where('category_id','=',$id)->get();
@@ -166,7 +175,7 @@ class _productController extends Controller
         $firstProduct = product::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
-     
+
 
         if($firstProduct != null)
         {

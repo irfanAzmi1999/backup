@@ -129,8 +129,8 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
+                            <table class="table table-hover text-nowrap table-bordered">
+                                <thead class="table-active">
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
@@ -214,7 +214,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                           <td colspan="4" style="text-align: center">No Paper Found</td>
+                                           <td colspan="5" style="text-align: center">No Paper Found</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

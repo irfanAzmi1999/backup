@@ -178,7 +178,7 @@
                                                 <td><span class="btn btn-info">{{ $log->method }}</span></td>
                                                 <td class="text-warning">{{ $log->ip }}</td>
                                                 <td class="text-danger">{{ $log->agent }}</td>
-                                                <td>{{ $log->user_id }}</td>
+                                                <td>{{ $log->user->name }}</td>
                                                 <td>{{$log->created_at->diffForHumans()}}</td>
                                             </tr>
                                         @endforeach

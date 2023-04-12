@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Session;
 
 class serviceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function showServiceCategory()
     {
         $serviceCategory = category::where('role','=','service')->get();

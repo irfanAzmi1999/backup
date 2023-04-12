@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Session;
 
 class _serviceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function showServiceList($id)
     {
         $service = service::where('category_id','=',$id)->get();
@@ -158,7 +163,7 @@ class _serviceController extends Controller
         $firstProduct = service::findorFail($serviceID); // selected product
         $category = category::findorFail($categoryID);
 
-        
+
 
         if($firstProduct != null)
         {

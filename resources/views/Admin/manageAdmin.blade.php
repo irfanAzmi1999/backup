@@ -83,8 +83,8 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
+                            <table class="table table-hover text-nowrap table-bordered">
+                                <thead class="table-active">
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>

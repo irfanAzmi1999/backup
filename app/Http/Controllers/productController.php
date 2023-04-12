@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Session;
 
 class productController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only([
+            'viewUpdateForm'
+        ]);
+    }
+
 
     public function showProductCategory()
     {

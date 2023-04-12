@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LogActivity;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -82,6 +87,7 @@ class UserController extends Controller
         $user->save();
 
         Session::flash('message','User Updated ');
+        LogActivity::addToLog('Update user details :'.$user->name);
         return redirect('/Admin/Dashboard');
     }
 
