@@ -22,6 +22,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\newsController;
+use Jorenvh\Share\Share;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +40,16 @@ Auth::routes();
 Route::get('/job_show/{id}',[JobController::class,'show'])->middleware('validateJobStatus')->name('showJob');
 
 Route::get('/news_details/{id}',function ($id){
-    return view('News.news_details',['post'=>news::findorFail($id),'popularPost'=>news::orderBy('id','desc')->take(3)->get()]);
+    $newsVar = news::findorFail($id);
+    $url = url()->full();
+    $share = (new Jorenvh\Share\Share)->page('http://192.168.0.34:8000/news_details/1', 'Share title')
+        ->facebook()
+        ->twitter()
+        ->linkedin('Extra linkedin summary can be passed here')
+        ->whatsapp()
+        ->getRawLinks();
+
+    return view('News.news_details',['post'=>news::findorFail($id),'popularPost'=>news::orderBy('id','desc')->take(3)->get(),'url'=>$url,'share'=>$share]);
 })->name('news_details');
 
 Route::get('applyShowApplicant/{id}',[applicantController::class,'showApplicant'])->name('apply.showApplicant');

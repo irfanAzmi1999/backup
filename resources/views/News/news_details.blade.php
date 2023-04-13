@@ -1,9 +1,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta property="og:url" content="{{$url}}">
+    <meta property="og:title" content="Tajuk">
+    <meta property="og:description" content="Description">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
+    <script src="../assets_extended/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/share.js') }}"></script>
     <link rel="icon" href="../images/faazmiar-logo-only.png" type="image/png">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/animate.min.css">
@@ -75,7 +82,7 @@
 </div>
 
 
-<section class="page-title text-center style-two" style="background : #424242">
+<section class="page-title text-center style-two" style="background : black">
     <div class="auto-container">
         <div class="content-box">
 
@@ -124,8 +131,20 @@
                         <div class="post-social">
                             <h5>Share this post with your friends</h5>
                             <ul class="social-list clearfix">
-                                <li><a href="blog-details.html" style="background : #3b5998"><i class="fab fa-facebook-f"></i>Facebook</a></li>
-{{--                                <li><a href="blog-details.html"><i class="fab fa-twitter"></i>Twiter</a></li>--}}
+                                <li>
+                                    <a href="{{$share['facebook']}}" style="background-color: #3b5998"><i class="fab fa-facebook-f"></i>Facebook</a>
+                                </li>
+                                <li>
+                                    <a href="{{$share['twitter']}}" style="background-color: #00acee"><i class="fab fa-twitter"></i>Twitter</a>
+                                </li>
+                                <li>
+                                    <a href="{{$share['whatsapp']}}" style="background-color: #25D366"><i class="fab fa-whatsapp"></i>Whatsapp</a>
+                                </li>
+                                <li>
+                                    <a href="{{$share['linkedin']}}" style="background-color: #0072b1"><i class="fab fa-linkedin-in"></i>Linkedin</a>
+                                </li>
+
+{{--                                <li><a href="blog-details.html"><i class="fab fa-twitter"></i>Twiter</a></li>
 {{--                                <li><a href="blog-details.html"><i class="fab fa-linkedin-in"></i>Linkedin</a></li>--}}
 {{--                                <li><a href="blog-details.html"><i class="fab fa-pinterest-p"></i>Pinterest</a></li>--}}
                             </ul>
@@ -202,6 +221,6 @@
 <script src="../assets_extended/js/tilt.jquery.js"></script>
 
 <!-- main-js -->
-<script src="../assets_extended/js/script.js"></script>
+
 </body>
 </html>
