@@ -106,7 +106,7 @@
                         </figure>
                         <div class="text">
                             @foreach($post->pharagraphs as $key=>$p)
-                            <p>{{$p->content}}</p>
+                            <p align="justify">{{$p->content}}</p>
                             @endforeach
                         </div>
 
