@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="../../dashboard_assets/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="../../dashboard_assets/plugins/summernote/summernote-bs4.min.css">
+    <script src="https://cdn.tiny.cloud/1/a3o1o7g2yyqr4tdaftctpx9mqursxwjhyhcqmx18d8ilkba7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -103,25 +104,34 @@
                                         <img src="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}" style="height: 250px;border-radius: 10px" alt="" id="imgOutput">
                                         <input type="file" name="news_image" class="form-control" style="margin-top: 20px" onchange="loadFile(event)">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Pharagraphs</label>
-                                            <a  onclick="add()" style="cursor: pointer;">Add New</a>
-                                            <br>
-                                            <div id="divElement">
-                                                @foreach($post->pharagraphs as $key => $p)
-                                                    <textarea id="divElement{{$key+1}}" class="form-control" name="content[]" rows="4" placeholder="Add Responsibility...">{{$p->content}}</textarea><button type="button" style="margin-bottom: 10px" id="divElement{{$key+1}}" onclick="removeExistingElement(this)">Remove</button>
-                                                @endforeach
-                                            </div>
-                                            <div id="reqs">
 
-                                            </div>
+
+                                        <div class="form-group">
+                                            <label for="">News Sample Editor</label>
+                                            <textarea name="textSample" class="sample" id="editorID" cols="30" rows="10">
+                                                {!! $post->texteditor !!}
+                                            </textarea>
                                         </div>
+
+                                        <textarea name="generatedText" id="hiddenID" cols="30" rows="5" class="form-control" maxlength="4" readonly></textarea>
+                                        <input type="button" onclick="generateText()" value="Generate Short Text" style="margin-top: 10px">
+{{--                                        <div class="form-group">--}}
+{{--                                            <label>Pharagraphs</label>--}}
+{{--                                            <a  onclick="add()" style="cursor: pointer;">Add New</a>--}}
+{{--                                            <br>--}}
+{{--                                            <div id="divElement">--}}
+{{--                                                @foreach($post->pharagraphs as $key => $p)--}}
+{{--                                                    <textarea id="divElement{{$key+1}}" class="form-control" name="content[]" rows="4" placeholder="Add Responsibility...">{{$p->content}}</textarea><button type="button" style="margin-bottom: 10px" id="divElement{{$key+1}}" onclick="removeExistingElement(this)">Remove</button>--}}
+{{--                                                @endforeach--}}
+{{--                                            </div>--}}
+{{--                                            <div id="reqs">--}}
+
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                Alert :  Responsibility cant be updated for now.
-                            </div>
+
                         </div>
                         <div class="" style="text-align: center">
                             <input type="submit" value="submit" class="btn btn-primary">
@@ -132,8 +142,9 @@
             </div>
             <!-- /.container-fluid -->
         </section>
-        <!-- /.content -->
+
     </div>
+
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
@@ -185,6 +196,8 @@
 <script src="../../dashboard_assets/dist/js/pages/dashboard.js"></script>
 </body>
 
+
+
 <script>
     var loadFile = function (event)
     {
@@ -194,83 +207,138 @@
     }
 </script>
 
+{{--<script>--}}
+
+{{--    function removeElement(e) {--}}
+{{--        let button = e.target;--}}
+{{--        let field = button.previousSibling;--}}
+{{--        let div = button.parentElement;--}}
+{{--        let br = button.nextSibling;--}}
+{{--        div.removeChild(button);--}}
+{{--        div.removeChild(field);--}}
+{{--        div.removeChild(br);--}}
+
+{{--        let allElements = document.getElementById("reqs");--}}
+{{--        let inputs = allElements.getElementsByTagName("input");--}}
+{{--        for(i=0;i<inputs.length;i++){--}}
+{{--            inputs[i].setAttribute('id', 'reqs' + (i+1));--}}
+
+
+{{--        }--}}
+{{--    }--}}
+
+{{--    //remove existing field--}}
+
+{{--    function removeExistingElement(e) {--}}
+{{--        let button = e;--}}
+{{--        let field = button.previousSibling;--}}
+{{--        let div = button.parentElement;--}}
+{{--        let br = button.nextSibling;--}}
+
+
+
+
+{{--        div.removeChild(button);--}}
+{{--        div.removeChild(field);--}}
+
+
+{{--        let allElements = document.getElementById("divElement");--}}
+{{--        let inputs = allElements.getElementsByTagName("input");--}}
+{{--        for(i=0;i<inputs.length;i++){--}}
+{{--            inputs[i].setAttribute('id', 'divElement' + (i+1));--}}
+
+
+{{--        }--}}
+{{--    }--}}
+
+{{--    function add() {--}}
+{{--        let allElements = document.getElementById("reqs");--}}
+{{--        let reqs_id = allElements.getElementsByTagName("input").length;--}}
+
+{{--        reqs_id++;--}}
+
+{{--        //create remove button--}}
+{{--        let remove = document.createElement('button');--}}
+{{--        remove.setAttribute('id', 'reqsr' + reqs_id);--}}
+{{--        remove.setAttribute("style","margin-bottom:10px");--}}
+{{--        remove.onclick = function(e) {--}}
+{{--            removeElement(e);--}}
+{{--        };--}}
+
+{{--        remove.innerHTML = "Remove";--}}
+
+{{--        //create textbox--}}
+{{--        let input = document.createElement('textarea');--}}
+{{--        input.setAttribute("class", "form-control");--}}
+{{--        input.setAttribute("placeholder","New Pharagraph");--}}
+{{--        input.setAttribute("name","content[]");--}}
+{{--        input.setAttribute("rows","4");--}}
+{{--        let reqs = document.getElementById("reqs");--}}
+
+
+
+{{--        //append elements--}}
+{{--        reqs.appendChild(input);--}}
+{{--        reqs.appendChild(remove);--}}
+
+{{--        let br = document.createElement("br");--}}
+{{--        reqs.appendChild(br);--}}
+{{--    }--}}
+{{--</script>--}}
+
 <script>
+    tinymce.init({
+        selector:'textarea.sample',
+        height: 500,
+        branding: false,
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+        ],
 
-    function removeElement(e) {
-        let button = e.target;
-        let field = button.previousSibling;
-        let div = button.parentElement;
-        let br = button.nextSibling;
-        div.removeChild(button);
-        div.removeChild(field);
-        div.removeChild(br);
-
-        let allElements = document.getElementById("reqs");
-        let inputs = allElements.getElementsByTagName("input");
-        for(i=0;i<inputs.length;i++){
-            inputs[i].setAttribute('id', 'reqs' + (i+1));
-
-
-        }
-    }
-
-    //remove existing field
-
-    function removeExistingElement(e) {
-        let button = e;
-        let field = button.previousSibling;
-        let div = button.parentElement;
-        let br = button.nextSibling;
-
-
-
-
-        div.removeChild(button);
-        div.removeChild(field);
-
-
-        let allElements = document.getElementById("divElement");
-        let inputs = allElements.getElementsByTagName("input");
-        for(i=0;i<inputs.length;i++){
-            inputs[i].setAttribute('id', 'divElement' + (i+1));
-
-
-        }
-    }
-
-    function add() {
-        let allElements = document.getElementById("reqs");
-        let reqs_id = allElements.getElementsByTagName("input").length;
-
-        reqs_id++;
-
-        //create remove button
-        let remove = document.createElement('button');
-        remove.setAttribute('id', 'reqsr' + reqs_id);
-        remove.setAttribute("style","margin-bottom:10px");
-        remove.onclick = function(e) {
-            removeElement(e);
-        };
-
-        remove.innerHTML = "Remove";
-
-        //create textbox
-        let input = document.createElement('textarea');
-        input.setAttribute("class", "form-control");
-        input.setAttribute("placeholder","New Pharagraph");
-        input.setAttribute("name","content[]");
-        input.setAttribute("rows","4");
-        let reqs = document.getElementById("reqs");
-
-
-
-        //append elements
-        reqs.appendChild(input);
-        reqs.appendChild(remove);
-
-        let br = document.createElement("br");
-        reqs.appendChild(br);
-    }
+        image_title : true,
+        automatic_uploads: true,
+        images_upload_url : '{{route('postImageNews')}}',
+        file_picker_types: 'image',
+        file_picker_callback: function (cv, value, meta){
+            var input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+            input.onchange = function(){
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                render.onload = function(){
+                    var id = 'blobid'+(new Date()).getTime();
+                    var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                    var base64 = reader.result.split(',')[1];
+                    var blobInfo = blobCache.create(id, file, base64);
+                    blobCache.add(blobInfo);
+                    cb(blobInfo.blobUri(), {title:file.name});
+                };
+            };
+            input.click();
+        },
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+            'forecolor backcolor emoticons | help | codesample',
+        menu: {
+            favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | spellchecker | emoticons'}
+        },
+        menubar: 'favs file edit view insert format tools table help'
+    });
+    // tinymce.activeEditor.execCommand('mceCodeEditor');
 </script>
 
+<script >
+    //tinymce.get('editorID').getContent({format : 'text'})
+    function generateText()
+    {
+        document.getElementById('hiddenID').value=tinymce.get('editorID').getContent({format : 'text'});
+    }
+</script>
 </html>

@@ -36,6 +36,22 @@
     <link href="../assets_extended/css/responsive.css" rel="stylesheet">
     <link href="../assets_extended/css/flaticon.css" rel="stylesheet">
     <link href="../assets_extended/css/owl.css" rel="stylesheet">
+
+    <style>
+        ul, li {
+            list-style: inherit;
+            padding: 0px;
+            margin: 0px;
+        }
+        .info-box.clearfix li{
+            list-style: none;
+        }
+
+        .social-list.clearfix li
+        {
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -112,9 +128,10 @@
                             <img src="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}" alt="" style="height:350px">
                         </figure>
                         <div class="text">
-                            @foreach($post->pharagraphs as $key=>$p)
-                            <p align="justify">{{$p->content}}</p>
-                            @endforeach
+{{--                            @foreach($post->pharagraphs as $key=>$p)--}}
+{{--                            <p align="justify">{{$p->content}}</p>--}}
+{{--                            @endforeach--}}
+                            {!!  $post->texteditor !!}
                         </div>
 
                     </div>

@@ -45,21 +45,23 @@ class NewsController extends Controller
     {
 
         $pic = $request->file('news_image');
-        $pharagraph = $request->input('content');
+//        $pharagraph = $request->input('content');
 
 
         $news = new news;
+        $news->texteditor = $request->input('textSample');
+        $news->shortContent = $request->input('generatedText');
         $news->news_title=$request->input('news_title');
         $news->user_id=Auth()->user()->id;
         $news->image_name = $pic->getClientOriginalName();
         $news->save();
 
-        foreach ($pharagraph as $p)
-        {
-            $pharagraphDB = new pharagraph;
-            $pharagraphDB->content = $p;
-            $news->pharagraphs()->save($pharagraphDB);
-        }
+//        foreach ($pharagraph as $p)
+//        {
+//            $pharagraphDB = new pharagraph;
+//            $pharagraphDB->content = $p;
+//            $news->pharagraphs()->save($pharagraphDB);
+//        }
 
         $request->file('news_image')->storeAs('public/images/news/'.$news->id,$pic->getClientOriginalName());
 
@@ -98,9 +100,9 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $perenggan = $request->input('content');
+//        $perenggan = $request->input('content');
         $pic = $request->file('news_image');
-//        dd($pic);
+
         $news = news::findorFail($id);
         if ($pic!=null)
         {
@@ -108,17 +110,19 @@ class NewsController extends Controller
             $pic->storeAs('public/images/news/'.$news->id,$pic->getClientOriginalName());
         }
         $news->news_title = $request->input('news_title');
+        $news->texteditor = $request->input('textSample');
+        $news->shortContent = $request->input('generatedText');
         $news->save();
 
         $phara = pharagraph::where('news_id','=',$id);
         $phara->delete();
 
-        foreach ($perenggan as $key=>$item)
-        {
-            $newPhara = new pharagraph;
-            $newPhara->content = $item;
-            $news->pharagraphs()->save($newPhara);
-         }
+//        foreach ($perenggan as $key=>$item)
+//        {
+//            $newPhara = new pharagraph;
+//            $newPhara->content = $item;
+//            $news->pharagraphs()->save($newPhara);
+//         }
         Session::flash('message','News updated');
         LogActivity::addToLog('Update News');
         return redirect()->route('news.index');

@@ -8,6 +8,7 @@ use App\Http\Controllers\paperController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\_serviceController;
+use App\Http\Controllers\uploadImageController;
 use App\Models\job;
 use App\Models\news;
 use App\Models\User;
@@ -56,6 +57,7 @@ Route::get('applyShowApplicant/{id}',[applicantController::class,'showApplicant'
 
 Route::resource('/apply',applicantController::class);
 Route::resource('/news',newsController::class);
+Route::post('/postImageNews',[uploadImageController::class,'storeTextEditorImage'])->name('postImageNews');
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
 

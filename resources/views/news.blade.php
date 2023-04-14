@@ -102,11 +102,12 @@
                                         <h4><a href="{{route('news_details',[$post->id])}}">{{$post->news_title}}</a></h4>
                                     </div>
                                     <div class="text">
-                                        @foreach($post->pharagraphs as $key=>$phara)
-                                            @if($key == 0)
-                                                <p style="text-align: justify">{{Str::limit($phara->content,150)}}</p>
-                                            @endif
-                                        @endforeach
+{{--                                        @foreach($post->pharagraphs as $key=>$phara)--}}
+{{--                                            @if($key == 0)--}}
+{{--                                                <p style="text-align: justify">{{Str::limit($phara->content,150)}}</p>--}}
+{{--                                            @endif--}}
+{{--                                        @endforeach--}}
+                                        {{Str::limit($post->shortContent,150)}}
                                     </div>
                                     <div class="link">
                                         <a href="{{route('news_details',[$post->id])}}" class="btn-style-four">Read More<span>+</span></a>
