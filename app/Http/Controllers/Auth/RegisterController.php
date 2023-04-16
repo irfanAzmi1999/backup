@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\LogActivity;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use  Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -38,7 +41,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+//        $this->middleware('guest');
+           $this->middleware('auth');
     }
 
     /**
@@ -47,14 +51,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -62,12 +59,40 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $role = $request->input('role');
+
+        $validate = Validator::make($request->all(), [
+            'name' => 'required|min:5',
+            'email' => 'required|unique:users',
+            'jobtitle' => 'required',
+            'phone' => 'required',
         ]);
+        if($validate->fails()){
+            return back()->withErrors($validate->errors())->withInput();
+        }
+        else{
+             User::create([
+                'name' => Str::upper($request['name']),
+                'email' => $request['email'],
+                'password' => Hash::make(Str::random(32)),
+                'jobTitle'=>$request['jobtitle'],
+                'phoneNumber'=>$request['phone'],
+                'role'=>$request['role'],
+            ]);
+            LogActivity::addToLog('Register New User :'.Str::upper($request->input('name')));
+
+            if($role == 'admin') {
+                return redirect()->route('adminDashboard');
+            }
+
+            if($role== 'staff'){
+//                return view('Admin.managestaffaccess.assignstaff');
+                return redirect()->route('adminDashboard');
+            }
+        }
+
+
     }
 }
