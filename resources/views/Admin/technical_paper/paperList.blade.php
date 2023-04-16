@@ -112,7 +112,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Technical Paper for : 
+                            <h3 class="card-title">Technical Paper for :
                                 @if($role == 'product')
                                 <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
 
@@ -151,20 +151,21 @@
 
                                                 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
-                                                        <form action="" method="POST" enctype="multipart/form-data">
-
+                                                        <form action="{{route('updatePaper',[$role,$item->id])}}" method="POST" enctype="multipart/form-data">
+                                                            @method('PUT')
+                                                            @csrf
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Update 
-                                                                        
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Update
+
                                                                         @if($role == 'product')
                                                                         <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
-                                        
+
                                                                         @else
                                                                         <a href="{{route('viewService',[$type->id])}}">{{$type->name}}</a>
                                                                         @endif
-                                                                        
-                                                                        
+
+
                                                                         technical paper</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>

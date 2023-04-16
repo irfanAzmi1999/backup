@@ -74,6 +74,9 @@ Route::group([],function(){
         Route::put('/addPaper/{type}/{id}',[paperController::class,'addPaper'])
             ->name('addPaper');
 
+        Route::put('/updatePaper/{type}/{id}',[paperController::class,'updatePaper'])
+            ->name('updatePaper');
+
         Route::get('/viewPaper/{id}/{name}',function($id,$name){
             $pathToFile = public_path('storage/document/technical_papers/'.$id.'/'.$name);
             return response()->file($pathToFile);

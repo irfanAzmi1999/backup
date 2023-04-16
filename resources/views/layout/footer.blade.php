@@ -27,7 +27,7 @@
                         <li><a href="/product">Products</a></li>
                         <li><a href="/services">Services</a></li>
                         <li><a href="/news">News</a></li>
-                        <li><a href="/careerList">Career</a></li>
+                        <li><a href="/career">Career</a></li>
                         <li><a href="/aboutUs">About us</a></li>
                     </ul>
                 </div>

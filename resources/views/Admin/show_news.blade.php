@@ -93,9 +93,10 @@
                             <img src="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}" style="height: 250px;border-radius: 10px" alt="">
                         </p>
                     </div>
-                     @foreach($post->pharagraphs as $phara)
-                        <p>{{$phara->content}}</p>
-                    @endforeach
+                    <div style="margin-left: 200px;margin-right:200px">
+                        {!! $post->texteditor !!}
+                    </div>
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

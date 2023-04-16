@@ -70,6 +70,21 @@ class paperController extends Controller
         return redirect()->route('listPaper',[$type,$id]);
     }
 
+    public function updatePaper(Request $request,$type,$id)
+    {
+        $file = $request->file('paper');
+        $paper = technical_paper::findorFail($id);
+        $paper->title = $request->input('name');
+        $paper->filename = $file->getClientOriginalName();
+        $paper->save();
+
+        $file->storeAs('public/document/technical_papers/'.$paper->id,$file->getClientOriginalName());
+        LogActivity::addToLog('Technical Paper Updated : '.$request->input('name'));
+
+        Session::flash('message','Technical Paper Updated ');
+        return redirect()->route('listPaper',[$type,$id]);
+    }
+
     public function deletePaper(Request $request,$type,$id,$psID)
     {
         $paper = technical_paper::findorFail($id);
@@ -77,7 +92,7 @@ class paperController extends Controller
 
         Session::flash('message','Technical Paper Deleted');
 
-        LogActivity::addToLog('Technical Paper Removed');
+        LogActivity::addToLog('Technical Paper Removed :'.$paper->title);
         return redirect()->route('listPaper',[$type,$psID]);
 
     }

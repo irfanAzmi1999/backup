@@ -20,6 +20,25 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-style.css">
+
+    <style>
+
+        .floating {
+            animation-name: floating;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            margin-left: 30px;
+            margin-top: 5px;
+        }
+
+        @keyframes floating {
+            0% { transform: translate(0,  0px); }
+            50%  { transform: translate(0, 20px); }
+            100%   { transform: translate(0, -0px); }
+        }
+    </style>
+
 </head>
 <body>
 
@@ -117,7 +136,7 @@
         <!-- Add Shape -->
             <div class="col-lg-6 col-md-12">
                 <div class="ai-banner-image">
-                    <img src="images/bannerImg.png" alt="image">
+                    <img src="images/bannerImg.png" alt="image" class="floating">
                 </div>
             </div>
             <div class="ai-banner-partner">
@@ -343,7 +362,7 @@
 
             <div class="col-lg-6 col-md-12">
                 <div class="value-benefits-wrap-image">
-                    <img src="images/chooseUs.png" alt="image">
+                    <img src="images/chooseUs.png" alt="image" class="floating">
                 </div>
             </div>
         </div>

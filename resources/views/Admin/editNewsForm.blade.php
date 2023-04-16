@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Update Job</title>
+    <title>Update News</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="{{url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')}}">
@@ -46,16 +46,7 @@
             <img src="{{url('/images/faazmiar-logo-only.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
-                </div>
-            </div>
+
         @include('../../layout/sidebarAdmin')
         @yield('sidebar')
         </div>
@@ -290,6 +281,7 @@
     tinymce.init({
         selector:'textarea.sample',
         height: 500,
+        width: 900,
         branding: false,
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
