@@ -89,7 +89,10 @@
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{ route('addService',['id'=>$cat->id]) }}">Add Service </a>
+
+                                    @if(Auth::user()->role == 'admin')
+                                        <a href="{{ route('addService',['id'=>$cat->id]) }}">Add Service </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -114,11 +117,28 @@
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
-                                            <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>
-                                            <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
+                                            @if(Auth::user()->role == 'staff')
+                                                @foreach($item->users as $it)
+                                                    @if($it->id == Auth::user()->id)
+                                                        <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>
+                                                        <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    @else
+                                                        No Access
+                                                    @endif
+
+                                                @endforeach
+
+                                            @else
+                                                <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>
+                                                <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            @endif
+
                                         </td>
                                         <td><a href="{{ route('listPaper',['service',$item->id]) }}">View</a></td>
                                     </tr>

@@ -11,12 +11,12 @@ class technical_paper extends Model
 
     public function product()
     {
-        return $this->belongsTo(product::class,'foreign_key','product_id');
+        return $this->belongsTo(product::class,'product_id');
     }
 
     public function service()
     {
-        return $this->belongsTo(service::class,'foreign_key','service_id');
+        return $this->belongsTo(service::class,'service_id');
     }
 
 }

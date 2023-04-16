@@ -89,7 +89,10 @@
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{route('addServiceCat')}}">Add Service Category</a>
+                                    @if(Auth::user()->role == 'admin')
+                                        <a href="{{route('addServiceCat')}}">Add Service Category</a>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>

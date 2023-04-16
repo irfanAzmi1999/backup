@@ -8,6 +8,7 @@ use App\Models\category;
 use App\Models\product;
 use App\Models\technical_paper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class _productController extends Controller
@@ -25,7 +26,15 @@ class _productController extends Controller
 
     public function showProductList($id)
     {
-        $product = product::where('category_id','=',$id)->get();
+
+            $product = product::where('category_id','=',$id)->get();
+
+
+//        if(Auth::user()->role == 'staff')
+//        {
+//            $product =  product::with('users')->where('category_id','=',$id)->get();
+//        }
+
         return view('Admin.manageproduct.productList',['posts'=>$product,'cat'=>category::findorFail($id)]);
     }
 

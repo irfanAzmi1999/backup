@@ -123,7 +123,14 @@
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Paper </a>
+                                @if($access == true)
+                                        <a href="" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Paper </a>
+                                    @endif
+
+                                    @if(Auth::user()->role == 'admin')
+                                        <a href="" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Paper </a>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
@@ -146,72 +153,236 @@
                                             <td>{{$item->title}}</td>
                                             <td>{{$item->filename}}</td>
                                             <td><a href="{{route('viewPaper',[$item->id,$item->filename])}}">View</a></td>
-                                            <td>
-                                                <a href="" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Update</a> | <a href="#" onclick="deleteFunction()">Remove</a>
 
-                                                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <form action="{{route('updatePaper',[$role,$item->id])}}" method="POST" enctype="multipart/form-data">
-                                                            @method('PUT')
-                                                            @csrf
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Update
+                                            @if(Auth::user()->role == 'admin')
 
-                                                                        @if($role == 'product')
-                                                                        <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
+                                                <td>
+                                                    <a href="" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Update</a> | <a href="#" onclick="deleteFunction()">Remove</a>
 
-                                                                        @else
-                                                                        <a href="{{route('viewService',[$type->id])}}">{{$type->name}}</a>
-                                                                        @endif
+                                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <form action="{{route('updatePaper',[$role,$item->id])}}" method="POST" enctype="multipart/form-data">
+                                                                @method('PUT')
+                                                                @csrf
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Update
+
+                                                                            @if($role == 'product')
+                                                                                <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
+
+                                                                            @else
+                                                                                <a href="{{route('viewService',[$type->id])}}">{{$type->name}}</a>
+                                                                            @endif
 
 
-                                                                        technical paper</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
+                                                                            technical paper</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="form-group">
+                                                                            <label for="fileID" class="col-form-label">ID : </label>
+                                                                            <input type="text" class="form-control" id="fileID" value="{{$item->id}}" readonly>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="file-paper" class="col-form-label">New Paper : </label>
+                                                                            <code>pdf only*</code>
+                                                                            <input type="file" class="form-control" id="file-paper" name="paper" accept="application/pdf" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="file-name" class="col-form-label">Title : </label>
+                                                                            <input type="text" class="form-control" id="file-name" name="name" value="{{$item->title}}" required>
+                                                                        </div>
+                                                                        <input type="submit" class="btn btn-primary form-control" value="Upload">
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label for="fileID" class="col-form-label">ID : </label>
-                                                                        <input type="text" class="form-control" id="fileID" value="{{$item->id}}" readonly>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="file-paper" class="col-form-label">New Paper : </label>
-                                                                        <code>pdf only*</code>
-                                                                        <input type="file" class="form-control" id="file-paper" name="paper" accept="application/pdf" required>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="file-name" class="col-form-label">Title : </label>
-                                                                        <input type="text" class="form-control" id="file-name" name="name" value="{{$item->title}}" required>
-                                                                    </div>
-                                                                    <input type="submit" class="btn btn-primary form-control" value="Upload">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <form action="{{route('deletePaper',[$role,$item->id,$type->id])}}" method="POST" id="frmDelete{{$item->id}}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                    </form>
+                                                    <script>
+                                                        function deleteFunction()
+                                                        {
+                                                            let status = confirm('Delete this paper?');
+                                                            if(status == true)
+                                                            {
+                                                                document.getElementById('frmDelete{{$item->id}}').submit();
+                                                            }
+                                                            else {
+
+                                                            }
+
+                                                        }
+                                                    </script>
+                                                </td>
+
+                                                @elseif($role=='product')
+                                                @foreach($item->product->users as $p)
+                                                    @if($p->id == Auth::user()->id)
+                                                        <td>
+                                                            <a href="" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Update</a> | <a href="#" onclick="deleteFunction()">Remove</a>
+
+                                                            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <form action="{{route('updatePaper',[$role,$item->id])}}" method="POST" enctype="multipart/form-data">
+                                                                        @method('PUT')
+                                                                        @csrf
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Update
+
+                                                                                    @if($role == 'product')
+                                                                                        <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
+
+                                                                                    @else
+                                                                                        <a href="{{route('viewService',[$type->id])}}">{{$type->name}}</a>
+                                                                                    @endif
+
+
+                                                                                    technical paper</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="form-group">
+                                                                                    <label for="fileID" class="col-form-label">ID : </label>
+                                                                                    <input type="text" class="form-control" id="fileID" value="{{$item->id}}" readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="file-paper" class="col-form-label">New Paper : </label>
+                                                                                    <code>pdf only*</code>
+                                                                                    <input type="file" class="form-control" id="file-paper" name="paper" accept="application/pdf" required>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="file-name" class="col-form-label">Title : </label>
+                                                                                    <input type="text" class="form-control" id="file-name" name="name" value="{{$item->title}}" required>
+                                                                                </div>
+                                                                                <input type="submit" class="btn btn-primary form-control" value="Upload">
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
                                                                 </div>
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
 
 
-                                                <form action="{{route('deletePaper',[$role,$item->id,$type->id])}}" method="POST" id="frmDelete{{$item->id}}">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                </form>
-                                                <script>
-                                                    function deleteFunction()
-                                                    {
-                                                        let status = confirm('Delete this paper?');
-                                                        if(status == true)
-                                                        {
-                                                            document.getElementById('frmDelete{{$item->id}}').submit();
-                                                        }
-                                                        else {
+                                                            <form action="{{route('deletePaper',[$role,$item->id,$type->id])}}" method="POST" id="frmDelete{{$item->id}}">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                            </form>
+                                                            <script>
+                                                                function deleteFunction()
+                                                                {
+                                                                    let status = confirm('Delete this paper?');
+                                                                    if(status == true)
+                                                                    {
+                                                                        document.getElementById('frmDelete{{$item->id}}').submit();
+                                                                    }
+                                                                    else {
 
-                                                        }
+                                                                    }
 
-                                                    }
-                                                </script>
-                                            </td>
+                                                                }
+                                                            </script>
+                                                        </td>
+
+                                                    @else
+                                                        <td>No Access</td>
+                                                    @endif
+                                                @endforeach
+
+                                            @else
+                                                @foreach($item->service->users as $p)
+                                                    @if($p->id == Auth::user()->id)
+                                                        <td>
+                                                            <a href="" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Update</a> | <a href="#" onclick="deleteFunction()">Remove</a>
+
+                                                            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <form action="{{route('updatePaper',[$role,$item->id])}}" method="POST" enctype="multipart/form-data">
+                                                                        @method('PUT')
+                                                                        @csrf
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Update
+
+                                                                                    @if($role == 'product')
+                                                                                        <a href="{{route('viewProduct',[$type->id])}}">{{$type->name}}</a>
+
+                                                                                    @else
+                                                                                        <a href="{{route('viewService',[$type->id])}}">{{$type->name}}</a>
+                                                                                    @endif
+
+
+                                                                                    technical paper</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="form-group">
+                                                                                    <label for="fileID" class="col-form-label">ID : </label>
+                                                                                    <input type="text" class="form-control" id="fileID" value="{{$item->id}}" readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="file-paper" class="col-form-label">New Paper : </label>
+                                                                                    <code>pdf only*</code>
+                                                                                    <input type="file" class="form-control" id="file-paper" name="paper" accept="application/pdf" required>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="file-name" class="col-form-label">Title : </label>
+                                                                                    <input type="text" class="form-control" id="file-name" name="name" value="{{$item->title}}" required>
+                                                                                </div>
+                                                                                <input type="submit" class="btn btn-primary form-control" value="Upload">
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <form action="{{route('deletePaper',[$role,$item->id,$type->id])}}" method="POST" id="frmDelete{{$item->id}}">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                            </form>
+                                                            <script>
+                                                                function deleteFunction()
+                                                                {
+                                                                    let status = confirm('Delete this paper?');
+                                                                    if(status == true)
+                                                                    {
+                                                                        document.getElementById('frmDelete{{$item->id}}').submit();
+                                                                    }
+                                                                    else {
+
+                                                                    }
+
+                                                                }
+                                                            </script>
+                                                        </td>
+
+                                                    @else
+                                                        <td>No Access</td>
+                                                    @endif
+                                                @endforeach
+
+                                            @endif
+
+
+
+
+
+
+
+
+
                                         </tr>
                                     @empty
                                         <tr>

@@ -7,6 +7,7 @@ use App\Models\product;
 use App\Models\service;
 use App\Models\technical_paper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class paperController extends Controller
@@ -22,18 +23,41 @@ class paperController extends Controller
     {
         $p = null;
         $tp = null;
+        $access = null;
         if($type=='product')
         {
             $p = product::findorFail($id);
             $tp = technical_paper::where('product_id','=',$id)->get();
+
+            foreach ($tp as $item) {
+                foreach ($item->product->users as $ee) {
+                    if (Auth::user()->id == $ee->id) {
+                        $access = true;
+                        break;
+                    } else {
+                        $access = false;
+                    }
+                }
+            }
         }
 
         if($type=='service')
         {
             $p = service::findorFail($id);
             $tp = technical_paper::where('service_id','=',$id)->get();
+
+            foreach ($tp as $item) {
+                foreach ($item->service->users as $ee) {
+                    if (Auth::user()->id == $ee->id) {
+                        $access = true;
+                        break;
+                    } else {
+                        $access = false;
+                    }
+                }
+            }
         }
-        return view('Admin.technical_paper.paperList',['type'=>$p,'posts'=> $tp,'role'=>$type]);
+        return view('Admin.technical_paper.paperList',['type'=>$p,'posts'=> $tp,'role'=>$type,'access'=>$access]);
     }
 
 
@@ -66,7 +90,7 @@ class paperController extends Controller
 
         Session::flash('message','Technical Paper Added');
 
-        LogActivity::addToLog('Technical Paper Added');
+        LogActivity::addToLog('Technical Paper Added :'.$title);
         return redirect()->route('listPaper',[$type,$id]);
     }
 

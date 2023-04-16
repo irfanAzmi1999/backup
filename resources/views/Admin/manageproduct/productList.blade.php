@@ -85,7 +85,10 @@
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{ route('addProduct',['id'=>$cat->id]) }}">Add Product </a>
+                                    @if(Auth::user()->role == 'admin')
+                                        <a href="{{ route('addProduct',['id'=>$cat->id]) }}">Add Product </a>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
@@ -99,7 +102,9 @@
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
+
                                     <th>Technical Paper</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -110,18 +115,42 @@
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
-                                            <a href="{{route('displayUpdateProductForm',[$item->id])}}"> <img src="{{ url('images/Admin/editing.png') }}" style="width:30px" alt=""></a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >
-                                                <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
-                                            </a>
-                                            |
-                                            <a href="{{ route('viewProduct',[$item->id]) }}" >
-                                                <img src="{{ url('images/Admin/view.png') }}" style="width:30px" alt="">
-                                            </a>
-                                            <form action="{{ route('deleteProduct',[$item->id,$item->category_id]) }}" method="POST" id="frmDelete{{ $item->id }}">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
+                                            @if(Auth::user()->role == 'staff')
+                                                @foreach($item->users as $it)
+                                                    @if($it->id == Auth::user()->id)
+                                                        <a href="{{route('displayUpdateProductForm',[$item->id])}}"> <img src="{{ url('images/Admin/editing.png') }}" style="width:30px" alt=""></a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >
+                                                            <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
+                                                        </a>
+                                                        |
+                                                        <a href="{{ route('viewProduct',[$item->id]) }}" >
+                                                            <img src="{{ url('images/Admin/view.png') }}" style="width:30px" alt="">
+                                                        </a>
+                                                        <form action="{{ route('deleteProduct',[$item->id,$item->category_id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    @else
+                                                        No Access
+                                                    @endif
+                                                @endforeach
+
+
+                                            @else
+                                                <a href="{{route('displayUpdateProductForm',[$item->id])}}"> <img src="{{ url('images/Admin/editing.png') }}" style="width:30px" alt=""></a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >
+                                                    <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
+                                                </a>
+                                                |
+                                                <a href="{{ route('viewProduct',[$item->id]) }}" >
+                                                    <img src="{{ url('images/Admin/view.png') }}" style="width:30px" alt="">
+                                                </a>
+                                                <form action="{{ route('deleteProduct',[$item->id,$item->category_id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            @endif
+
                                         </td>
+
                                         <td><a href="{{route('listPaper',['product',$item->id])}}">View</a></td>
                                     </tr>
                                 @empty
