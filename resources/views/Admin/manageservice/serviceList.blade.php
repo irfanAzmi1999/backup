@@ -118,7 +118,7 @@
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
                                             @if(Auth::user()->role == 'staff')
-                                                @foreach($item->users as $it)
+                                                @forelse($item->users as $it)
                                                     @if($it->id == Auth::user()->id)
                                                         <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>
                                                         <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
@@ -128,8 +128,9 @@
                                                     @else
                                                         No Access
                                                     @endif
-
-                                                @endforeach
+                                                @empty
+                                                    No Access
+                                                @endforelse
 
                                             @else
                                                 <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>

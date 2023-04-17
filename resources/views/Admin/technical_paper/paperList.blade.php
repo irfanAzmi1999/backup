@@ -224,7 +224,7 @@
                                                 </td>
 
                                                 @elseif($role=='product')
-                                                @foreach($item->product->users as $p)
+                                                @forelse($item->product->users as $p)
                                                     @if($p->id == Auth::user()->id)
                                                         <td>
                                                             <a href="" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Update</a> | <a href="#" onclick="deleteFunction()">Remove</a>
@@ -296,10 +296,12 @@
                                                     @else
                                                         <td>No Access</td>
                                                     @endif
-                                                @endforeach
+                                                @empty
+                                                    <td>No Access</td>
+                                                @endforelse
 
                                             @else
-                                                @foreach($item->service->users as $p)
+                                                @forelse($item->service->users as $p)
                                                     @if($p->id == Auth::user()->id)
                                                         <td>
                                                             <a href="" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Update</a> | <a href="#" onclick="deleteFunction()">Remove</a>
@@ -371,7 +373,11 @@
                                                     @else
                                                         <td>No Access</td>
                                                     @endif
-                                                @endforeach
+
+                                                @empty
+                                                    <td>No Access</td>
+                                                @endforelse
+
 
                                             @endif
 

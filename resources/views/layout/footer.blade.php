@@ -59,8 +59,8 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+{{--                        <li><a href="#">Privacy Policy</a></li>--}}
+{{--                        <li><a href="#">Terms & Conditions</a></li>--}}
                     </ul>
                 </div>
             </div>

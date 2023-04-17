@@ -65,6 +65,7 @@ class NewsController extends Controller
 
         $request->file('news_image')->storeAs('public/images/news/'.$news->id,$pic->getClientOriginalName());
 
+        LogActivity::addToLog('Add News :'.$news->news_title);
         return redirect()->route('news.index');
 
     }
@@ -124,7 +125,7 @@ class NewsController extends Controller
 //            $news->pharagraphs()->save($newPhara);
 //         }
         Session::flash('message','News updated');
-        LogActivity::addToLog('Update News');
+        LogActivity::addToLog('Update News :'.$news->news_title);
         return redirect()->route('news.index');
     }
 

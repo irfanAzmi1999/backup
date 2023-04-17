@@ -120,7 +120,7 @@
                         <div style="text-align: center">
                             <img  id="imgOutput" alt="" style="height: 200px;margin-bottom: 2px">
                         </div>
-                        <label for="" class="col-form-label">Image :</label>
+                        <label for="" class="col-form-label">Your Image :</label>
                         <input type="file" class="form-control" onchange="loadFile(event)" name="image" required>
                         <label for="applicant-name" class="col-form-label">Name :</label>
                         <input type="text" class="form-control" id="applicant-name" name="name" required>

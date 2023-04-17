@@ -104,7 +104,7 @@
                                             </textarea>
                                         </div>
 
-                                        <textarea name="generatedText" id="hiddenID" cols="30" rows="5" class="form-control" maxlength="4" readonly></textarea>
+                                        <textarea style="width:900px" name="generatedText" id="hiddenID" cols="30" rows="5" class="form-control" maxlength="4" readonly></textarea>
                                         <input type="button" onclick="generateText()" value="Generate Short Text" style="margin-top: 10px">
 {{--                                        <div class="form-group">--}}
 {{--                                            <label>Pharagraphs</label>--}}

@@ -77,7 +77,7 @@
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <a href="{{route('register')}}">Add Admin</a>
+                                    <a href="{{route('register')}}">Add User</a>
                                 </div>
                             </div>
                         </div>

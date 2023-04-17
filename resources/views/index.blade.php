@@ -408,32 +408,32 @@
 <!-- End News -->
 
 <!--Start Newsletter-->
-<div class="ai-subscribe-area ptb-100">
-    <div class="container">
-    <div class="ai-subscribe-content">
-        <h2>Subscribe to our <b>Newsletter</b></h2>
-        <form class="newsletter-form" data-toggle="validator" action="#" method="POST">
-            <input type="email" class="input-newsletter" placeholder="Input Your Email" name="email" required autocomplete="off">
-            <button type="submit">Subscribe</button>
-            <div id="validator-newsletter" class="form-result"></div>
-            <div class="newsletter-checkbox-btn">
-                <input class="inp-cbx" id="cbx" type="checkbox">
-                <label class="cbx" for="cbx">
-                    <span>
-                        <svg width="12px" height="10px" viewbox="0 0 12 10">
-                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                        </svg>
-                    </span>
-                    <span>I agree submit data is being collected store</span>
-                </label>
-            </div>
-        </form>
-    </div>
-    </div>
-    <div class="ai-subscribe-shape">
-        <img src="assets/img/artificial-intelligence/subscribe-shape.png" alt="">
-    </div>
-</div>
+{{--<div class="ai-subscribe-area ptb-100">--}}
+{{--    <div class="container">--}}
+{{--    <div class="ai-subscribe-content">--}}
+{{--        <h2>Subscribe to our <b>Newsletter</b></h2>--}}
+{{--        <form class="newsletter-form" data-toggle="validator" action="#" method="POST">--}}
+{{--            <input type="email" class="input-newsletter" placeholder="Input Your Email" name="email" required autocomplete="off">--}}
+{{--            <button type="submit">Subscribe</button>--}}
+{{--            <div id="validator-newsletter" class="form-result"></div>--}}
+{{--            <div class="newsletter-checkbox-btn">--}}
+{{--                <input class="inp-cbx" id="cbx" type="checkbox">--}}
+{{--                <label class="cbx" for="cbx">--}}
+{{--                    <span>--}}
+{{--                        <svg width="12px" height="10px" viewbox="0 0 12 10">--}}
+{{--                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>--}}
+{{--                        </svg>--}}
+{{--                    </span>--}}
+{{--                    <span>I agree submit data is being collected store</span>--}}
+{{--                </label>--}}
+{{--            </div>--}}
+{{--        </form>--}}
+{{--    </div>--}}
+{{--    </div>--}}
+{{--    <div class="ai-subscribe-shape">--}}
+{{--        <img src="assets/img/artificial-intelligence/subscribe-shape.png" alt="">--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- End Newsletter -->
 
 <!-- Start Footer -->

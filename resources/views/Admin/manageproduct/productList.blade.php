@@ -116,7 +116,7 @@
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
                                             @if(Auth::user()->role == 'staff')
-                                                @foreach($item->users as $it)
+                                                @forelse($item->users as $it)
                                                     @if($it->id == Auth::user()->id)
                                                         <a href="{{route('displayUpdateProductForm',[$item->id])}}"> <img src="{{ url('images/Admin/editing.png') }}" style="width:30px" alt=""></a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >
                                                             <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
@@ -132,7 +132,9 @@
                                                     @else
                                                         No Access
                                                     @endif
-                                                @endforeach
+                                                @empty
+                                                    No Access
+                                                @endforelse
 
 
                                             @else
