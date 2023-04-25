@@ -98,7 +98,7 @@
                             <hr>
                             <ul class="sidebar-categories clearfix">
                                 @foreach($posts as $key=>$product)
-                                   <li><a href="{{route('viewProductBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
+                                   <li><a href="{{route('viewProductBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5></a></li>
                                 @endforeach
                             </ul>
                             <h3><b>Technical Paper</b></h3>

@@ -121,7 +121,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-12">
                 <div class="ai-banner-content">
-                    <h1>Advanced Technologies for Upstream Operations</h1>
+                    <h1>Technologies for Upstream & Downstream Operations</h1>
                     <p>Faazmiar Technology Sdn Bhd was incorporated with the
                         objective of providing solutions, technologies and technical
                         services to energy industry in Malaysia.</p>

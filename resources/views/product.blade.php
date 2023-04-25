@@ -88,7 +88,7 @@
             <div class="auto-container">
                 <div class="sec-title text-center mb-60">
                     <p>Experience quality, value, and innovation in one with our products designed to exceed your expectations.</p>
-                    <h2>Explore our current product<br/>categories below</h2>
+                    <h2>Explore our current products<br/> below</h2>
                     <div class="decor" style="background-image: url(assets/images/icons/decor-1.png);"></div>
                 </div>
                 <div class="row clearfix">
