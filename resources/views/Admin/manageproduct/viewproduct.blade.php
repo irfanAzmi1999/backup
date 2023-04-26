@@ -101,6 +101,11 @@
                     @endforeach
                   </p>
 
+                        <div style="margin-bottom:50px">
+                            <h4 style="text-align: center">Additional Details :</h4>
+                            {!! $posts->additionalDetails !!}
+                        </div>
+
                   <div style="text-align: center;margin-bottom:50px">
                         <b>Principle Logo : </b><br>
                         <img src="{{asset('storage/images/product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput" alt="" style="width: 250px;margin-top:20px">

@@ -54,6 +54,7 @@ class _productController extends Controller
         $product = new product;
         $product->name = $request->input('name');
         $product->productImage = $request->file('productImage')->getClientOriginalName();
+        $product->additionalDetails = $request->input('textSample');
         $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
 
@@ -111,6 +112,7 @@ class _productController extends Controller
 
         $product = product::findorFail($id);
         $product->name = $request->input('name');
+        $product->additionalDetails = $request->input('textSample');
 
         if($productimagestatus==true)
         {

@@ -28,6 +28,13 @@
     <link href="assets_extended/css/font-awesome-all.css" rel="stylesheet">
     <link href="assets_extended/css/color.css" rel="stylesheet">
     <link href="assets_extended/css/responsive.css" rel="stylesheet">
+    <link href="assets_extended/css/flaticon.css" rel="stylesheet">
+
+    <style>
+        .project-page .case-block-two .inner-box .image-box .overlay-layer {
+            background: -webkit-linear-gradient(-45deg, rgba(0, 187, 110, 0.9), rgba(1, 86, 213, 0.9) 100%);
+        }
+    </style>
 </head>
 <body>
 
@@ -59,26 +66,57 @@
             <p>Looking for top-notch services that deliver outstanding results? Look no further than our comprehensive and reliable service offerings.</p>
         </div>
 
-        <div class="row justify-content-center">
+{{--        <div class="row justify-content-center">--}}
+{{--            @foreach($posts as $key=>$cat)--}}
 
-            @foreach($posts as $key=>$cat)
+{{--            <div class="col-lg-4 col-sm-6" onclick="window.location.assign('{{route('viewServBasedOnCat',[$cat->id])}}')" style="cursor:pointer">--}}
+{{--                <div class="ai-services-card">--}}
+{{--                    <div class="services-image">--}}
+{{--                        <img  src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" alt="images" style="height:140px;width:300px;border-radius:10%">--}}
+{{--                    </div>--}}
+{{--                    <div class="services-content">--}}
+{{--                        <h3>--}}
+{{--                            <a href="{{route('viewServBasedOnCat',[$cat->id])}}">{{$cat->name}}</a>--}}
+{{--                        </h3>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
 
-            <div class="col-lg-4 col-sm-6" onclick="window.location.assign('{{route('viewServBasedOnCat',[$cat->id])}}')" style="cursor:pointer">
-                <div class="ai-services-card">
-                    <div class="services-image">
-                        <img  src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" alt="images" style="height:120px;border-radius:40%">
-                    </div>
-                    <div class="services-content">
-                        <h3>
-                            <a href="{{route('viewServBasedOnCat',[$cat->id])}}">{{$cat->name}}</a>
-                        </h3>
-                    </div>
+        <section class="case-studies project-page case-style-three" style="padding-top: 10px">
+            <div class="auto-container">
+                <div class="sortable-masonry">
+
+                    <div class="items-container row clearfix">
+                        @foreach($posts as $key=>$cat)
+                        <div class="col-lg-4 col-md-6 col-sm-12 masonry-item small-column all finance banking entertainment marketing healthcare">
+                            <div class="case-block-two">
+                                <div class="inner-box" style="height: 458px;">
+                                    <figure class="image-box">
+                                        <img src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" style="width:370px;height:235px" alt="">
+                                        <div class="link"><a href="{{route('viewServBasedOnCat',[$cat->id])}}"><i class="flaticon-hyperlink"></i></a></div>
+                                        <div class="overlay-layer"></div>
+                                    </figure>
+                                    <div class="lower-content">
+                                        <div class="box"  style="padding-left: 0px">
+                                            <p>Services</p>
+                                            <h4><a href="{{route('viewServBasedOnCat',[$cat->id])}}">{{$cat->name}}</a></h4>
+{{--                                            {{Str::limit($post->shortContent,150)}} --}}
+                                        </div>
+                                        <div class="text">
+                                            <p></p>
+                                        </div>
+                                        <div class="link"><a href="{{route('viewServBasedOnCat',[$cat->id])}}" class="btn-style-four">Read More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                 </div>
             </div>
+        </section>
 
-            @endforeach
-
-        </div>
     </div>
    </div>
 

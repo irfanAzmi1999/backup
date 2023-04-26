@@ -179,7 +179,7 @@
                             <h3>Search</h3>
                         </div>
                         <div class="search-box">
-                            <form action="blog-details.html" method="post">
+                            <form action="" method="">
                                 <div class="form-group">
                                     <input type="search" name="search-field" placeholder="Keyword..." required="">
                                     <button type="submit" class="theme-btn style-one">Search</button>

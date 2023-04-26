@@ -33,6 +33,15 @@
     <link href="assets_extended/css/color.css" rel="stylesheet">
     <link href="assets_extended/css/style.css" rel="stylesheet">
     <link href="assets_extended/css/responsive.css" rel="stylesheet">
+
+<style>
+    @media only screen and (max-width: 767px)
+    #boxID{
+        padding-top:50px;
+    }
+
+</style>
+
 </head>
 <body>
 
@@ -86,7 +95,7 @@
             <div class="service-tab" style="color:black">
                 <div class="row clearfix">
                     <div class="col-lg-6 col-md-6 col-sm-12 video-column">
-                        <div class="video-box">
+                        <div class="video-box" id="boxID">
                            <img src="images/faazmiar.png" alt="">
                         </div>
                     </div>
@@ -321,7 +330,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="image-box wow slideInRight" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        <figure class="image js-tilt"><img src="assets_extended/images/resource/illastration-6.png" alt=""></figure>
+                        {{-- <figure class="image js-tilt"><img src="assets_extended/images/resource/illastration-6.png" alt=""></figure> --}}
                     </div>
                 </div>
             </div>

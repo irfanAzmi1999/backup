@@ -139,7 +139,13 @@ class _serviceController extends Controller
         $service = service::where('category_id','=',$categoryID)->get(); // sidebar
         $firstService = service::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
-
+        if($firstService == null)
+        {
+            echo '<script>';
+            echo 'alert("No service Found");';
+            echo 'window.location.assign("/services");';
+            echo '</script>';
+        }
         $productID = $firstService->id;
         $paper = technical_paper::where('service_id','=',$productID)->get();
 

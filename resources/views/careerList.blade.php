@@ -95,7 +95,12 @@
             </div>
             <div class="auto-container" style="margin-top:-150px">
                 <div class="section-title" id="titleCareerList">
-                    <h2 style="color:white">Join our team and advance your career! Exciting job vacancy available.</h2>
+                    @if ($post->isEmpty() == false)
+                        <h2 style="color:white">Join our team and advance your career! Exciting job vacancy available.</h2>
+                    @else
+                        <h2 style="color:white">No Job Found</h2>
+                    @endif
+                    
                 </div>
                 <div class="row clearfix">
                     @foreach($post as $po)

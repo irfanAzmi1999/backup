@@ -31,6 +31,26 @@
     <link href="{{ url('/assets_extended/css/flaticon.css') }}" rel="stylesheet">
     <link href="{{ url('/assets_extended/css/owl.css') }}" rel="stylesheet">
 
+    <style>
+        ul, li {
+            list-style: inherit;
+            padding: 0px;
+            margin: 0px;
+        }
+        .info-box.clearfix li{
+            list-style: none;
+        }
+
+        .social-list.clearfix li
+        {
+            list-style: none;
+        }
+
+        p{
+            color:initial;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -84,6 +104,10 @@
                                         </div>
                                     </div>
                                     @endforeach
+                                </div>
+                                <div class="title-box">
+
+                                    {!! $selected->additionalDetails !!}
                                 </div>
                             </div>
                         </div>
