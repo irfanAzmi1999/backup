@@ -17,7 +17,7 @@
         <div class="container">
             <div class="navbar navbar-expand-md navbar-light">
                 <a href="/" class="navbar-brand">
-                    <img src="../images/faazmiar.png" alt="">
+                    <img src="{{ url('/images/faazmiar.png') }}" alt="">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">

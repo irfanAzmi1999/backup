@@ -107,7 +107,7 @@
 {{--                                                <p style="text-align: justify">{{Str::limit($phara->content,150)}}</p>--}}
 {{--                                            @endif--}}
 {{--                                        @endforeach--}}
-                                        {{Str::limit($post->shortContent,150)}}
+                                        <p align='justify'>{{Str::limit($post->shortContent,140)}}</p>
                                     </div>
                                     <div class="link">
                                         <a href="{{route('news_details',[$post->id])}}" class="btn-style-four">Read More<span>+</span></a>

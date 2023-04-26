@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>{{$selected->name}}</title>
     <link rel="icon" href="/images/faazmiar-logo-only.png" type="image/png">
     <link rel="stylesheet" href="{{ url('/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('/assets/css/animate.min.css') }}">
@@ -58,7 +58,7 @@
         <div class="spinner"></div>
     </div>
 
-    @include('../layout/header-nav')
+    @include('/layout/header-nav')
     @yield('header')
 
     <div class="page-title-area">
@@ -113,7 +113,7 @@
                         </div>
                         <hr>
                         <div style="text-align: center;">
-                            <img style="margin-top:20px ;width:200px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <img style="margin-top:20px ;width:200px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
