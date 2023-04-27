@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-style.css">
 
-    <style>
+    {{-- <style>
 
         .floating {
             animation-name: floating;
@@ -37,7 +37,7 @@
             50%  { transform: translate(0, 20px); }
             100%   { transform: translate(0, -0px); }
         }
-    </style>
+    </style> --}}
 
 </head>
 <body>

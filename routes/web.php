@@ -155,8 +155,13 @@ Route::group([],function () {
 
     Route::group(['prefix' => '/manage_service'], function () {
         //Service Category
-        Route::get('/serviceCategory',[serviceController::class,'showServiceCategory'])
-            ->name('serviceCat');
+        // Route::get('/serviceCategory',[serviceController::class,'showServiceCategory'])
+        //     ->name('serviceCat');
+
+        Route::get('/serviceCategory',function(){
+                echo '<script>alert("In Development / Update: Remove Category from Services");
+                window.history.back();</script>';
+            })->name('serviceCat');
 
         Route::get('/addServiceCategory',[serviceController::class,'addServiceCategory'])
             ->name('addServiceCat');

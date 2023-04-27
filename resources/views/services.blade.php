@@ -95,19 +95,28 @@
                                 <div class="inner-box" style="height: 458px;">
                                     <figure class="image-box">
                                         <img src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" style="width:370px;height:235px" alt="">
-                                        <div class="link"><a href="{{route('viewServBasedOnCat',[$cat->id])}}"><i class="flaticon-hyperlink"></i></a></div>
+                                        <div class="link">
+                                            {{-- <a href="{{route('viewServBasedOnCat',[$cat->id])}}"> --}}
+                                                <a href="#" onclick="javascript:(function() { alert('In Development : Update Change'); })()">
+                                                <i class="flaticon-hyperlink"></i></a></div>
                                         <div class="overlay-layer"></div>
                                     </figure>
                                     <div class="lower-content">
                                         <div class="box"  style="padding-left: 0px">
                                             <p>Services</p>
-                                            <h4><a href="{{route('viewServBasedOnCat',[$cat->id])}}">{{$cat->name}}</a></h4>
+                                            <h4>
+                                                {{-- <a href="{{route('viewServBasedOnCat',[$cat->id])}}">{{$cat->name}}</a> --}}
+                                                <a href="#" onclick="javascript:(function() { alert('In Development : Update Change'); })()">{{$cat->name}}</a>
+                                            </h4>
 {{--                                            {{Str::limit($post->shortContent,150)}} --}}
                                         </div>
                                         <div class="text">
                                             <p></p>
                                         </div>
-                                        <div class="link"><a href="{{route('viewServBasedOnCat',[$cat->id])}}" class="btn-style-four">Read More</a></div>
+                                        <div class="link">
+                                            {{-- <a href="{{route('viewServBasedOnCat',[$cat->id])}}" class="btn-style-four">Read More</a> --}}
+                                            <a href="#" class="btn-style-four" onclick="javascript:(function() { alert('In Development : Update Change'); })()">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
