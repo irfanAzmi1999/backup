@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Job;
+use App\Models\job;
 use App\Models\responsibility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +26,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('Admin.manageJob',['jobVar'=>Job::all()]);
+        return view('Admin.manageJob',['jobVar'=>job::all()]);
     }
 
     /**

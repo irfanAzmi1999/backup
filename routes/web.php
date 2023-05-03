@@ -56,7 +56,7 @@ Route::get('/news_details/{id}',function ($id){
 Route::get('applyShowApplicant/{id}',[applicantController::class,'showApplicant'])->name('apply.showApplicant');
 
 Route::resource('/apply',applicantController::class);
-Route::resource('/news',newsController::class);
+Route::resource('/news',NewsController::class);
 Route::post('/postImageNews',[uploadImageController::class,'storeTextEditorImage'])->name('postImageNews');
 Route::resource('/user',UserController::class);
 Route::resource('/job',JobController::class);
