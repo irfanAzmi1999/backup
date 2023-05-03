@@ -43,8 +43,8 @@
             <div class="container">
                 <div class="evolta-responsive-menu">
                     <div class="logo">
-                        <a href="/">
-                            <img src="../images/faazmiar.png" alt="">
+                        <a href="index.html">
+                            <img src="{{url('images/faazmiar.png')}}" alt="logo">
                         </a>
                     </div>
                 </div>
@@ -53,15 +53,15 @@
 
         <div class="evolta-nav">
             <div class="container">
-                <div class="navbar navbar-expand-md navbar-light">
-                    <a href="/" class="navbar-brand">
-                        <img src="../images/faazmiar.png" alt="">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{{url('images/faazmiar.png')}}" alt="logo">
                     </a>
 
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="/product" class="nav-link">Products</a></li>
+                            <li class="nav-item"><a href="/product" class="nav-link ">Products</a></li>
                             <li class="nav-item"><a href="/services" class="nav-link active">Services</a></li>
                             <li class="nav-item"><a href="{{route('showNews')}}" class="nav-link">News</a></li>
                             <li class="nav-item"><a href="/career" class="nav-link">Career</a></li>
@@ -69,20 +69,19 @@
                             <li class="nav-item"><a href="/trainingServices" class="nav-link">Training</a></li>
                         </ul>
                     </div>
-                </div>
+                </nav>
             </div>
         </div>
-
     </div>
 
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h2>{{$cposts->name}}</h2>
+                <h2>{{$posts->name}}</h2>
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/services">Service</a></li>
-                    <li>{{$selected->name}}</li>
+                    <li>{{$posts->name}}</li>
                 </ul>
             </div>
         </div>
@@ -95,17 +94,19 @@
                         <div class="project-details-content">
                             <div class="data-box">
                                 <div class="title-box">
-                                    <h3>{{$selected->name}}</h3>
+                                    <h3>{{$posts->name}}</h3>
                                     <hr>
                                     <p>
-                                        {{$selected->description}}
+                                        {{$posts->description}}
                                     </p>
 
                                 </div>
-                                <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/service/'.$selected->id.'/'.$selected->serviceImage)}}" alt=""></figure>
+                                <figure class="single-image" style="text-align: center;">
+                                    <img style="width: 550px;" src="{{asset('storage/images/service/'.$posts->id.'/'.$posts->serviceImage)}}" alt="">
+                                </figure>
                                 <div class="intro-box">
 
-                                    @foreach($selected->benefits as $key=>$b)
+                                    @foreach($posts->benefits as $key=>$b)
 
                                     <div class="single-item clearfix">
                                         <div class="left-column">
@@ -128,18 +129,18 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div style="text-align: center;">
-                            <img style="margin-top:20px ;width: 300px;" src="{{asset('storage/images/service/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        </div>
+{{--                        <hr>--}}
+{{--                        <div style="text-align: center;">--}}
+{{--                            <img style="margin-top:20px ;width: 300px;" src="{{asset('storage/images/service/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" alt="" class="wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">--}}
+{{--                        </div>--}}
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="service-sidebar">
                             <h3><b>Service List</b></h3>
                             <hr>
                             <ul class="sidebar-categories clearfix">
-                                @foreach($posts as $key=>$product)
-                                   <li><a href="{{route('viewServiceBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
+                                @foreach($serviceAll as $key=>$product)
+                                   <li><a href="{{route('viewServiceBasedOnID',[$product->id])}}"><h5>{{$product->name}}</h5><i class="flaticon-arrow"></i></a></li>
                                 @endforeach
                             </ul>
                             <h3><b>Technical Paper</b></h3>
@@ -160,6 +161,15 @@
                                     @endforelse
                                 </ul>
                             </div>
+
+                            <h3><b>Our Solution in this service</b></h3>
+                            <hr>
+                            <ul class="sidebar-categories clearfix">
+                                <li><a href=""><h5>Solution 1</h5><i class="flaticon-arrow"></i></a></li>
+                                <li><a href=""><h5>Solution 2</h5><i class="flaticon-arrow"></i></a></li>
+                                <li><a href=""><h5>Solution 3</h5><i class="flaticon-arrow"></i></a></li>
+                                <li><a href=""><h5>Solution 4</h5><i class="flaticon-arrow"></i></a></li>
+                            </ul>
                         </div>
                     </div>
 

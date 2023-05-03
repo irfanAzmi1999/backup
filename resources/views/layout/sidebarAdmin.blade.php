@@ -37,7 +37,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{route('serviceCat')}}" class="nav-link">
+            <a href="{{route('listofService')}}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                     Manage Services

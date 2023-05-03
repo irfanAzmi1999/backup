@@ -50,27 +50,27 @@
             <div class="evolta-responsive-menu">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="../images/faazmiar.png" alt="logo">
+                        <img src="{{url('images/faazmiar.png')}}" alt="logo">
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="evolta-nav" style="background: black">
+    <div class="evolta-nav" style="background-color: black">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="/">
-                    <img src="../images/faazmiar.png" alt="logo">
+                <a class="navbar-brand" href="index.html">
+                    <img src="{{url('images/faazmiar.png')}}" alt="logo">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="/product" class="nav-link">Products</a></li>
+                        <li class="nav-item"><a href="/product" class="nav-link active">Products</a></li>
                         <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="/_news" class="nav-link">News</a></li>
-                        <li class="nav-item"><a href="/career" class="nav-link active">Career</a></li>
+                        <li class="nav-item"><a href="{{route('showNews')}}" class="nav-link">News</a></li>
+                        <li class="nav-item"><a href="/career" class="nav-link">Career</a></li>
                         <li class="nav-item"><a href="/aboutUs" class="nav-link">About us</a></li>
                         <li class="nav-item"><a href="/trainingServices" class="nav-link">Training</a></li>
                     </ul>

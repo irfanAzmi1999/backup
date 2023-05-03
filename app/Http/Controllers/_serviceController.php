@@ -14,22 +14,20 @@ class _serviceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['viewServiceBasedOnID']);
     }
 
-    public function showServiceList($id)
+    public function showServiceList()
     {
-        $service = service::where('category_id','=',$id)->get();
-        $cat = category::findorFail($id);
+//        $service = service::where('category_id','=',$id)->get();
+        $service = service::all();
 
-        return view('Admin.manageservice.serviceList',['posts'=>$service,'cat'=>$cat]);
+        return view('Admin.manageservice.serviceList',['posts'=>$service]);
     }
 
-    public function showAddServiceForm($id)
+    public function showAddServiceForm()
     {
-        $cat = category::findorFail($id);
-
-        return view('Admin.manageservice.addnewService',['posts'=>$cat]);
+        return view('Admin.manageservice.addnewService');
     }
 
     public function addNewService(Request $request)
@@ -41,7 +39,7 @@ class _serviceController extends Controller
         $service->name = $request->input('name');
         $service->description = $request->input('servicedescription');
         $service->serviceImage = $image->getClientOriginalName();
-        $service->category_id = $request->input('categoryID');
+
         if($request->file('principle_logo')!=null)
         {
             $service->principleLogo = $request->file('principle_logo')->getClientOriginalName();
@@ -70,10 +68,10 @@ class _serviceController extends Controller
 
         Session::flash('Message','Service Added');
 
-        $categoryID = $request->input('categoryID');
+
 
         LogActivity::addToLog('Add New Service :'.$service->name);
-        Return redirect()->route('listofService',[$categoryID]);
+        Return redirect()->route('listofService');
 
     }
 
@@ -86,12 +84,12 @@ class _serviceController extends Controller
 
     public function updateService($id,Request $request)
     {
-       $currentCategoryID = $request->input('currentCatID');
+//       $currentCategoryID = $request->input('currentCatID');
 
        $service = service::findorFail($id);
        $service->name = $request->input('name');
        $service->description = $request->input('servicedescription');
-       $service->category_id = $request->input('categoryID');
+//       $service->category_id = $request->input('categoryID');
 
        if($request->file('serviceImage')!=null)
        {
@@ -125,7 +123,7 @@ class _serviceController extends Controller
        Session::flash('message','Service Updated');
 
         LogActivity::addToLog('Update Service : '.$service->name);
-       return redirect()->route('listofService',[$currentCategoryID]);
+       return redirect()->route('listofService');
     }
 
     public function viewServiceDetails($id)
@@ -163,32 +161,23 @@ class _serviceController extends Controller
 
     }
 
-    public function viewServiceBasedOnID($serviceID,$categoryID)
+    public function viewServiceBasedOnID($serviceID)
     {
-        $service = service::where('category_id','=',$categoryID)->get(); // sidebar
-        $firstProduct = service::findorFail($serviceID); // selected product
-        $category = category::findorFail($categoryID);
+        $service = service::findorFail($serviceID);// sidebar
 
+//        $category = category::findorFail($categoryID);
 
-
-        if($firstProduct != null)
-        {
-            $productID = $firstProduct->id;
+            $productID = $service->id;
+            $serviceAll = service::all();
             $paper = technical_paper::where('service_id','=',$productID)->get();
-            return view('public_service.service',['posts'=>$service,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
-        }
-        else
-        {
-            echo '<script>';
-            echo 'alert("No product Found");';
-            echo 'window.location.assign("/services");';
-            echo '</script>';
-        }
+            return view('public_service.service',['posts'=>$service,'paper'=>$paper,'serviceAll'=>$serviceAll]);
+
+
 
 
     }
 
-    public function destroyService($id,$catID)
+    public function destroyService($id)
     {
         $service = service::findorFail($id);
         $service->delete();
@@ -196,6 +185,6 @@ class _serviceController extends Controller
         Session::flash('message','Service Deleted Successfully');
 
         LogActivity::addToLog('Removed Service :'.$service->name);
-        return redirect()->route('listofService',[$catID]);
+        return redirect()->route('listofService');
     }
 }

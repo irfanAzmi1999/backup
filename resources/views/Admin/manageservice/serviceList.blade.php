@@ -66,7 +66,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Category : {{$cat->name}}</h1>
+                        <h1 class="m-0">List of Services</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -91,7 +91,7 @@
                                 <div class="input-group input-group-sm" style="width: 150px;">
 
                                     @if(Auth::user()->role == 'admin')
-                                        <a href="{{ route('addService',['id'=>$cat->id]) }}">Add Service </a>
+                                        <a href="{{route('addService')}}">Add Service </a>
                                     @endif
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                                                 @forelse($item->users as $it)
                                                     @if($it->id == Auth::user()->id)
                                                         <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>
-                                                        <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                                        <form action="{{route('deleteService',[$item->id])}}" method="POST" id="frmDelete{{ $item->id }}">
                                                             @csrf
                                                             @method('DELETE')
                                                         </form>
@@ -134,7 +134,7 @@
 
                                             @else
                                                 <a href="{{route('displayUpdateServiceForm',[$item->id])}}">Update</a> | <a href="#" onclick="deleteProduct('{{ $item->id }}','{{ $item->name }}')" >Delete</a> | <a href="{{ route('viewService',[$item->id]) }}">View</a>
-                                                <form action="{{ route('deleteService',[$item->id,$cat->id]) }}" method="POST" id="frmDelete{{ $item->id }}">
+                                                <form action="{{route('deleteService',[$item->id])}}" method="POST" id="frmDelete{{ $item->id }}">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>

@@ -155,13 +155,13 @@ Route::group([],function () {
 
     Route::group(['prefix' => '/manage_service'], function () {
         //Service Category
-        // Route::get('/serviceCategory',[serviceController::class,'showServiceCategory'])
-        //     ->name('serviceCat');
+         Route::get('/serviceCategory',[serviceController::class,'showServiceCategory'])
+             ->name('serviceCat');
 
-        Route::get('/serviceCategory',function(){
-                echo '<script>alert("In Development / Update: Remove Category from Services");
-                window.history.back();</script>';
-            })->name('serviceCat');
+//        Route::get('/serviceCategory',function(){
+//                echo '<script>alert("In Development / Update: Remove Category from Services");
+//                window.history.back();</script>';
+//            })->name('serviceCat');
 
         Route::get('/addServiceCategory',[serviceController::class,'addServiceCategory'])
             ->name('addServiceCat');
@@ -182,10 +182,10 @@ Route::group([],function () {
             ->name('viewServiceCategory');
 
         //service Section
-        Route::get('/displaylistofServices/{id}',[_serviceController::class,'showServiceList'])
+        Route::get('/displaylistofServices',[_serviceController::class,'showServiceList'])
             ->name('listofService');
 
-        Route::get('/addNewServiceForm/{id}',[_serviceController::class,'showAddServiceForm'])
+        Route::get('/addNewServiceForm',[_serviceController::class,'showAddServiceForm'])
             ->name('addService');
 
         Route::post('/addService',[_serviceController::class,'addNewService'])
@@ -203,10 +203,10 @@ Route::group([],function () {
         Route::get('/viewService/{id}',[_serviceController::class,'viewServiceBasedOnCategory'])
             ->name('viewServBasedOnCat');
 
-        Route::get('/viewServiceID/{id}/{catID}',[_serviceController::class,'viewServiceBasedOnID'])
+        Route::get('/viewServiceID/{id}',[_serviceController::class,'viewServiceBasedOnID'])
             ->name('viewServiceBasedOnID');
 
-        Route::delete('/deleteService/{id}/{catID}',[_serviceController::class,'destroyService'])
+        Route::delete('/deleteService/{id}',[_serviceController::class,'destroyService'])
             ->name('deleteService');
     });
 
@@ -276,8 +276,9 @@ Route::get('/_news',function(){
 //})->name('web_news');
 
 Route::get('/services',function(){
-    $serviceCategory = category::where('role','=','Service')->get();
-    return view('services',['posts'=>$serviceCategory]);
+//    $serviceCategory = category::where('role','=','Service')->get();
+    $service = service::all();
+    return view('services',['posts'=>$service]);
 });
 
 Route::get('/career',function(){

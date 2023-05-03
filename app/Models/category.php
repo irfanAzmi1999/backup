@@ -9,10 +9,10 @@ class category extends Model
 {
     use HasFactory;
 
-    public function services()
-    {
-        return $this->hasMany(service::class);
-    }
+//    public function services()
+//    {
+//        return $this->hasMany(service::class);
+//    }
 
     public function products()
     {

@@ -9,10 +9,10 @@ class service extends Model
 {
     use HasFactory;
 
-    public function category()
-    {
-        return $this->belongsTo(category::class,'category_id');
-    }
+//    public function category()
+//    {
+//        return $this->belongsTo(category::class,'category_id');
+//    }
 
     public function benefits()
     {

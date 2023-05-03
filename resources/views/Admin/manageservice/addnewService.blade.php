@@ -109,11 +109,11 @@
                                         <textarea name="servicedescription" class="form-control" id="" cols="20" rows="10"></textarea>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Category For</label>
-                                        <input type="text" class="form-control" name="role" placeholder="Title" value="{{$posts->name}}" readonly>
-                                        <input type="hidden" name="categoryID" value="{{$posts->id}}">
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Category For</label>--}}
+{{--                                        <input type="text" class="form-control" name="role" placeholder="Title" value="{{$posts->name}}" readonly>--}}
+{{--                                        <input type="hidden" name="categoryID" value="{{$posts->id}}">--}}
+{{--                                    </div>--}}
 
                                     <div class="form-group">
                                         <label>Principle Logo :</label>

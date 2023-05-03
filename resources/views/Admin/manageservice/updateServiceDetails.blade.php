@@ -118,16 +118,15 @@
                                         <textarea name="servicedescription" class="form-control" id=""  cols="20" rows="10">{{$posts->description}}</textarea>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="hidden" name="currentCatID" value="{{$posts->category_id}}">
-                                        <label>Category For</label>
-                                        <select name="categoryID" id="" class="form-control">
-                                            @foreach($cposts as $key => $item)
-                                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                            @endforeach
-                                        </select>
-
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <input type="hidden" name="currentCatID" value="{{$posts->category_id}}">--}}
+{{--                                        <label>Category For</label>--}}
+{{--                                        <select name="categoryID" id="" class="form-control">--}}
+{{--                                            @foreach($cposts as $key => $item)--}}
+{{--                                                <option value="{{$item->id}}">{{$item->name}}</option>--}}
+{{--                                            @endforeach--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
 
                                     <div class="form-group">
                                         <label>Principle Logo :</label><br>

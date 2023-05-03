@@ -92,12 +92,12 @@
                         @foreach($posts as $key=>$cat)
                         <div class="col-lg-4 col-md-6 col-sm-12 masonry-item small-column all finance banking entertainment marketing healthcare">
                             <div class="case-block-two">
-                                <div class="inner-box" style="height: 458px;">
+                                <div class="inner-box" style="height: fit-content;">
                                     <figure class="image-box">
-                                        <img src="{{asset('storage/images/service_category/'.$cat->id.'/image/'.$cat->image)}}" style="width:370px;height:235px" alt="">
+                                        <img src="{{asset('storage/images/service/'.$cat->id.'/'.$cat->serviceImage)}}" style="width:370px;height:235px" alt="">
                                         <div class="link">
                                             {{-- <a href="{{route('viewServBasedOnCat',[$cat->id])}}"> --}}
-                                                <a href="#" onclick="javascript:(function() { alert('In Development : Update Change'); })()">
+                                                <a href="{{route('viewServiceBasedOnID',[$cat->id])}}">
                                                 <i class="flaticon-hyperlink"></i></a></div>
                                         <div class="overlay-layer"></div>
                                     </figure>
@@ -106,16 +106,17 @@
                                             <p>Services</p>
                                             <h4>
                                                 {{-- <a href="{{route('viewServBasedOnCat',[$cat->id])}}">{{$cat->name}}</a> --}}
-                                                <a href="#" onclick="javascript:(function() { alert('In Development : Update Change'); })()">{{$cat->name}}</a>
+                                                <a href="{{route('viewServiceBasedOnID',[$cat->id])}}" >{{$cat->name}}</a>
                                             </h4>
-{{--                                            {{Str::limit($post->shortContent,150)}} --}}
                                         </div>
                                         <div class="text">
-                                            <p></p>
+                                            <p>
+                                                {{Str::limit($cat->description,100)}}
+                                            </p>
                                         </div>
                                         <div class="link">
                                             {{-- <a href="{{route('viewServBasedOnCat',[$cat->id])}}" class="btn-style-four">Read More</a> --}}
-                                            <a href="#" class="btn-style-four" onclick="javascript:(function() { alert('In Development : Update Change'); })()">Read More</a>
+                                            <a href="{{route('viewServiceBasedOnID',[$cat->id])}}" class="btn-style-four" >Read More</a>
                                         </div>
                                     </div>
                                 </div>

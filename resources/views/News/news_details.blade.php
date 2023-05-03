@@ -64,7 +64,7 @@
         <div class="container">
             <div class="evolta-responsive-menu">
                 <div class="logo">
-                    <a href="../index.html">
+                    <a href="/">
                         <img src="../images/faazmiar.png" alt="logo">
                     </a>
                 </div>
