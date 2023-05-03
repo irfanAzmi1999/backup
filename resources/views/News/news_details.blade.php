@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta property="og:url" content="{{$url}}">
     <meta property="og:title" content="{{$post->news_title}}">
-    <meta property="og:description" content="Description">
+    <meta property="og:description" content="{{ $shortContent }}">
     <meta property="og:image" content="{{asset('storage/images/news/'.$post->id.'/'.$post->image_name)}}">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
