@@ -43,7 +43,7 @@ Route::get('/job_show/{id}',[JobController::class,'show'])->middleware('validate
 Route::get('/news_details/{id}',function ($id){
     $newsVar = news::findorFail($id);
     $url = url()->full();
-    $share = (new Jorenvh\Share\Share)->page('http://192.168.0.34:8000/news_details/1', 'Share title')
+    $share = (new Jorenvh\Share\Share)->page($url, $newsVar)
         ->facebook()
         ->twitter()
         ->linkedin('Extra linkedin summary can be passed here')
