@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\newsController;
+use App\Http\Controllers\NewsController;
 use Jorenvh\Share\Share;
 
 /*
