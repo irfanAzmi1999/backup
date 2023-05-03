@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add News</title>
-
+    
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="../dashboard_assets/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="../dashboard_assets/plugins/summernote/summernote-bs4.min.css">
+    <style>
+        .tox-notification { display: none !important }
+    </style>
 
     <script src="https://cdn.tiny.cloud/1/a3o1o7g2yyqr4tdaftctpx9mqursxwjhyhcqmx18d8ilkba7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -285,7 +288,7 @@
         height: 500,
         width: 900,
         convert_urls: false,
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        plugins: 'image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
         tinycomments_mode: 'embedded',
         tinycomments_author: 'Author name',
@@ -334,5 +337,6 @@
         document.getElementById('hiddenID').value=tinymce.get('editorID').getContent({format : 'text'});
     }
 </script>
+
 
 </html>
