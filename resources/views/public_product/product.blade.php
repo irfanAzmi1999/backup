@@ -116,7 +116,7 @@
                                 <div class="title-box">
                                     <h3>{{$selected->name}}</h3>
                                     <hr>
-                                    <p>
+                                    <p align="justify">
                                         {{$selected->description}}
                                     </p>
                                 </div>
