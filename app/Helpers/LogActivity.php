@@ -2,7 +2,7 @@
 
 
 namespace App\Helpers;
-use request;
+use Illuminate\Http\Request;
 use App\Models\log_activity as LogActivityModel;
 
 
