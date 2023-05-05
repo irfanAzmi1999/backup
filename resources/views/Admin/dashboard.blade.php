@@ -170,18 +170,18 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-{{--                                        @foreach($logs as $key=>$log)--}}
-{{--                                            <tr>--}}
-{{--                                                <td>{{ ++$key }}</td>--}}
-{{--                                                <td>{{ $log->subject }}</td>--}}
-{{--                                                <td class="text-success">{{ $log->url }}</td>--}}
-{{--                                                <td><span class="btn btn-info">{{ $log->method }}</span></td>--}}
-{{--                                                <td class="text-warning">{{ $log->ip }}</td>--}}
-{{--                                                <td class="text-danger">{{ $log->agent }}</td>--}}
-{{--                                                <td>{{ $log->user->name }}</td>--}}
-{{--                                                <td>{{$log->created_at->diffForHumans()}}</td>--}}
-{{--                                            </tr>--}}
-{{--                                        @endforeach--}}
+                                        @foreach($logs as $key=>$log)
+                                            <tr>
+                                                <td>{{ ++$key }}</td>
+                                                <td>{{ $log->subject }}</td>
+                                                <td class="text-success">{{ $log->url }}</td>
+                                                <td><span class="btn btn-info">{{ $log->method }}</span></td>
+                                                <td class="text-warning">{{ $log->ip }}</td>
+                                                <td class="text-danger">{{ $log->agent }}</td>
+                                                <td>{{ $log->user->name }}</td>
+                                                <td>{{$log->created_at->diffForHumans()}}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
