@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="{{url('/dashboard_assets/plugins/summernote/summernote-bs4.min.css')}}">
 
     <script src="https://cdn.tiny.cloud/1/a3o1o7g2yyqr4tdaftctpx9mqursxwjhyhcqmx18d8ilkba7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <style>
+        .tox-notification { display: none !important }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
