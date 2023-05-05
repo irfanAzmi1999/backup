@@ -102,7 +102,6 @@
 <section class="page-title text-center style-two" style="background : black">
     <div class="auto-container">
         <div class="content-box">
-
 {{--            <h2>{{$post->news_title}}</h2>--}}
             <h2>News</h2>
             <ul class="info-box clearfix">
