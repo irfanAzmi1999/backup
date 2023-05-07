@@ -47,13 +47,27 @@ class _productController extends Controller
 //    add new product
     public function addNewProduct(Request $request)
     {
+        $image = null;
         $catID = $request->input('categoryID');
-        $image = $request->file('productImage');
+
+        //get image from request
+        if($request->file('productImage'))
+        {
+            $image = $request->file('productImage');
+        }
+//        $image = $request->file('productImage');
+
+
         $principleImage = $request->file('principle_logo');
 
         $product = new product;
         $product->name = $request->input('name');
-        $product->productImage = $request->file('productImage')->getClientOriginalName();
+
+        if($image != null)
+        {
+            $product->productImage = $request->file('productImage')->getClientOriginalName();
+        }
+
         $product->additionalDetails = $request->input('textSample');
         $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
@@ -72,6 +86,7 @@ class _productController extends Controller
         }
 
         $benefits = $request->input('benefits');
+
         foreach ($benefits as $key=>$item)
         {
             $b = new benefit;
@@ -81,7 +96,12 @@ class _productController extends Controller
             $product->benefits()->save($b);
         }
 
-        $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
+        //Save image in the server
+        if($image != null)
+        {
+            $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
+        }
+
 
         LogActivity::addToLog('Add new product :'.$product->name);
         return redirect()->route('listofProduct',[$request->input('categoryID')]);

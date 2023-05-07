@@ -120,7 +120,11 @@
                                         {{$selected->description}}
                                     </p>
                                 </div>
-                                <figure class="single-image" style="text-align: center;"><img style="width: 550px;" src="{{asset('storage/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt=""></figure>
+                                @if($selected->productImage != null)
+                                <figure class="single-image" style="text-align: center;">
+                                    <img style="width: 550px;" src="{{asset('storage/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt="">
+                                </figure>
+                                @endIf
                                 <div class="intro-box">
 
                                     @foreach($selected->benefits as $key=>$b)
