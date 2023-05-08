@@ -126,6 +126,9 @@
                                         <label>Category For</label>
                                         <select name="categoryID" id="" class="form-control">
                                             @foreach($cposts as $key => $item)
+                                                @if ($item->id == $posts->category_id)
+                                                 <option value="{{$item->id}}" selected>{{$item->name}}</option>
+                                                @endif
                                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                             @endforeach
                                         </select>

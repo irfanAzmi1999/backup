@@ -150,7 +150,7 @@
                         </div>
                         <hr>
                         <div style="text-align: center;">
-                            <img style="margin-top:20px ;width:200px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <img style="margin-top:20px ;width:350px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
