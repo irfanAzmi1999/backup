@@ -24,6 +24,9 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="../../dashboard_assets/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
+    <style>
+        .tox-notification { display: none !important }
+    </style>
     <link rel="stylesheet" href="../../dashboard_assets/plugins/summernote/summernote-bs4.min.css">
     <script src="https://cdn.tiny.cloud/1/a3o1o7g2yyqr4tdaftctpx9mqursxwjhyhcqmx18d8ilkba7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
