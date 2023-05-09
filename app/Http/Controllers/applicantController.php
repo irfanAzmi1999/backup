@@ -13,10 +13,10 @@ class applicantController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except([
-            'show',
-            'showApplicant'
-        ]);
+        // $this->middleware('auth')->except([
+        //     'show',
+        //     'showApplicant'
+        // ]);
     }
     /**
      * Display a listing of the resource.
