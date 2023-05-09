@@ -331,6 +331,14 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="image-box wow slideInRight" data-wow-delay="00ms" data-wow-duration="1500ms">
                         {{-- <figure class="image js-tilt"><img src="assets_extended/images/resource/illastration-6.png" alt=""></figure> --}}
+                        <figure class="image">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.861461974713!2d101.73150897484071!3d3.1312933532624467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37c3f2932a3b%3A0xc2ff79da88749a8a!2sFaazmiar%20Technology%20SDN%20BHD!5e0!3m2!1sen!2smy!4v1683612871834!5m2!1sen!2smy"
+                                    width="600"
+                                    height="450"
+                                    style="border:0;margin-top:100px"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </figure>
+
                     </div>
                 </div>
             </div>
