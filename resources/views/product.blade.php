@@ -40,7 +40,7 @@
                 <div class="container">
                     <div class="evolta-responsive-menu">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="/">
                                 <img src="images/faazmiar.png" alt="logo">
                             </a>
                         </div>
@@ -51,7 +51,7 @@
             <div class="evolta-nav">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <img src="images/faazmiar.png" alt="logo">
                         </a>
 
