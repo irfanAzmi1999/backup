@@ -324,7 +324,7 @@
 
     </div>
     <div class="handle-shape">
-        <img src="assets/img/artificial-intelligence/handle/shape.png" alt="image">
+{{--        <img src="assets/img/artificial-intelligence/handle/shape.png" alt="image">--}}
     </div>
 </div>
 <!-- Start Why Choose Us -->
