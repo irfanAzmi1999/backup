@@ -85,6 +85,16 @@
 
     <section class="news-section sec-pad">
         <div class="auto-container">
+            <div class="sec-title text-center mb-60">
+             
+                <h2>
+                    Discover a world of <b>News</b> at your fingertips
+                </h2>
+                <p>
+                    Don't miss out on staying connected to the pulse of the world 
+                </p>
+                <div class="decor" style="background-image: url(assets/images/icons/decor-1.png);"></div>
+            </div>
             <div class="row clearfix">
 
                 @foreach($posts as $post)
