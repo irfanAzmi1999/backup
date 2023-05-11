@@ -52,7 +52,7 @@
         <div class="evolta-nav">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="../index.html">
+                    <a class="navbar-brand" href="/">
                         <img src="../images/faazmiar.png" alt="logo">
                     </a>
 
@@ -100,7 +100,7 @@
                     @else
                         <h2 style="color:white">No Job Found</h2>
                     @endif
-                    
+
                 </div>
                 <div class="row clearfix">
                     @foreach($post as $po)
