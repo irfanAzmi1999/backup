@@ -35,6 +35,9 @@
     <link href="assets_extended/css/responsive.css" rel="stylesheet">
 
 <style>
+    input{
+        font-style: normal !important;
+    }
     @media only screen and (max-width: 767px)
     #boxID{
         padding-top:50px;
