@@ -304,10 +304,11 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div id="content_block_09">
                         <div class="content-box">
-                            <form method="post" action="assets/inc/sendemail.php" id="contact-form" class="default-form">
+                            <form method="post" action="{{route('sendEmail')}}" id="contact-form" class="default-form">
+                                @csrf
                                 <div class="form-group">
                                     <label><i class="far fa-user"></i>Your Name</label>
-                                    <input type="text" name="username" placeholder="Enter name here" required="">
+                                    <input type="text" name="name" placeholder="Enter name here" required="">
                                 </div>
                                 <div class="form-group">
                                     <label><i class="far fa-envelope"></i>Email Address</label>

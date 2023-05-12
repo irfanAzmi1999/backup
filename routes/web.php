@@ -6,6 +6,7 @@ use App\Http\Controllers\accessController;
 use App\Http\Controllers\applicantController;
 use App\Http\Controllers\paperController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\sendEmailController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\_serviceController;
 use App\Http\Controllers\uploadImageController;
@@ -288,6 +289,9 @@ Route::get('/career',function(){
 Route::get('/aboutUs',function (){
     return view('aboutUs');
 });
+
+Route::post('/sendEmail',[sendEmailController::class,'send'])
+    ->name('sendEmail');
 
 Route::get('/trainingServices',function(){
     return view('services.trainingServices');
