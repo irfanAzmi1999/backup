@@ -208,13 +208,12 @@ class _productController extends Controller
         $firstProduct = product::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
-
-
         if($firstProduct != null)
         {
-            $productID = $firstProduct->id;
-            $paper = technical_paper::where('product_id','=',$productID)->get();
-            return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
+//            $productID = $firstProduct->id;
+//            $paper = technical_paper::where('product_id','=',$productID)->get();
+//            return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
+            return view('public_product/listofProduct',['posts'=>$product,'category'=>$category]);
         }
         else{
             echo '<script>';

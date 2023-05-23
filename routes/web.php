@@ -233,10 +233,6 @@ Route::get('/Update_Status/{id}',function ($id){
     return redirect()->route('job.index');
 })->name('updateJobStatus');
 
-
-
-
-
 Route::get('/Add Vacancy',function (){
     return view('Admin.addNewVacancy');
 })->name('addVacancy');
