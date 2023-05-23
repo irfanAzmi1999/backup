@@ -155,13 +155,13 @@
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="service-sidebar">
-                            <h3><b>Product List</b></h3>
-                            <hr>
-                            <ul class="sidebar-categories clearfix">
-                                @foreach($posts as $key=>$product)
-                                   <li><a href="{{route('viewProductBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5></a></li>
-                                @endforeach
-                            </ul>
+{{--                            <h3><b>Product List</b></h3>--}}
+{{--                            <hr>--}}
+{{--                            <ul class="sidebar-categories clearfix">--}}
+{{--                                @foreach($posts as $key=>$product)--}}
+{{--                                   <li><a href="{{route('viewProductBasedOnID',[$product->id,$product->category->id])}}"><h5>{{$product->name}}</h5></a></li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
                             <h3><b>Technical Paper</b></h3>
                             <hr>
                             <div class="sidebar-file">
