@@ -98,7 +98,7 @@
     <div class="container">
         <div class="row">
             <div class="sec-title text-center mb-60" style="padding-top:100px">
-                <p></p>
+                <p>Unleash drilling efficiency with our game-changing solution.</p>
                 <h2>Our <strong>{{$category->name}}</strong> Solutions</h2>
                 <div class="decor" style="background-image: {{url('assets/images/icons/decor-1.png')}};"></div>
             </div>
@@ -120,6 +120,9 @@
             @endforeach
 
 
+        </div>
+        <div class="d-flex justify-content-center">
+            {{$posts->links()}}
         </div>
     </div>
 

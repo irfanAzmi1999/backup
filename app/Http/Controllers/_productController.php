@@ -204,7 +204,7 @@ class _productController extends Controller
 
     public function viewProductBasedOnCategory($categoryID)
     {
-        $product = product::where('category_id','=',$categoryID)->get(); // sidebar
+        $product = product::where('category_id','=',$categoryID)->paginate(6); // sidebar
         $firstProduct = product::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
