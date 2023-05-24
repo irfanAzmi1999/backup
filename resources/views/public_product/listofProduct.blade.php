@@ -112,7 +112,7 @@
                         </div>
                         <h3><a href="#">{{$items->name}}</a></h3>
                         <p>
-                            {{Str::limit($items->description,100)}}
+{{--                            {{Str::limit($items->description,100)}}--}}
                         </p>
                     </div>
                 </div>
