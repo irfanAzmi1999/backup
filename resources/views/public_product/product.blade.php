@@ -150,7 +150,7 @@
                         </div>
                         <hr>
                         <div style="text-align: center;">
-                            @if(file_exists(asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)))
+                            @if(file_exists(asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo))==true)
                                 <img style="margin-top:20px ;width:250px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
                             @endif
 
