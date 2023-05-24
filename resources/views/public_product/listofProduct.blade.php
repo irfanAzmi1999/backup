@@ -35,6 +35,7 @@
 
         .single-services-box{
             cursor: pointer;
+            border-radius:50px;
         }
     </style>
 </head>

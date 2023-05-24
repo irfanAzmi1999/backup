@@ -182,6 +182,31 @@
                                     @endforelse
                                 </ul>
                             </div>
+                            <h3><b>Get in Touch</b></h3>
+                            <hr>
+                            <div class="sidebar-file">
+                                <ul class="download-option clearfix">
+                                    <li>
+                                        Interested with our product? <b>Submit your enquiry now</b>
+                                        <div style="">
+                                            <div class="form-group" style="margin: 20px">
+                                                <input type="text" placeholder="Your Name" class="form-control">
+                                            </div>
+                                           <div class="form-group" style="margin: 20px">
+                                                <input type="email" placeholder="Your Email" class="form-control">
+                                           </div>
+                                            <div class="form-group" style="margin: 20px">
+                                                <input type="text" placeholder="Company Name" class="form-control">
+                                            </div>
+                                            <div class="form-group" style="margin: 20px">
+                                                <textarea name="" class="form-control" id="" style="height:10em" placeholder="Enquiry"></textarea>
+                                            </div>
+                                            <button class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
                 </div>
