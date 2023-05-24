@@ -150,7 +150,10 @@
                         </div>
                         <hr>
                         <div style="text-align: center;">
-                            <img style="margin-top:20px ;width:250px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            @if(file_exists(asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)))
+                                <img style="margin-top:20px ;width:250px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            @endif
+
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
