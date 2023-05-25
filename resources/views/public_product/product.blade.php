@@ -24,7 +24,9 @@
     <style>
     .project-details-content .data-box .intro-box .single-item .left-column span
     {
-        font-weight:900 !important;
+        /*font-weight:900 !important;*/
+        font-family: system-ui !important;
+        color: black !important;
     }
     </style>
     <!-- Extended -->
@@ -136,7 +138,10 @@
                                     @foreach($selected->benefits as $key=>$b)
                                     <div class="single-item clearfix">
                                         <div class="left-column">
-                                            <div class="icon-box"><i class="flaticon-accept"></i></div>
+                                            <div class="icon-box">
+{{--                                                <i class="flaticon-accept"></i>--}}
+
+                                            </div>
                                             <span style="width:200px;word-wrap: break-word;">{{$b->title}}</span>
                                             <p></p>
                                         </div>
