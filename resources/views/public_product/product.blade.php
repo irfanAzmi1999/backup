@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="{{ url('/assets/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ url('/assets/css/dark-style.css') }}">
 
+    <style>
+    .project-details-content .data-box .intro-box .single-item .left-column span
+    {
+        font-weight:900 !important;
+    }
+    </style>
     <!-- Extended -->
     <link href="{{ url('/assets_extended/css/style.css') }}" rel="stylesheet">
     <link href="{{ url('/assets_extended/css/global.css') }}" rel="stylesheet">
