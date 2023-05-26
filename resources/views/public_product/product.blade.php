@@ -207,7 +207,7 @@
                                 <ul class="download-option clearfix">
                                     <li>
                                         Interested with our product? <b>Submit your enquiry now</b>
-                                        <form action="" autocomplete="no">
+                                        <form action="" autocomplete="off">
                                         <div style="">
                                             <div class="form-group" style="margin: 20px">
                                                 <input type="text" placeholder="Your Name" class="form-control">
