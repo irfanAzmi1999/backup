@@ -106,6 +106,8 @@
         <div class="container">
             <div class="page-title-content">
                 <h2>{{$cposts->name}}</h2>
+                <br>
+                <h3 style="color:white">{{$cposts->content}}</h3>
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/product">Product</a></li>
