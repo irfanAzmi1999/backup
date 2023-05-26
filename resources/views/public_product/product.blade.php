@@ -107,7 +107,10 @@
             <div class="page-title-content">
                 <h2>{{$cposts->name}}</h2>
                 <br>
-                <h3 style="color:white">{{$cposts->content}}</h3>
+                @foreach($cposts->bullets as $key => $item)
+                    <h3 style="color:white">{{$item->content}}</h3>
+                @endforeach
+
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/product">Product</a></li>
