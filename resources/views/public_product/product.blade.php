@@ -207,6 +207,7 @@
                                 <ul class="download-option clearfix">
                                     <li>
                                         Interested with our product? <b>Submit your enquiry now</b>
+                                        <form action="" autocomplete="no">
                                         <div style="">
                                             <div class="form-group" style="margin: 20px">
                                                 <input type="text" placeholder="Your Name" class="form-control">
@@ -222,6 +223,7 @@
                                             </div>
                                             <button class="btn btn-primary">Submit</button>
                                         </div>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>
