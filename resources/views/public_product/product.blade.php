@@ -165,6 +165,14 @@
                             </div>
                         </div>
                         <hr>
+                        <div style="text-align: center">
+                            <p style="color:grey">
+                                <b>
+                                    Technology Partner :
+                                </b>
+                            </p>
+                        </div>
+
                         <div style="text-align: center;">
 
                                 <img style="margin-top:20px ;width:250px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
