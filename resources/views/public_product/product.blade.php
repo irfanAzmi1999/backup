@@ -166,19 +166,22 @@
                         </div>
                         <hr>
                         <div style="text-align: center">
-                            <p style="color:grey">
-                                <b>
-                                    Technology Partner :
-                                </b>
-                            </p>
+{{--                            <p style="color:grey">--}}
+{{--                                <b>--}}
+{{--                                    Technology Partner :--}}
+{{--                                </b>--}}
+{{--                            </p>--}}
                         </div>
+
+
 
                         <div style="text-align: center;">
-
+                            <img style="margin-right:50px;margin-top:20px ;width:250px;" src="{{url('images/faazmiar.png')}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
                                 <img style="margin-top:20px ;width:250px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
-
-
                         </div>
+
+
+
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="service-sidebar">
