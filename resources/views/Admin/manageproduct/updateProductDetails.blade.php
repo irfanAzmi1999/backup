@@ -117,6 +117,11 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label>Product Brief Description</label><br>
+                                        <input name="productbrieddescription" class="form-control" value="{{ $posts->briefDescription }}" id="">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Product Description</label><br>
                                         <textarea name="productdescription" class="form-control" id=""  cols="20" rows="10">{{$posts->description}}</textarea>
                                     </div>

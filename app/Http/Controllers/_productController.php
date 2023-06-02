@@ -71,6 +71,7 @@ class _productController extends Controller
         $product->additionalDetails = $request->input('textSample');
         $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
+        $product->briefDescription = $request->input('productbrieddescription');
 
         if($request->file('principle_logo')!=null)
         {
@@ -133,6 +134,7 @@ class _productController extends Controller
         $product = product::findorFail($id);
         $product->name = $request->input('name');
         $product->additionalDetails = $request->input('textSample');
+        $product->briefDescription = $request->input('productbrieddescription');
 
         if($productimagestatus==true)
         {

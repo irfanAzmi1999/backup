@@ -37,11 +37,6 @@
             cursor: pointer;
             border-radius:50px;
         }
-        .service-block
-        {
-            cursor: pointer;
-            margin-bottom: 50px;
-        }
     </style>
 </head>
 <body>
@@ -110,21 +105,24 @@
             </div>
 
             @foreach($posts as $key=>$items)
-            <div class="col-lg-4 col-md-6 col-sm-12 service-block" onclick="redirect({{$items->id}},{{$category->id}})">
-                <div class="service-block-three wow flipInY" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="inner-box">
-                        <h3><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}">{{ $items->name }}</a></h3>
-                        <figure class="image-box"><img src="{{asset('storage/images/product/'.$items->id.'/'.$items->productImage)}}" alt="" style="width:314px;height:176px"></figure>
-                        <p>{{ $items->briefDescription }}</p>
-                        <div class="link"><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}"><i class="fas fa-angle-left"></i>Read More<i class="fas fa-angle-right"></i></a></div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-services-box" onclick="redirect({{$items->id}},{{$category->id}})">
+                        <div class="icon">
+                            <img src="{{asset('storage/images/product/'.$items->id.'/'.$items->productImage)}}" alt="image" style="width: 314px;height: 176px">
+                        </div>
+                        <h3><a href="#">{{$items->name}}</a></h3>
+                        <p>
+{{--                            {{Str::limit($items->description,100)}}--}}
+                        </p>
                     </div>
                 </div>
-            </div>
+
+
             @endforeach
 
 
         </div>
-        <div class="d-flex justify-content-center" style="margin-top:20px">
+        <div class="d-flex justify-content-center">
             {{$posts->links()}}
         </div>
     </div>
