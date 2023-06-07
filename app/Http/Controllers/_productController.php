@@ -48,6 +48,7 @@ class _productController extends Controller
     public function addNewProduct(Request $request)
     {
         $image = null;
+        $imageSecond = null;
         $catID = $request->input('categoryID');
 
         //get image from request
@@ -55,6 +56,12 @@ class _productController extends Controller
         {
             $image = $request->file('productImage');
         }
+
+        if($request->file('productImageSecondLayer'))
+        {
+            $imageSecond = $request->file('productImageSecondLayer');
+        }
+
 //        $image = $request->file('productImage');
 
 
@@ -72,6 +79,7 @@ class _productController extends Controller
         $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
         $product->briefDescription = $request->input('productbrieddescription');
+        $product->productImageSecond = $imageSecond->getClientOriginalName();
 
         if($request->file('principle_logo')!=null)
         {
@@ -103,6 +111,11 @@ class _productController extends Controller
             $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
         }
 
+        if ($imageSecond != null)
+        {
+            $imageSecond->storeAs('public/images/product/'.$product->id.'/secondImage',$imageSecond->getClientOriginalName());
+        }
+
 
         LogActivity::addToLog('Add new product :'.$product->name);
         return redirect()->route('listofProduct',[$request->input('categoryID')]);
@@ -120,6 +133,7 @@ class _productController extends Controller
     {
         $productimagestatus = false;
         $principleimagestatus = false;
+        $productSecondImage = false;
 
         if($request->file('productImage')!=null)
         {
@@ -131,10 +145,20 @@ class _productController extends Controller
             $principleimagestatus=true;
         }
 
+        if($request->file('productImageSecondLayer')!=null)
+        {
+            $productSecondImage=true;
+        }
+
         $product = product::findorFail($id);
         $product->name = $request->input('name');
         $product->additionalDetails = $request->input('textSample');
         $product->briefDescription = $request->input('productbrieddescription');
+
+        if($productSecondImage==true)
+        {
+            $product->productImageSecond = $request->file('productImageSecondLayer')->getClientOriginalName();
+        }
 
         if($productimagestatus==true)
         {
@@ -175,6 +199,11 @@ class _productController extends Controller
         if($productimagestatus==true)
         {
             $request->file('productImage')->storeAs('public/images/product/'.$product->id,$request->file('productImage')->getClientOriginalName());
+        }
+
+        if($productSecondImage==true)
+        {
+            $request->file('productImageSecondLayer')->storeAs('public/images/product/'.$product->id.'/secondImage', $request->file('productImageSecondLayer')->getClientOriginalName());
         }
 
         $currentCat = $request->input('currentCatID');

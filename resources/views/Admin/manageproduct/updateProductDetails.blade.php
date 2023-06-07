@@ -108,6 +108,12 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label>Product Image (2nd Layer)</label><br>
+                                        <img src="{{asset('storage/images/product/'.$posts->id.'/secondImage/'.$posts->productImageSecond)}}" id="imgOutput2" alt="" style="width: 350px">
+                                        <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Product Image</label><br>
                                         <div style="text-align:center">
                                             <img src="{{asset('storage/images/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="width: 250px">
@@ -259,6 +265,12 @@
         var output = document.getElementById("imgOutput1");
         output.src =URL.createObjectURL(event.target.files[0]);
 
+    }
+
+    var loadFile2 = function (event)
+    {
+        var output = document.getElementById("imgOutput2");
+        output.src =URL.createObjectURL(event.target.files[0]);
     }
 </script>
 

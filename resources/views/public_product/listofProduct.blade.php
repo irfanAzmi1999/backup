@@ -114,7 +114,8 @@
                 <div class="service-block-three wow flipInY" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="inner-box">
                         <h3><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}">{{ $items->name }}</a></h3>
-                        <figure class="image-box"><img src="{{asset('storage/images/product/'.$items->id.'/'.$items->productImage)}}" alt="" style="width:314px;height:176px"></figure>
+{{--                        <figure class="image-box"><img src="{{asset('storage/images/product/'.$items->id.'/'.$items->productImage)}}" alt="" style="width:314px;height:176px"></figure>--}}
+                        <figure class="image-box"><img src="{{asset('storage/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="" style="width:314px;height:230px"></figure>
                         <p>{{ $items->briefDescription }}</p>
                         <div class="link"><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}"><i class="fas fa-angle-left"></i>Read More<i class="fas fa-angle-right"></i></a></div>
                     </div>

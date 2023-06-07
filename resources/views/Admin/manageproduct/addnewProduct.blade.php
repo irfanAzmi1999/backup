@@ -51,11 +51,6 @@
             <img src="{{url('/images/faazmiar-logo-only.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
-
-
-
-
-
             <!-- Sidebar Menu -->
         @include('../layout/sidebarAdmin')
         @yield('sidebar')
@@ -106,6 +101,12 @@
                                     <div class="form-group">
                                         <label>Product Name</label>
                                         <input type="text" class="form-control" name="name" placeholder="Title" value="{{old('name')}}" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Product Image (2nd Layer)</label><br>
+                                        <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput2" alt="" style="width: 350px">
+                                        <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
                                     </div>
 
                                     <div class="form-group">
@@ -239,6 +240,12 @@
         var output = document.getElementById("imgOutput1");
         output.src =URL.createObjectURL(event.target.files[0]);
 
+    }
+
+    var loadFile2 = function (event)
+    {
+        var output = document.getElementById("imgOutput2");
+        output.src =URL.createObjectURL(event.target.files[0]);
     }
 </script>
 
