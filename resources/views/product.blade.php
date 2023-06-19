@@ -105,7 +105,10 @@
                                         <li style="width:250px;word-wrap: break-word;"><span class="dots"></span>{{ $bullet->content }}</li>
                                     @endforeach
                                 </ul>
-                                <figure class="image-box" style="top: 26px;left: 320px;right:0px"><img style="width:450px;border-radius:5%;height: 222px" src="{{asset('storage/images/product_category/'.$cat->id.'/image/'.$cat->image)}}"></figure>
+                                <figure class="image-box" style="top: 26px;left: 320px;right:0px">
+{{--                                    <img style="width:450px;border-radius:5%;height: 222px" src="{{asset('storage/images/product_category/'.$cat->id.'/image/'.$cat->image)}}">--}}
+                                    <img style="width:450px;border-radius:5%;height: 222px" src="{{  url(env('DO_SPACES_ENDPOINT').'/public/images/product_category/'.$cat->id.'/image/'.$cat->image) }}">
+                                </figure>
                                 <div class="link"><a href="{{ route('viewProdBasedOnCat',[$cat->id]) }}" class="btn-style-four">Read More<span>+</span></a></div>
                             </div>
                         </div>
@@ -121,7 +124,10 @@
                                         <li style="width:250px;word-wrap: break-word;"><span class="dots"></span>{{ $bullet->content }}</li>
                                     @endforeach
                                 </ul>
-                                <figure class="image-box" style="top: 26px"><img style="width: 450px;border-radius:5%;height: 222px" src="{{asset('storage/images/product_category/'.$cat->id.'/image/'.$cat->image)}}" alt=""></figure>
+                                <figure class="image-box" style="top: 26px;left: 320px;right:0px">
+{{--                                    <img style="width: 450px;border-radius:5%;height: 222px" src="{{asset('storage/images/product_category/'.$cat->id.'/image/'.$cat->image)}}" alt="">--}}
+                                    <img style="width:450px;border-radius:5%;height: 222px" src="{{  url(env('DO_SPACES_ENDPOINT').'/public/images/product_category/'.$cat->id.'/image/'.$cat->image) }}">
+                                </figure>
                                 <div class="link">
                                     <a href="{{ route('viewProdBasedOnCat',[$cat->id]) }}" class="btn-style-four">
                                         Read More

@@ -42,14 +42,6 @@
             cursor: pointer;
             margin-bottom: 50px;
         }
-
-        .mb-60 {
-            margin-bottom: 37px !important;
-        }
-
-        .pagination{
-            top:-31px;
-        }
     </style>
 </head>
 <body>
@@ -145,35 +137,35 @@
 {{--</section>--}}
 
 
-<section class="services-area ptb-110 bg-fafafa">
-    <div class="container">
-        <div class="row">
-            <div class="sec-title text-center mb-60" style="top:20px">
+<section class="service-style-three" style="top: 76px">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <div class="sec-title text-center mb-60" style="margin-top:-100px">
 {{--                <p>Unleash drilling efficiency with our game-changing solution.</p>--}}
                 <h2>Our <strong>{{$category->name}}</strong> Solutions</h2>
                 <div class="decor" style="background-image: {{url('assets/images/icons/decor-1.png')}};"></div>
             </div>
 
             @foreach($posts as $key=>$items)
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-services-box" onclick="redirect('{{ $items->id }}','{{ $category->id }}')">
-                    <div class="icon">
-                        <img src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="image" style="height: 85px">
+            <div class="col-lg-3 col-md-6 col-sm-12 case-block" style="margin-top: -40px">
+                <div class="case-block-one wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="inner-box" style="height: 400px">
+                        <figure class="image-box"><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}" class="lightbox-image" data-fancybox="gallery">
+                                <img src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="" style="width: 290px;height:220px"></a></figure>
+                        <div class="lower-content">
+                            <p>Drilling Solution</p>
+                            <h4><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}">{{$items->name}}</a></h4>
+                        </div>
                     </div>
-                    <h3><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}" style="font-size: large">{{$items->name}}</a></h3>
-{{--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>--}}
                 </div>
             </div>
             @endforeach
-
-
         </div>
-        <div class="d-flex justify-content-center" style="margin-top:5px">
+        <div class="d-flex justify-content-center" style="margin-top:40px">
             {{$posts->links()}}
         </div>
     </div>
-
-    <div class="services-shape"><img src="{{url('/assets/img/services-shape.png')}}" alt="image"></div>
 </section>
 
 <footer class="footer-area bg-wrap-color" style="">
@@ -273,9 +265,6 @@
         var link = '/manage_product/viewProductID/'+itemid+'/'+catid;
         window.location.href=link;
     }
-
-    
-
 </script>
 </body>
 </html>

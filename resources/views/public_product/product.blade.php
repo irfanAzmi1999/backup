@@ -102,7 +102,7 @@
         </div>
     </div>
 
-    <div class="page-title-area">
+    <div class="page-title-area" style="padding-top: 130px">
         <div class="container">
             <div class="page-title-content">
                 <h2>{{$cposts->name}}</h2>
@@ -120,7 +120,7 @@
         </div>
     </div>
 
-   <section class="service-details">
+   <section class="service-details" style="padding: 42px 0px;">
         <div class="auto-container">
                 <div class="row clearfix">
                     <div class="col-lg-8 col-md-12 col-sm-12 content-side">
@@ -135,7 +135,7 @@
                                 </div>
                                 @if($selected->productImage != null)
                                 <figure class="single-image" style="text-align: center;">
-                                    <img style="width: 550px;" src="{{asset('storage/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt="">
+                                    <img style="width: 550px;" src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt="">
                                 </figure>
                                 @endIf
                                 <div class="intro-box">
@@ -177,7 +177,7 @@
 
                         <div style="text-align: center;">
                             <img style="margin-right:50px;margin-top:20px ;width:250px;" src="{{url('images/faazmiar.png')}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                <img style="margin-top:20px ;width:250px;" src="{{asset('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <img style="margin-top:20px ;width:250px;" src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
                         </div>
 
 

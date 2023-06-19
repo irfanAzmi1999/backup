@@ -125,6 +125,14 @@ Route::group([],function () {
         Route::get('/viewProductCategory/{id}',[productController::class,'viewProductCategory'])
             ->name('viewProductCategory');
 
+        Route::get('/viewReorderCatPage',[productController::class,'viewReorderCatPage'])
+            ->name('viewReorderCatPage');
+
+        Route::post('/reorderCat',[productController::class,'reorderCat'])
+            ->name('reorderCat');
+
+        // Route::get('/')
+
         // Product Section
         Route::get('/displaylistofProducts/{id}',[_productController::class,'showProductList'])
             ->name('listofProduct');
@@ -258,7 +266,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/product',function (){
-    return view('product',['posts'=>category::where('role','=','Product')->get()]);
+    return view('product',['posts'=>category::where('role','=','Product')->orderBy('index','asc')->get()]);
 });
 
 Route::get('/_news',function(){

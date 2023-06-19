@@ -10,6 +10,7 @@ use App\Models\technical_paper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class _productController extends Controller
 {
@@ -51,6 +52,10 @@ class _productController extends Controller
         $imageSecond = null;
         $catID = $request->input('categoryID');
 
+        //calculate index
+
+        $newIndex = product::max('index')+1;
+
         //get image from request
         if($request->file('productImage'))
         {
@@ -80,6 +85,7 @@ class _productController extends Controller
         $product->category_id = $request->input('categoryID');
         $product->briefDescription = $request->input('productbrieddescription');
         $product->productImageSecond = $imageSecond->getClientOriginalName();
+        $product->index = $newIndex;
 
         if($request->file('principle_logo')!=null)
         {
@@ -91,7 +97,9 @@ class _productController extends Controller
 
         if($request->file('principle_logo')!=null)
         {
-            $productPrinciple->storeAs('public/images/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
+//            $productPrinciple->storeAs('public/images/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
+            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/principleLogo',
+                $principleImage,$principleImage->getClientOriginalName(),'public');
         }
 
         $benefits = $request->input('benefits');
@@ -108,12 +116,14 @@ class _productController extends Controller
         //Save image in the server
         if($image != null)
         {
-            $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
+//            $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
+            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id,$image,$image->getClientOriginalName(),'public');
         }
 
         if ($imageSecond != null)
         {
-            $imageSecond->storeAs('public/images/product/'.$product->id.'/secondImage',$imageSecond->getClientOriginalName());
+//            $imageSecond->storeAs('public/images/product/'.$product->id.'/secondImage',$imageSecond->getClientOriginalName());
+            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/secondImage',$imageSecond,$imageSecond->getClientOriginalName(),'public');
         }
 
 
@@ -193,17 +203,26 @@ class _productController extends Controller
 
         if($principleimagestatus==true)
         {
-            $request->file('principle_logo')->storeAs('public/images/product/'.$product->id.'/principleLogo',$request->file('principle_logo')->getClientOriginalName());
+//            $request->file('principle_logo')->storeAs('public/images/product/'.$product->id.'/principleLogo',
+//                $request->file('principle_logo')->getClientOriginalName(),'public');
+            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/principleLogo',
+                $request->file('principle_logo'),$request->file('principle_logo')->getClientOriginalName(),'public');
+
         }
 
         if($productimagestatus==true)
         {
-            $request->file('productImage')->storeAs('public/images/product/'.$product->id,$request->file('productImage')->getClientOriginalName());
+//            $request->file('productImage')->storeAs('public/images/product/'.$product->id,
+//                $request->file('productImage')->getClientOriginalName());
+            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id,$request->file('productImage'),
+                $request->file('productImage')->getClientOriginalName(),'public');
         }
 
         if($productSecondImage==true)
         {
-            $request->file('productImageSecondLayer')->storeAs('public/images/product/'.$product->id.'/secondImage', $request->file('productImageSecondLayer')->getClientOriginalName());
+//            $request->file('productImageSecondLayer')->storeAs('public/images/product/'.$product->id.'/secondImage', $request->file('productImageSecondLayer')->getClientOriginalName());
+            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/secondImage',
+                $request->file('productImageSecondLayer'),$request->file('productImageSecondLayer')->getClientOriginalName(),'public');
         }
 
         $currentCat = $request->input('currentCatID');

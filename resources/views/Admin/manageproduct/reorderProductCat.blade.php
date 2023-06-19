@@ -49,114 +49,102 @@
 
 
 
-        <!-- Sidebar Menu -->
-    @include('../layout/sidebarAdmin')
-    @yield('sidebar')
-    <!-- /.sidebar-menu -->
-</div>
-<!-- /.sidebar -->
-</aside>
+            <!-- Sidebar Menu -->
+        @include('../layout/sidebarAdmin')
+        @yield('sidebar')
+        <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Product Category</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{route('job.create')}}"></a>Product Category</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Product Category</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="{{route('job.create')}}"></a>Product Category</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Product Category List</h3>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Reorder Product Category</h3>
+                            <br>
+                            <code>Rearrange the categories by dragging the row</code>
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="">
+                                    @if(Auth::user()->role == 'admin')
+                                        <button class="btn btn-primary" onclick="submitOrder()">Confirm Order</button>
 
-                        <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 350px;flex-wrap:nowrap;gap:50px">
-                                @if(Auth::user()->role == 'admin')
-                                    <a href="{{ route('addProductCat') }}">Add Product Category</a>
-                                    <a href="{{ route('viewReorderCatPage') }}">Reorder Category</a>
-                                @endif
+                                    @endif
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap table-bordered">
-                            <thead class="table-active ">
-                            <tr>
-                                <th>ID</th>
-                                <th>Category</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th>Action</th>
-                                <th>View</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @forelse($posts as $key=>$item)
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <form action="{{ route('reorderCat') }}" method="POST" id="formOrder">
+                            <table class="table table-hover text-nowrap table-bordered" id="sort">
+                                <thead class="table-active ">
                                 <tr>
-                                    <td>{{$item->id}}</td>
-                                    <td><a href="{{ route('viewProductCategory',$item->id) }}">{{$item->name}}</a></td>
-                                    <td>{{$item->created_at->diffForHumans()}}</td>
-                                    <td>{{$item->updated_at->diffForHumans()}}</td>
-                                    <td>
-                                        <form action="{{route('deleteProductCategory',[$item->id])}}" method="POST" id="frm{{$item->id}}">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                        <a href="{{route('updateProductForm',[$item->id])}}"><img src="{{ url('images/Admin/editing.png') }}" style="width:30px" alt=""></a>
-                                        |
-                                        <a href="#" onclick="deleteProductCat('{{$item->id}}','{{$item->name}}')">
-                                            <img src="{{ url('images/Admin/trash.png') }}" style="width:30px" alt="">
-                                        </a>
-                                    </td>
-                                    <td><a href="{{route('listofProduct',[$item->id])}}">View Product</a></td>
+                                    <th style="width:20px">Index</th>
+                                    <th class="index">ID</th>
+                                    <th>Category</th>
                                 </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="6" style="text-align: center">No Data Found</td>
-                                </tr>
-                            @endforelse
-                            </tbody>
-                        </table>
+                                </thead>
+
+                                <tbody>
+
+                                      @csrf
+                                         @foreach ($posts as $key=>$items)
+                                      <tr>
+                                         <td class="index"><input type="text" value="{{ $items->index }}" name="categoryOrder[]" style="border:0"></td>
+                                         <td>{{ $items->id }}<input type="hidden" value="{{ $items->id }}" name="categoryID[]"></td>
+                                        <td>{{ $items->name }}</td>
+                                      </tr>
+                                   @endforeach
+
+                                </tbody>
+
+                            </table>
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<footer class="main-footer">
-    <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
-    All rights reserved.
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
+        All rights reserved.
 
-</footer>
+    </footer>
 
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 @if(Session::has('message'))
@@ -211,5 +199,33 @@
 {{--<script src=../dashboard_assets/"dist/js/demo.js"></script>--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dashboard_assets/dist/js/pages/dashboard.js"></script>
+
+<script>
+    function submitOrder()
+    {
+        document.getElementById('formOrder').submit();
+    }
+</script>
+
+<script>
+    var fixHelperModified = function(e, tr) {
+    var $originals = tr.children();
+    var $helper = tr.clone();
+    $helper.children().each(function(index) {
+        $(this).width($originals.eq(index).width())
+    });
+    return $helper;
+    },
+    updateIndex = function(e, ui) {
+        $('td.index', ui.item.parent()).each(function (i) {
+            $(this).children('input').val(i+1);
+        });
+    };
+
+    $("#sort tbody").sortable({
+    helper: fixHelperModified,
+    stop: updateIndex
+    }).disableSelection();
+</script>
 </body>
 </html>
