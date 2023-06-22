@@ -135,7 +135,7 @@
                                 </div>
                                 @if($selected->productImage != null)
                                 <figure class="single-image" style="text-align: center;">
-                                    <img style="width: 550px;" src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt="">
+                                    <img style="height: 350px;width:auto" src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$selected->id.'/'.$selected->productImage)}}" alt="">
                                 </figure>
                                 @endIf
                                 <div class="intro-box">
