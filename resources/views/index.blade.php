@@ -145,7 +145,7 @@
                     <div class="col-lg-2 col-6 col-sm-3 col-md-3">
                         <div class="partner-card" style="text-align: center;">
                             <a href="#">
-                                <!-- <img src="images/petronas.png" alt="clientLogo"> -->
+                                {{-- <img src="images/petronas.png" alt="clientLogo">  --}}
                             </a>
                         </div>
                     </div>

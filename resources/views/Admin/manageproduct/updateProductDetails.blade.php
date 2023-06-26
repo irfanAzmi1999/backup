@@ -54,164 +54,164 @@
         </a>
 
 
-            <!-- Sidebar Menu -->
-        @include('../layout/sidebarAdmin')
-        @yield('sidebar')
-        <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
+        <!-- Sidebar Menu -->
+    @include('../layout/sidebarAdmin')
+    @yield('sidebar')
+    <!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+</aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Update Product</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active" >Update Product Details</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Update Product</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item active" >Update Product Details</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- SELECT2 EXAMPLE -->
-                <form action="{{route('updateProductDB',[$posts->id])}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h3 class="card-title">Update Product Form</h3>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <form action="{{route('updateProductDB',[$posts->id])}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Update Product Form</h3>
 
-                            <div class="card-tools">
+                        <div class="card-tools">
 
-                            </div>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
 
-                                    <div class="form-group">
-                                        <label>Product Name</label>
-                                        <input type="text" class="form-control" name="name" placeholder="Title" value="{{$posts->name}}" required>
+                                <div class="form-group">
+                                    <label>Product Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Title" value="{{$posts->name}}" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Product Image (2nd Layer)</label><br>
+                                    <img src="{{asset('storage/images/product/'.$posts->id.'/secondImage/'.$posts->productImageSecond)}}" id="imgOutput2" alt="" style="width: 350px">
+                                    <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Product Image</label><br>
+                                    <div style="text-align:center">
+                                        <img src="{{asset('storage/images/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="width: 250px">
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Product Image (2nd Layer)</label><br>
-                                        <img src="{{asset('storage/images/product/'.$posts->id.'/secondImage/'.$posts->productImageSecond)}}" id="imgOutput2" alt="" style="width: 350px">
-                                        <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
-                                    </div>
+                                    <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" >
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product Image</label><br>
-                                        <div style="text-align:center">
-                                            <img src="{{asset('storage/images/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="width: 250px">
-                                        </div>
+                                <div class="form-group">
+                                    <label>Product Brief Description</label><br>
+                                    <input name="productbrieddescription" class="form-control" value="{{ $posts->briefDescription }}" id="">
+                                </div>
 
-                                        <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" >
-                                    </div>
+                                <div class="form-group">
+                                    <label>Product Description</label><br>
+                                    <textarea name="productdescription" class="form-control" id=""  cols="20" rows="10">{{$posts->description}}</textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product Brief Description</label><br>
-                                        <input name="productbrieddescription" class="form-control" value="{{ $posts->briefDescription }}" id="">
-                                    </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="currentCatID" value="{{$posts->category_id}}">
+                                    <label>Category For</label>
+                                    <select name="categoryID" id="" class="form-control">
+                                        @foreach($cposts as $key => $item)
+                                            @if ($item->id == $posts->category_id)
+                                                <option value="{{$item->id}}" selected>{{$item->name}}</option>
+                                            @endif
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product Description</label><br>
-                                        <textarea name="productdescription" class="form-control" id=""  cols="20" rows="10">{{$posts->description}}</textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="hidden" name="currentCatID" value="{{$posts->category_id}}">
-                                        <label>Category For</label>
-                                        <select name="categoryID" id="" class="form-control">
-                                            @foreach($cposts as $key => $item)
-                                                @if ($item->id == $posts->category_id)
-                                                 <option value="{{$item->id}}" selected>{{$item->name}}</option>
-                                                @endif
-                                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="">Additional Details</label>
-                                        <textarea name="textSample" class="sample" id="editorID" cols="30" rows="10">
+                                <div class="form-group">
+                                    <label for="">Additional Details</label>
+                                    <textarea name="textSample" class="sample" id="editorID" cols="30" rows="10">
                                             {!! $posts->additionalDetails !!}
                                         </textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Principle Logo :</label><br>
+                                    <div style="text-align:center">
+                                        <img src="{{asset('storage/images/product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput1" alt="" style="width: 250px"  >
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Principle Logo :</label><br>
-                                        <div style="text-align:center">
-                                            <img src="{{asset('storage/images/product/'.$posts->id.'/principleLogo/'.$posts->principleLogo)}}" id="imgOutput1" alt="" style="width: 250px"  >
-                                        </div>
+                                    <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
+                                </div>
 
-                                        <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
-                                    </div>
+                                <div class="form-group">
+                                    <label>Product benefits/advantages :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
 
-                                    <div class="form-group">
-                                        <label>Product benefits/advantages :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
-
-                                        <div id="divElement">
+                                    <div id="divElement">
                                         @foreach($posts->benefits as $key=>$b)
                                             <input id="divElement{{$key+1}}" type="text" style="margin-bottom:20px" class="form-control" name="benefits[]" placeholder="Benefits / Advantages" value="{{$b->title}}" required><textarea id="divElement{{$key+1}}" style="margin-bottom: 20px" class="form-control" placeholder="Description" name="benefitDescription[]">{{$b->description}}</textarea><button id="divElement{{$key+1}}" type="button" onclick="removeExistingElement(this)">Remove</button><hr>
                                         @endforeach
-                                        </div>
+                                    </div>
 
 
-                                        <div id="reqs">
-
-                                        </div>
+                                    <div id="reqs">
 
                                     </div>
 
                                 </div>
 
-
                             </div>
-                            <!-- /.row -->
 
-
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer">
 
                         </div>
-                    </div>
-                    <div class="" style="text-align: center">
-                        <input type="submit" value="submit" class="btn btn-primary">
-                    </div>
-                </form>
-            </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
-        All rights reserved.
+                        <!-- /.row -->
 
-    </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+                <div class="" style="text-align: center">
+                    <input type="submit" value="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
+    All rights reserved.
+
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 

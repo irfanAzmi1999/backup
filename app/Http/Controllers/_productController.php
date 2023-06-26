@@ -48,6 +48,7 @@ class _productController extends Controller
 //    add new product
     public function addNewProduct(Request $request)
     {
+
         $image = null;
         $imageSecond = null;
         $catID = $request->input('categoryID');
@@ -141,6 +142,7 @@ class _productController extends Controller
 
     public function updateProduct($id,Request $request)
     {
+        // dd($request->textSample);
         $productimagestatus = false;
         $principleimagestatus = false;
         $productSecondImage = false;

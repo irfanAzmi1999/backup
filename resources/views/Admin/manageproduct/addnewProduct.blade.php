@@ -51,143 +51,143 @@
             <img src="{{url('/images/faazmiar-logo-only.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light" style="font-size: 16px">Faazmiar Technology</span>
         </a>
-            <!-- Sidebar Menu -->
-        @include('../layout/sidebarAdmin')
-        @yield('sidebar')
-        <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
+        <!-- Sidebar Menu -->
+    @include('../layout/sidebarAdmin')
+    @yield('sidebar')
+    <!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+</aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Add Product</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active" >Add Service Category</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Add Product</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{route('adminDashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item active" >Add Service Category</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- SELECT2 EXAMPLE -->
-                <form action="{{route('addProductDB')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h3 class="card-title">Add Product Form</h3>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <form action="{{route('addProductDB')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Product Form</h3>
 
-                            <div class="card-tools">
+                        <div class="card-tools">
 
-                            </div>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
 
-                                    <div class="form-group">
-                                        <label>Product Name</label>
-                                        <input type="text" class="form-control" name="name" placeholder="Title" value="{{old('name')}}" required>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Product Name</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Title" value="{{old('name')}}" required>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product Image (2nd Layer)</label><br>
-                                        <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput2" alt="" style="width: 350px">
-                                        <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
-                                    </div>
+                                <div class="form-group">
+                                    <label>Product Image (2nd Layer)</label><br>
+                                    <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput2" alt="" style="width: 350px">
+                                    <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product Image</label><br>
-                                        <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput" alt="" style="width: 350px">
-                                        <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" >
-                                    </div>
+                                <div class="form-group">
+                                    <label>Product Image</label><br>
+                                    <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput" alt="" style="width: 350px">
+                                    <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" >
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product Brief Description</label><br>
-                                        <textarea name="productbrieddescription" class="form-control" id="" cols="20" rows="10"></textarea>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Product Brief Description</label><br>
+                                    <textarea name="productbrieddescription" class="form-control" id="" cols="20" rows="10"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product Description</label><br>
-                                        <textarea name="productdescription" class="form-control" id="" cols="20" rows="10"></textarea>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Product Description</label><br>
+                                    <textarea name="productdescription" class="form-control" id="" cols="20" rows="10"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Category For</label>
-                                        <input type="text" class="form-control" name="role" placeholder="Title" value="{{$posts->name}}" readonly>
-                                        <input type="hidden" name="categoryID" value="{{$posts->id}}">
-                                    </div>
+                                <div class="form-group">
+                                    <label>Category For</label>
+                                    <input type="text" class="form-control" name="role" placeholder="Title" value="{{$posts->name}}" readonly>
+                                    <input type="hidden" name="categoryID" value="{{$posts->id}}">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="">Additional Details</label>
-                                        <textarea name="textSample" class="sample" id="editorID" cols="30" rows="10"></textarea>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="">Additional Details</label>
+                                    <textarea name="textSample" class="sample" id="editorID" cols="30" rows="10"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Principle Logo :</label><br>
-                                        <img src="" id="imgOutput1" alt="" style="width: 250px"  >
-                                        <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
-                                    </div>
+                                <div class="form-group">
+                                    <label>Principle Logo :</label><br>
+                                    <img src="" id="imgOutput1" alt="" style="width: 250px"  >
+                                    <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Product benefits/advantages :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
-                                        <input type="text" style="margin-bottom:20px" class="form-control" name="benefits[]" placeholder="Benefits / Advantages" value="{{old('benefits')}}" required>
-                                        <textarea class="form-control" placeholder="Description" name="benefitDescription[]"></textarea>
-                                        <hr>
-                                        <div id="reqs">
-
-                                        </div>
+                                <div class="form-group">
+                                    <label>Product benefits/advantages :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
+                                    <input type="text" style="margin-bottom:20px" class="form-control" name="benefits[]" placeholder="Benefits / Advantages" value="{{old('benefits')}}" required>
+                                    <textarea class="form-control" placeholder="Description" name="benefitDescription[]"></textarea>
+                                    <hr>
+                                    <div id="reqs">
 
                                     </div>
 
                                 </div>
 
-
                             </div>
-                            <!-- /.row -->
 
-
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer">
 
                         </div>
-                    </div>
-                    <div class="" style="text-align: center">
-                        <input type="submit" value="submit" class="btn btn-primary">
-                    </div>
-                </form>
-            </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
-        All rights reserved.
+                        <!-- /.row -->
 
-    </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+                <div class="" style="text-align: center">
+                    <input type="submit" value="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>Copyright &copy; 2023 <a href="#">Faazmiar Technology Sdn Bhd</a>.</strong>
+    All rights reserved.
+
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
