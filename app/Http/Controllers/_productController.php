@@ -28,7 +28,7 @@ class _productController extends Controller
     public function showProductList($id)
     {
 
-            $product = product::where('category_id','=',$id)->get();
+            $product = product::where('category_id','=',$id)->orderBy('index','asc')->get();
 
 
 //        if(Auth::user()->role == 'staff')
@@ -256,7 +256,9 @@ class _productController extends Controller
 
     public function viewProductBasedOnCategory($categoryID)
     {
-        $product = product::where('category_id','=',$categoryID)->paginate(6); // sidebar
+        
+        // $product = product::where('category_id','=',$id)->orderBy('index','asc')->get();
+        $product = product::where('category_id','=',$categoryID)->orderBy('index','asc')->paginate(6); // sidebar
         $firstProduct = product::where('category_id','=',$categoryID)->first(); // selected product
         $category = category::findorFail($categoryID);
 
@@ -285,5 +287,12 @@ class _productController extends Controller
         $paper = technical_paper::where('product_id','=',$productID)->get();
 
         return view('public_product.product',['posts'=>$product,'cposts'=>$category,'selected'=>$firstProduct,'paper'=>$paper]);
+    }
+
+    public function sortProduct($categoryID)
+    {
+        $product = product::where('category_id','=',$categoryID)->orderBy('index','asc')->get();
+        return view('Admin.manageproduct.sortProduct',['categoryid'=>$categoryID,'posts'=>$product]);
+
     }
 }

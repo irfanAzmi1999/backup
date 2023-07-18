@@ -86,11 +86,23 @@
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     @if(Auth::user()->role == 'admin')
+                                        <a href="{{ route('sortProduct',['catID'=>$cat->id]) }}">Sort Product</a>
+                                    @endif
+
+                                </div>
+                            </div>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    @if(Auth::user()->role == 'admin')
                                         <a href="{{ route('addProduct',['id'=>$cat->id]) }}">Add Product </a>
                                     @endif
 
                                 </div>
                             </div>
+
+
+
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">

@@ -161,7 +161,7 @@
                         <img src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="image" style="height: 85px">
                     </div>
                     <h3><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}" style="font-size: large">{{$items->name}}</a></h3>
-{{--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>--}}
+                  <p>{{ $items->briefDescription }}</p>
                 </div>
             </div>
             @endforeach

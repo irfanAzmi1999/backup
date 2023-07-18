@@ -160,6 +160,9 @@ Route::group([],function () {
 
         Route::get('/viewProductID/{id}/{catID}',[_productController::class,'viewProductBasedOnID'])
             ->name('viewProductBasedOnID');
+
+        Route::get('/sortProduct/{catID}',[_productController::class,'sortProduct'])
+            ->name('sortProduct');
     });
 
     Route::group(['prefix' => '/manage_service'], function () {
