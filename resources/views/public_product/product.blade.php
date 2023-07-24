@@ -21,6 +21,15 @@
     <link rel="stylesheet" href="{{ url('/assets/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ url('/assets/css/dark-style.css') }}">
 
+    <link href="{{url('/assets_extended/css/style.css')}}" rel="stylesheet">
+    <link href="{{url('/assets_extended/css/global.css')}}" rel="stylesheet">
+    <link href="{{url('/assets_extended/css/animate.css')}}" rel="stylesheet">
+    <link href="{{url('/assets_extended/css/font-awesome-all.css')}}" rel="stylesheet">
+    <link href="{{url('/assets_extended/css/color.css')}}" rel="stylesheet">
+    <link href="{{url('/assets_extended/css/responsive.css')}}" rel="stylesheet">
+    <link href="{{url('/assets_extended/css/flaticon.css')}}" rel="stylesheet">
+    <link href="{{url('/assets_extended/css/owl.css')}}" rel="stylesheet">
+
     <style>
         .project-details-content .data-box .intro-box .single-item .left-column span
         {
@@ -43,10 +52,17 @@
     <link href="{{ url('/assets_extended/css/owl.css') }}" rel="stylesheet">
 
     <style>
+
+        ul li span{
+            margin-bottom: 15px !important;
+        }
+
         ul, li {
             list-style: inherit;
             padding: 0px;
             margin: 0px;
+            line-height: normal;
+            align:justify;
         }
         .info-box.clearfix li{
             list-style: none;
@@ -60,6 +76,8 @@
         p{
             color:initial;
         }
+
+
     </style>
 
 </head>
@@ -127,7 +145,7 @@
     <div class="auto-container">
         <div class="row clearfix">
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-                <div class="project-details-content">
+                <div class="project-details-content service-details-content">
                     <div class="data-box">
                         <div class="title-box">
                             <h3>{{$selected->name}}</h3>
@@ -261,5 +279,21 @@
 <script src="{{ url('/assets/js/form-validator.min.js') }}"></script>
 <script src="{{ url('/assets/js/contact-form-script.js') }}"></script>
 <script src="{{ url('/assets/js/main.js') }}"></script>
+
+
+<script src="{{url('/assets_extended/js/jquery.js') }}"></script>
+<script src="{{url('/assets_extended/js/popper.min.js') }}"></script>
+<script src="{{url('/assets_extended/js/bootstrap.min.js')}}"></script>
+<script src="{{url('/assets_extended/js/owl.js')}}"></script>
+<script src="{{url('/assets_extended/js/wow.js')}}"></script>
+<script src="{{url('/assets_extended/js/validation.js')}}"></script>
+<script src="{{url('/assets_extended/js/jquery.fancybox.js')}}"></script>
+<script src="{{url('/assets_extended/js/appear.js')}}"></script>
+<script src="{{url('assets_extended/js/jquery.countTo.js')}}"></script>
+<script src="{{url('/assets_extended/js/scrollbar.js')}}"></script>
+<script src="{{url('/assets_extended/js/tilt.jquery.js')}}"></script>
+
+<!-- main-js -->
+<script src="{{url('/assets_extended/js/script.js')}}"></script>
 </body>
 </html>
