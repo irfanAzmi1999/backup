@@ -55,8 +55,8 @@ class productController extends Controller
             $category->bullets()->save($b);
         }
 
-//        $picture->store('uploads','spaces');
-       $test = Storage::disk('spaces')->putFileAs('public/images/product_category/'.$category->id.'/image',$picture,$picture->getClientOriginalName(),'public');
+        $picture->storeAs('public/images/product_category/'.$category->id.'/image',$picture->getClientOriginalName());
+//       $test = Storage::disk('spaces')->putFileAs('public/images/product_category/'.$category->id.'/image',$picture,$picture->getClientOriginalName(),'public');
 
         Session::flash('message','New Product Category Added');
 
@@ -79,7 +79,8 @@ class productController extends Controller
         {
             $image = $request->file('catProductImage');
             $catP->image = $request->file('catProductImage')->getClientOriginalName();
-            $test = Storage::disk('spaces')->putFileAs('public/images/product_category/'.$catP->id.'/image',$image,$image->getClientOriginalName(),'public');
+            $image->storeAs('public/images/product_category/'.$catP->id.'/image',$image->getClientOriginalName());
+//            $test = Storage::disk('spaces')->putFileAs('public/images/product_category/'.$catP->id.'/image',$image,$image->getClientOriginalName(),'public');
         }
         $catP->save();
 

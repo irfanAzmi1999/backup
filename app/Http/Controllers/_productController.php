@@ -98,9 +98,9 @@ class _productController extends Controller
 
         if($request->file('principle_logo')!=null)
         {
-//            $productPrinciple->storeAs('public/images/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
-            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/principleLogo',
-                $principleImage,$principleImage->getClientOriginalName(),'public');
+            $productPrinciple->storeAs('public/images/product/'.$product->id.'/principleLogo',$principleImage->getClientOriginalName());
+//            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/principleLogo',
+//                $principleImage,$principleImage->getClientOriginalName(),'public');
         }
 
         $benefits = $request->input('benefits');
@@ -117,14 +117,14 @@ class _productController extends Controller
         //Save image in the server
         if($image != null)
         {
-//            $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
-            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id,$image,$image->getClientOriginalName(),'public');
+            $request->file('productImage')->storeAs('public/images/product/'.$product->id,$image->getClientOriginalName());
+//            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id,$image,$image->getClientOriginalName(),'public');
         }
 
         if ($imageSecond != null)
         {
-//            $imageSecond->storeAs('public/images/product/'.$product->id.'/secondImage',$imageSecond->getClientOriginalName());
-            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/secondImage',$imageSecond,$imageSecond->getClientOriginalName(),'public');
+            $imageSecond->storeAs('public/images/product/'.$product->id.'/secondImage',$imageSecond->getClientOriginalName());
+//            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/secondImage',$imageSecond,$imageSecond->getClientOriginalName(),'public');
         }
 
 
@@ -205,26 +205,25 @@ class _productController extends Controller
 
         if($principleimagestatus==true)
         {
-//            $request->file('principle_logo')->storeAs('public/images/product/'.$product->id.'/principleLogo',
-//                $request->file('principle_logo')->getClientOriginalName(),'public');
-            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/principleLogo',
-                $request->file('principle_logo'),$request->file('principle_logo')->getClientOriginalName(),'public');
-
+            $request->file('principle_logo')->storeAs('public/images/product/'.$product->id.'/principleLogo',
+                $request->file('principle_logo')->getClientOriginalName(),'public');
+//            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/principleLogo',
+//                $request->file('principle_logo'),$request->file('principle_logo')->getClientOriginalName(),'public');
         }
 
         if($productimagestatus==true)
         {
-//            $request->file('productImage')->storeAs('public/images/product/'.$product->id,
-//                $request->file('productImage')->getClientOriginalName());
-            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id,$request->file('productImage'),
-                $request->file('productImage')->getClientOriginalName(),'public');
+            $request->file('productImage')->storeAs('public/images/product/'.$product->id,
+                $request->file('productImage')->getClientOriginalName());
+//            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id,$request->file('productImage'),
+//                $request->file('productImage')->getClientOriginalName(),'public');
         }
 
         if($productSecondImage==true)
         {
-//            $request->file('productImageSecondLayer')->storeAs('public/images/product/'.$product->id.'/secondImage', $request->file('productImageSecondLayer')->getClientOriginalName());
-            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/secondImage',
-                $request->file('productImageSecondLayer'),$request->file('productImageSecondLayer')->getClientOriginalName(),'public');
+            $request->file('productImageSecondLayer')->storeAs('public/images/product/'.$product->id.'/secondImage', $request->file('productImageSecondLayer')->getClientOriginalName());
+//            Storage::disk('spaces')->putFileAs('public/images/product/'.$product->id.'/secondImage',
+//                $request->file('productImageSecondLayer'),$request->file('productImageSecondLayer')->getClientOriginalName(),'public');
         }
 
         $currentCat = $request->input('currentCatID');
@@ -256,7 +255,7 @@ class _productController extends Controller
 
     public function viewProductBasedOnCategory($categoryID)
     {
-        
+
         // $product = product::where('category_id','=',$id)->orderBy('index','asc')->get();
         $product = product::where('category_id','=',$categoryID)->orderBy('index','asc')->paginate(6); // sidebar
         $firstProduct = product::where('category_id','=',$categoryID)->first(); // selected product
@@ -293,6 +292,5 @@ class _productController extends Controller
     {
         $product = product::where('category_id','=',$categoryID)->orderBy('index','asc')->get();
         return view('Admin.manageproduct.sortProduct',['categoryid'=>$categoryID,'posts'=>$product]);
-
     }
 }

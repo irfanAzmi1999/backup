@@ -158,7 +158,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-services-box" onclick="redirect('{{ $items->id }}','{{ $category->id }}')">
                     <div class="icon">
-                        <img src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="image" style="height: 85px">
+                        <img src="{{asset('storage/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="image" style="height: 85px">
                     </div>
                     <h3><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}" style="font-size: large">{{$items->name}}</a></h3>
                   <p>{{ $items->briefDescription }}</p>
@@ -274,7 +274,7 @@
         window.location.href=link;
     }
 
-    
+
 
 </script>
 </body>
