@@ -139,7 +139,11 @@ class productController extends Controller
             $category = category::where('id','=',$items)->orderBy('index','asc')->get();
             if($category == true)
             {
-                $category->update(['index'=>$newIndex]);
+                $category->update(['index'=>$newIndex,'name'=>'newname']);
+                
+                $category->index = $newIndex;
+                $category->name='newname';
+
                 $newIndex++;
             }
         }
