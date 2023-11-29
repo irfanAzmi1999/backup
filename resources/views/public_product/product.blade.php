@@ -193,7 +193,7 @@
 
                 <div style="text-align: center;">
                     <img style="margin-right:50px;margin-top:20px ;width:250px;" src="{{url('images/faazmiar.png')}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <img style="margin-top:20px ;width:250px;" src="{{url('/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <img style="margin-top:20px ;width:250px;" src="{{url('storage/images/product/'.$selected->id.'/principleLogo/'.$selected->principleLogo)}}" alt="" class="" data-wow-delay="00ms" data-wow-duration="1500ms">
                 </div>
 
 
