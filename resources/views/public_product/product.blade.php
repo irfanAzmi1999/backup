@@ -234,19 +234,20 @@
                         <ul class="download-option clearfix" style="padding-left: 0 !important">
                             <li>
                                 Interested with our product? <b>Submit your enquiry now</b>
-                                <form action="" autocomplete="off">
+                                <form action="{{ route('sendEmail') }}" method="POST" autocomplete="off">
+                                    @csrf
                                     <div style="">
                                         <div class="form-group" style="margin: 20px">
-                                            <input type="text" placeholder="Your Name" class="form-control">
+                                            <input type="text" placeholder="Your Name" name="name" class="form-control">
                                         </div>
                                         <div class="form-group" style="margin: 20px">
-                                            <input type="email" placeholder="Your Email" class="form-control">
+                                            <input type="email" placeholder="Your Email" name="email" class="form-control">
                                         </div>
                                         <div class="form-group" style="margin: 20px">
-                                            <input type="text" placeholder="Company Name" class="form-control">
+                                            <input type="text" placeholder="Company Name" name="subject" class="form-control">
                                         </div>
                                         <div class="form-group" style="margin: 20px">
-                                            <textarea name="" class="form-control" id="" style="height:10em" placeholder="Enquiry"></textarea>
+                                            <textarea name="message" class="form-control" id="" style="height:10em" placeholder="Enquiry"></textarea>
                                         </div>
                                         <button class="btn btn-primary">Submit</button>
                                     </div>
