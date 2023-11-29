@@ -114,7 +114,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product Image</label><br>
+                                    <label>Product Image (Unused Form)</label><br>
                                     <div style="text-align:center">
                                         <img src="{{asset('storage/images/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="width: 250px">
                                     </div>
@@ -123,12 +123,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product Brief Description</label><br>
+                                    <label>Product Brief Description (Unused Form)</label><br>
                                     <input name="productbrieddescription" class="form-control" value="{{ $posts->briefDescription }}" id="">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product Description</label><br>
+                                    <label>Product Description (Unused Form)</label><br>
                                     <textarea name="productdescription" class="form-control" id=""  cols="20" rows="10">{{$posts->description}}</textarea>
                                 </div>
 
@@ -368,7 +368,7 @@
         width: 1500,
         convert_urls: false,
         cleanup: false,
-        plugins: 'code anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        plugins: 'image code',
         toolbar: 'code | undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
         tinycomments_mode: 'embedded',
         tinycomments_author: 'Author name',

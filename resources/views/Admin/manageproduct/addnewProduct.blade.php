@@ -110,18 +110,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product Image</label><br>
+                                    <label>Product Image (Unused Form)</label><br>
                                     <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput" alt="" style="width: 350px">
                                     <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" >
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product Brief Description</label><br>
+                                    <label>Product Brief Description (Unused Form)</label><br>
                                     <textarea name="productbrieddescription" class="form-control" id="" cols="20" rows="10"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product Description</label><br>
+                                    <label>Product Description (Unused Form)</label><br>
                                     <textarea name="productdescription" class="form-control" id="" cols="20" rows="10"></textarea>
                                 </div>
 
@@ -143,7 +143,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product benefits/advantages :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
+                                    <label>Product benefits/advantages (Unused Form) :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
                                     <input type="text" style="margin-bottom:20px" class="form-control" name="benefits[]" placeholder="Benefits / Advantages" value="{{old('benefits')}}" required>
                                     <textarea class="form-control" placeholder="Description" name="benefitDescription[]"></textarea>
                                     <hr>
@@ -333,7 +333,7 @@
         height: 500,
         width: 900,
         convert_urls: false,
-        plugins: '',
+        plugins: 'image code',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
         tinycomments_mode: 'embedded',
         tinycomments_author: 'Author name',
