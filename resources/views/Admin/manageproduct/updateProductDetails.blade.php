@@ -162,7 +162,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Product benefits/advantages :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
+                                    <label>Product benefits/advantages (Unused Form) :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
 
                                     <div id="divElement">
                                         @foreach($posts->benefits as $key=>$b)
