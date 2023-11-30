@@ -32,8 +32,7 @@ Steps (Part 2 : Database) :
 7. Click import from self contained file.
 8. Choose the downloaded database sql file.
 9. Click Start Import.
-10. Repeat step 8 (part 1) to run the web app. (Ignore this step)
-11. Then run : php artisan serve
-12. The git will display the ip address for you to run the website.
+10. Then run : php artisan serve
+11. The git will display the ip address for you to run the website.
 
 
