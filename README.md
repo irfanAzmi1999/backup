@@ -1,4 +1,6 @@
 Installation
+Video tutorial : https://youtu.be/gJd7jmuwzek
+
 
 Software/Environment Needed :
 1. Xampp
