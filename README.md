@@ -7,19 +7,17 @@ Software/Environment Needed :
 4. Git Bash
 5. Composer
 
-Steps (Part 1) :
-1. Open cmd/git on your computer and type : git clone https://github.com/irfanAzmi1999/backup.git
-2. On your cmd, change directory by type cd backup.
+Steps (Part 1 : Web App) :
+1. Open git on your computer and type : git clone https://github.com/irfanAzmi1999/backup.git
+2. On your git, change directory by type cd backup.
 3. Then, install composer by type : composer install
 4. Then, type : cp .env.example .env
 5. Open env file inside the project folder and insert your database name and password. Save.
 6. Then, run : php artisan key:generate
 7. run : php artisan storage:link
-8. Then run : php artisan serve
-9. The cmd will display the ip address for you to run the website.
 
-If the website run perfectly, then proceed to part 2
-Steps (Part 2 ) :
+
+Steps (Part 2 : Database) :
 1. Open MySQL Workbench (please ensure XAMPP run first (Apache and MySQL)).
 2. Then, create connection :
     Hostname : 127.0.0.1
@@ -33,5 +31,7 @@ Steps (Part 2 ) :
 8. Choose the downloaded database sql file.
 9. Click Start Import.
 10. Repeat step 8 (part 1) to run the web app.
+11. Then run : php artisan serve
+12. The git will display the ip address for you to run the website.
 
 
