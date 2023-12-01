@@ -2,7 +2,7 @@ Installation
 Video tutorial : https://youtu.be/IbPbqzmC_aI
 
 
-Software/Environment Needed :
+Software/Environment Needed (Please install these requirements) :
 1. Xampp
 2. MySQL Workbench
 3. Microsoft Visual Code
