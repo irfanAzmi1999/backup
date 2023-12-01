@@ -1,6 +1,9 @@
 Installation
 Video tutorial : https://youtu.be/IbPbqzmC_aI
 
+Admin Credentials (For Login Purpose) : 
+Email : test.user@gmai8l.com
+Password : 12345678
 
 Software/Environment Needed (Please install these requirements) :
 1. Xampp
