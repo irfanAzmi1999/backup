@@ -1,4 +1,4 @@
-Link : http://188.166.230.26/
+
 
 Installation
 Video tutorial : https://youtu.be/IbPbqzmC_aI
