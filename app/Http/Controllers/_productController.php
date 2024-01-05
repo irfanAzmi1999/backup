@@ -82,7 +82,7 @@ class _productController extends Controller
         }
 
         $product->additionalDetails = $request->input('textSample');
-        $product->description = $request->input('productdescription');
+        // $product->description = $request->input('productdescription');
         $product->category_id = $request->input('categoryID');
         $product->briefDescription = $request->input('productbrieddescription');
         $product->productImageSecond = $imageSecond->getClientOriginalName();
@@ -103,16 +103,16 @@ class _productController extends Controller
 //                $principleImage,$principleImage->getClientOriginalName(),'public');
         }
 
-        $benefits = $request->input('benefits');
+        // $benefits = $request->input('benefits');
 
-        foreach ($benefits as $key=>$item)
-        {
-            $b = new benefit;
-            $b->title = $item;
-            $b->description = $request->input('benefitDescription')[$key];
-            $b->role = 'Products';
-            $product->benefits()->save($b);
-        }
+        // foreach ($benefits as $key=>$item)
+        // {
+        //     $b = new benefit;
+        //     $b->title = $item;
+        //     $b->description = $request->input('benefitDescription')[$key];
+        //     $b->role = 'Products';
+        //     $product->benefits()->save($b);
+        // }
 
         //Save image in the server
         if($image != null)

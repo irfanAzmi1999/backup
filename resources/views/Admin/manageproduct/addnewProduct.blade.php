@@ -109,21 +109,22 @@
                                     <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Product Image (Unused Form)</label><br>
                                     <img src="{{asset('storage/images/product_category/'.$posts->id.'/image')}}" id="imgOutput" alt="" style="width: 350px">
                                     <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" >
                                 </div>
+                                --}}
 
                                 <div class="form-group">
-                                    <label>Product Brief Description (Unused Form)</label><br>
+                                    <label>Product Brief Description</label><br>
                                     <textarea name="productbrieddescription" class="form-control" id="" cols="20" rows="10"></textarea>
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Product Description (Unused Form)</label><br>
                                     <textarea name="productdescription" class="form-control" id="" cols="20" rows="10"></textarea>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label>Category For</label>
@@ -142,7 +143,7 @@
                                     <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Product benefits/advantages (Unused Form) :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
                                     <input type="text" style="margin-bottom:20px" class="form-control" name="benefits[]" placeholder="Benefits / Advantages" value="{{old('benefits')}}" required>
                                     <textarea class="form-control" placeholder="Description" name="benefitDescription[]"></textarea>
@@ -151,7 +152,7 @@
 
                                     </div>
 
-                                </div>
+                                </div> --}}
 
                             </div>
 
