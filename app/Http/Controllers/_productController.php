@@ -176,7 +176,7 @@ class _productController extends Controller
         {
             $product->productImage = $request->file('productImage')->getClientOriginalName();
         }
-        $product->description = $request->input('productdescription');
+        // $product->description = $request->input('productdescription');
 
         if($product->category_id != $request->input('categoryID'))
         {
@@ -189,19 +189,19 @@ class _productController extends Controller
 
         $product->save();
 
-        $benefits = benefit::where('product_id','=',$id);
-        $benefits->delete();
+        // $benefits = benefit::where('product_id','=',$id);
+        // $benefits->delete();
 
-        $bInput = $request->input('benefits');
+        // $bInput = $request->input('benefits');
 
-        foreach ($bInput as $key => $item)
-        {
-            $b = new benefit;
-            $b->title = $item;
-            $b->description = $request->input('benefitDescription')[$key];
-            $b->role = 'Products';
-            $product->benefits()->save($b);
-        }
+        // foreach ($bInput as $key => $item)
+        // {
+        //     $b = new benefit;
+        //     $b->title = $item;
+        //     $b->description = $request->input('benefitDescription')[$key];
+        //     $b->role = 'Products';
+        //     $product->benefits()->save($b);
+        // }
 
         if($principleimagestatus==true)
         {
