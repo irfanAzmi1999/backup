@@ -19,7 +19,7 @@ class sendEmailController extends Controller
         ]);
 
         $mail_data=[
-            'recipient'=>'isyrafirfan@faazmiar.com',
+            'recipient'=>'irfanazmi56@gmail.com',
             'fromEmail'=>$request->email,
             'fromName'=>$request->name,
             'subject'=>$request->subject,
