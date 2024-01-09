@@ -10,6 +10,7 @@ class sendEmailController extends Controller
     public function send(Request $request)
     {
 
+        $emailreceiver = $request->input('email');
 
         $request->validate([
             'name'=>'required',
@@ -19,7 +20,7 @@ class sendEmailController extends Controller
         ]);
 
         $mail_data=[
-            'recipient'=>'irfanazmi56@gmail.com',
+            'recipient'=>$emailreceiver,
             'fromEmail'=>$request->email,
             'fromName'=>$request->name,
             'subject'=>$request->subject,

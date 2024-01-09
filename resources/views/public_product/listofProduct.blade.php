@@ -95,56 +95,6 @@
     </div>
 </div>
 
-<!-- <div class="page-title-area">
-    <div class="container">
-        <div class="page-title-content">
-            <h2>Geological and Geophysical : Data Visualization</h2>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>Products</li>
-            </ul>
-        </div>
-    </div>
-</div> -->
-
-<!-- Product Start -->
-{{--<section class="services-area ptb-110 bg-fafafa">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="sec-title text-center mb-60" style="padding-top:100px">--}}
-{{--                <p>Unleash drilling efficiency with our game-changing solution.</p>--}}
-{{--                <h2>Our <strong>{{$category->name}}</strong> Solutions</h2>--}}
-{{--                <div class="decor" style="background-image: {{url('assets/images/icons/decor-1.png')}};"></div>--}}
-{{--            </div>--}}
-
-{{--            @foreach($posts as $key=>$items)--}}
-{{--                <div class="col-lg-4 col-md-6 col-sm-12 service-block" onclick="redirect({{$items->id}},{{$category->id}})">--}}
-{{--                    <div class="service-block-three wow flipInY" data-wow-delay="00ms" data-wow-duration="1500ms">--}}
-{{--                        <div class="inner-box">--}}
-{{--                            <h3><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}">{{ $items->name }}</a></h3>--}}
-{{--                            --}}{{--                        <figure class="image-box"><img src="{{asset('storage/images/product/'.$items->id.'/'.$items->productImage)}}" alt="" style="width:314px;height:176px"></figure>--}}
-{{--                            <figure class="image-box">--}}
-{{--                                --}}{{--                            <img src="{{asset('storage/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="" style="width:314px;height:230px"> --}}
-{{--                                <img src="{{url(env('DO_SPACES_ENDPOINT').'/public/images/product/'.$items->id.'/secondImage/'.$items->productImageSecond)}}" alt="" style="width:314px;height:230px">--}}
-{{--                            </figure>--}}
-{{--                            <p>{{ $items->briefDescription }}</p>--}}
-{{--                            <div class="link"><a href="/manage_product/viewProductID/{{ $items->id }}/{{ $category->id }}"><i class="fas fa-angle-left"></i>Read More<i class="fas fa-angle-right"></i></a></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endforeach--}}
-
-
-{{--        </div>--}}
-{{--        <div class="d-flex justify-content-center" style="margin-top:20px">--}}
-{{--            {{$posts->links()}}--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <div class="services-shape"><img src="{{url('assets/img/services-shape.png')}}" alt="image"></div>--}}
-{{--</section>--}}
-
-
 <section class="services-area ptb-110 bg-fafafa">
     <div class="container">
         <div class="row">

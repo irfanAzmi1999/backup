@@ -113,16 +113,16 @@
                                     <input type="file" class="form-control" name="productImageSecondLayer" onchange="loadFile2(event)" >
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Product Image (Unused Form)</label><br>
                                     <div style="text-align:center">
                                         <img src="{{asset('storage/images/product/'.$posts->id.'/'.$posts->productImage)}}" id="imgOutput" alt="" style="width: 250px">
                                     </div>
 
                                     <input type="file" class="form-control" name="productImage" onchange="loadFile(event)" >
-                                </div>
+                                </div> --}}
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Product Brief Description (Unused Form)</label><br>
                                     <input name="productbrieddescription" class="form-control" value="{{ $posts->briefDescription }}" id="">
                                 </div>
@@ -130,7 +130,7 @@
                                 <div class="form-group">
                                     <label>Product Description (Unused Form)</label><br>
                                     <textarea name="productdescription" class="form-control" id=""  cols="20" rows="10">{{$posts->description}}</textarea>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <input type="hidden" name="currentCatID" value="{{$posts->category_id}}">
@@ -161,7 +161,7 @@
                                     <input type="file" class="form-control" name="principle_logo" onchange="loadFile1(event)">
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Product benefits/advantages (Unused Form) :</label> <a  onclick="add()" style="cursor: pointer;">Add New</a>
 
                                     <div id="divElement">
@@ -175,7 +175,7 @@
 
                                     </div>
 
-                                </div>
+                                </div> --}}
 
                             </div>
 
