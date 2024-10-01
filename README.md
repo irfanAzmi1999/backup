@@ -4,7 +4,7 @@ Installation
 Video tutorial : https://youtu.be/IbPbqzmC_aI
 
 Admin Credentials (For Login Purpose) : 
-Email : test.user@gmaial.com
+Email : test.user@gmail.com
 Password : 12345678
 
 Software/Environment Needed (Please install these requirements) :
